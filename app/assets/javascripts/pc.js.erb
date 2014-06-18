@@ -1,5 +1,9 @@
-$(document).ready(function(){	
-	test_out();
+$(document).ready(function(){
+	var q;	
+	$("#btn").click(function(){
+		q = $("#address_query").val();
+		test_out(q);
+	});
 	
 	var clip = new ZeroClipboard( $(".copy_html"), {
 		moviePath: "<%= asset_path('ZeroClipboard.swf') %>",
@@ -172,12 +176,12 @@ $(document).ready(function(){
 });
 
 
-function test_out(){
+function test_out(q){
 	
     $.ajax({
         "url": "//api.poesis.kr/post/search.php",
         "type": "get",
-        "data": { "v": "1.1", "q": "광산구 금호아파트", "ref": window.location.hostname },
+        "data": { "v": "1.1", "q": q, "ref": window.location.hostname },
         "dataType": "jsonp",
         "processData": true,
         "cache": false,
@@ -200,9 +204,10 @@ function test_out(){
 
             // 검색후 콜백 함수를 실행한다.
 			query_results = data.results;
-						
+			$(".address").empty();
 			$.each(query_results, function( index, value ) {
-				$("#test_out").append( "<p>"+value.address+"</p>" );
+				
+				$("#test_out").append( "<p class='address'>"+value.address+"</p>" );
 								console.log(value.address);
 			});
         },
