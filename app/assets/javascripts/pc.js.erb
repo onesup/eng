@@ -1,5 +1,25 @@
 $(document).ready(function(){
+	
 	var q;	
+		// 
+	// 		
+	// $("#address_query").keyup(function (event) {
+	//     var code= event.keyCode ? event.keyCode : event.which;
+	//     if (code == 13) {
+	//         $("#btn").click();
+	//     }
+	// });
+	// 		
+			
+	var handler = function(event){
+	        if (event.which == 13) {
+				console.log("enter111");
+	            $("#btn").click();
+	        }
+	};
+	$('#address_query').keyup(handler).keypress(handler);
+	
+	
 	$("#btn").click(function(){
 		q = $("#address_query").val();
 		test_out(q);
@@ -176,6 +196,8 @@ $(document).ready(function(){
 });
 
 
+
+
 function test_out(q){
 	
     $.ajax({
@@ -204,11 +226,14 @@ function test_out(q){
 
             // 검색후 콜백 함수를 실행한다.
 			query_results = data.results;
+			
 			$(".address").empty();
 			$.each(query_results, function( index, value ) {
 				
 				$("#test_out").append( "<p class='address'>"+value.address+"</p>" );
 								console.log(value.address);
+								
+								
 			});
         },
         
