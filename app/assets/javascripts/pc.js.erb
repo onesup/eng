@@ -1,29 +1,16 @@
 $(document).ready(function(){
 	
 	var q;	
-		// 
-	// 		
-	// $("#address_query").keyup(function (event) {
-	//     var code= event.keyCode ? event.keyCode : event.which;
-	//     if (code == 13) {
-	//         $("#btn").click();
-	//     }
-	// });
-	// 		
 			
 	var handler = function(event){
 	        if (event.which == 13) {
-				console.log("enter111");
-	            $("#btn").click();
+				q = $("#address_query").val();
+				test_out(q);
 	        }
 	};
 	$('#address_query').keyup(handler).keypress(handler);
 	
 	
-	$("#btn").click(function(){
-		q = $("#address_query").val();
-		test_out(q);
-	});
 	
 	var clip = new ZeroClipboard( $(".copy_html"), {
 		moviePath: "<%= asset_path('ZeroClipboard.swf') %>",
@@ -230,17 +217,28 @@ function test_out(q){
 			$(".address").empty();
 			$.each(query_results, function( index, value ) {
 				
-				$("#test_out").append( "<p class='address'>"+value.address+"</p>" );
-								console.log(value.address);
+				$("#test_out").append( "<p class='address' data='"+index+"' address-data='"+value.address+"' code6='"+value.code6+"'>@"
+				+value.address+"  "+value.code6+"</p>" );			
+					
 								
-								
+			});
+			
+			$('.address').on("click", function(){
+				code6 = $(this).attr("code6");
+				address_data = $(this).attr("address-data");
+				$("#code6").val(code6);
+				$("#address-data").val(address_data);
+				$(".address").empty();
+				
 			});
         },
         
         // 요청이 실패한 경우 이 함수를 호출한다.
         
         "error": function(jqXHR, textStatus, errorThrown) {
-            
+          
+		  
+			  dd  
 		},
         
         // 요청 후에는 이 함수를 호출한다.
