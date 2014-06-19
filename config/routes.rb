@@ -20,7 +20,7 @@ Rails.application.routes.draw do
         get 'send_message'
       end
     end
-    resources :viral_actions 
+    resources :viral_actions
   end
 
   namespace :fb do
@@ -28,22 +28,17 @@ Rails.application.routes.draw do
     get 'index' => 'home#index'
     resources :users
   end
-  
+
   namespace :pc do
     get 'index' => 'home#index'
     resources :users, only: [:create]
   end
-  
+
   namespace :mobile do
     get 'index' => 'home#index'
-    get 'thank_you' => 'home#thank_you'
-    get 'unique_error' => 'home#unique_error'
-    get 'terms' => 'home#terms'
-    get 'product' => 'home#product'
-    get 'qna' => 'home#qna'
     resources :users
   end
-  
+
   resources :viral_actions
 
   get 'web_switch' => 'web_switch#index'
@@ -51,7 +46,7 @@ Rails.application.routes.draw do
   get 'current_time' => 'web_switch#current_time'
   get 'coupon_finish' => 'web_switch#coupon_finish'
   get 'survey' => 'web_switch#survey'
-  
+
   root 'web_switch#index'
 
   get 'event_open' => 'event#open'
@@ -60,7 +55,7 @@ Rails.application.routes.draw do
   get "/:code", to:"coupons#show", contraints:{code: /[a-z]{5}-\d{4}/}, as: "coupon"
   get "/:code/edit", to:"coupons#edit", contraints:{code: /[a-z]{5}-\d{4}/}, as: "edit_coupon"
   put "/:code", to:"coupons#update", contraints:{code: /[a-z]{5}-\d{4}/}, as: "update_coupon"
-  
+
   # resources :users
   devise_for :users
   resources :coupons, except: [:update, :edit, :show] do
