@@ -1,0 +1,112 @@
+body{
+  margin: 0;
+}
+
+// index.html.erb
+
+.contain{
+  width: 100%;
+  margin-bottom: 0%;
+}
+
+.navi{
+  background-color: #2C2C2C;
+  width: 100%;
+}
+
+.navi .logo{
+  width: 20%;
+  margin: 4%;
+
+}
+
+.navi #menu{
+  width: 10%;
+  margin: 5% 4% 4% 4%;
+  float: right;
+}
+
+.content{
+  background-color: #424242;
+  color: white;
+  width: 92.5%;
+  padding: 4%;
+}
+
+.content .content_full_element{
+  width: 100%;
+  margin: 2% 0% 2% 0%;
+  position: relative;
+}
+
+.video_small{
+  padding-bottom: 15%;
+}
+
+.video_small .video_div{
+  width: 49%;
+  display: inline-block;
+}
+
+.video_small .video_title{
+  width: 70%;
+}
+
+.video_small .video_vid{
+  width: 50%;
+  margin: 1% 0% 1% 0%;
+}
+
+.poster{
+  background-image: asset-url("mobile/background.jpg");
+  width: 100%;
+  text-align: center;
+}
+
+.poster .poster_title{
+  width: 90%;
+  margin: 20% 5% 5% 5%;
+}
+
+.poster .poster_box{
+  width: 100%;
+  overflow: scroll;
+}
+
+.poster .poster_inbox{
+  width: 350%;
+  display: inline-block;
+}
+
+.poster .poster_element{
+  width: 19%;
+}
+
+.poster .poster_button{
+  width: 48%;
+  margin-bottom: 8%;
+}
+
+.poster .gift{
+  width: 100%;
+}
+
+.site{
+  width: 100%;
+  padding-top: 20%;
+  text-align: center;
+}
+
+.site .site_btn{
+  width: 48%;
+}
+
+.site .site_content{
+  margin: 12%;
+  width: 76%;
+}
+
+.caution{
+  width: 100%;
+  background-color: #262626;
+}
