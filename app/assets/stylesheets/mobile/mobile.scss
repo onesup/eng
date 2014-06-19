@@ -126,3 +126,63 @@ body{
   width: 100%;
   background-color: #262626;
 }
+
+
+
+// thanks.index.erb
+
+.popup{
+  width: 100%;
+  background-color: #464646;
+  text-align: center;
+}
+
+.navi2{
+  background-image: asset-url('mobile/background.jpg');
+  width: 100%;
+}
+
+.navi2 #exit{
+  width: 12%;
+  margin: 3% 3% 3% 85%;
+}
+
+.popup_title{
+  width: 85%;
+  margin-top: 6%;
+}
+
+.input_box{
+  width: 85%;
+  margin-top: 8%;
+  margin-left: 7%;
+  background-color: #363636;
+  padding: 5% 0% 5% 0%;
+}
+
+.popup_input{
+  width: 45%;
+  margin-left: 10%;
+}
+
+.agree_box{
+  text-align: left;
+  padding-left: 30%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.text_agree_more{
+  margin-left: 4%;
+  width: 31%;
+}
+
+.apply_btn{
+  width: 60%;
+  margin-bottom: 10%;
+}
+
+.ok_btn{
+  width: 60%;
+  margin-top: 6%;
+}
