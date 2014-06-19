@@ -1,3 +1,4 @@
+<label for="address_query">주소</label>
 <input type="text" id="address_query">
 
 <div id="test_out" class="address_box">
@@ -5,6 +6,17 @@
 </div>
 
 <form id="address">
-	<input type="text" name="address-date" id="address-data">
-	<input type="text" name="code6" id="code6">
+	<p>
+		<input type="hidden" name="address-date" id="address-data">
+	</p>
+	<p>
+		<input type="hidden" name="code6" id="code6">
+	</p>
+	<p>
+	    <label for="address-detail">나머지주소 입력</label>
+		<input type="text" id="address-detail">
+	</p>
+	<p>
+		<input type="submit" value="응모완료">
+	</p>
 </form>
