@@ -30,12 +30,15 @@ img{
   padding:0;
   margin:0;
 }
+body{
+  background-color: #ffffff;
+}
 a{
   text-decoration: none;
 }
 
 .centering{
-  width: 1000px;
+  width: 960px;
   margin: 0 auto;
   background-color: transparent;
 }
@@ -82,6 +85,28 @@ a{
 .share{
   display: inline-block;
 }
-.block{
+.share_movie_facebook{
   display: block;
+}
+.share_movie_twitter{
+  display: block;
+}
+
+#poster_coupon{
+  width: 100%;
+  height: 1294px;
+  background-image: asset-url("pc/poster/background.png");
+  background-size: cover;
+}
+
+#brand_talk{
+  width: 100%;
+  height: 1000px;
+  background-image: asset-url("pc/brand_talk_background.png");
+  // background-position: 0 0;
+}
+
+#about_event{
+  width: 
+  background-color: #444444;
 }
