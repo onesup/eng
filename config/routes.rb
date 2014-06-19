@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
   namespace :mobile do
     get 'index' => 'home#index'
+    get 'thanks' => 'home#thanks'
     resources :users
   end
 

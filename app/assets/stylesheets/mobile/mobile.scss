@@ -4,9 +4,24 @@ body{
 
 // index.html.erb
 
+.menu_form{
+  position: fixed;
+  width: 100%;
+  background-color: #2C2C2C;
+  z-index: 1;
+}
+
+.menu_form .menu_list{
+  margin-left: 16%;
+  width: 100%;
+  display: block;
+}
+
 .contain{
+  position: absolute;
   width: 100%;
   margin-bottom: 0%;
+  z-index: 2;
 }
 
 .navi{
@@ -95,6 +110,7 @@ body{
   width: 100%;
   padding-top: 20%;
   text-align: center;
+  background-color: white;
 }
 
 .site .site_btn{
