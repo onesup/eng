@@ -557,3 +557,17 @@ margin-top:6px;
 .popup_blog{
 	display: none;
 }
+
+.address_list:hover{
+	background: #3333ff;
+}
+
+.address_box{
+	position: absolute;
+	background: white;
+	display: none;
+	border: 1px solid red;
+	width: 500px;
+	height: 100px;
+	overflow: scroll;
+}
