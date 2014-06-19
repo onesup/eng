@@ -1,26 +1,55 @@
 <header class = "navigation_bar">
-	<%= image_tag("pc/logo.png", class: "logo", :alt => "logo") %>
-	<nav>
-		<ul>
-			<a href="brand_flim">
-				<%= image_tag("p") %> 
-			</a>
-			<a href="poster_coupon">
-
-			</a>
-			<a href="brand_talk">
-
-			</a>
-		</ul>
-	</nav>
-	<a href="">
-
-	</a>
+	<div class = "centering">
+		<a href="">
+			<%= image_tag("pc/header/logo.png", class: "logo", :alt => "logo") %>
+		</a>
+		<nav class = "navigation">
+			<ul>
+				<a href="#brand_flim">
+					<%= image_tag("pc/header/nav_brand_flim.png", class: "navigation_list") %>
+				</a>
+				<div class = "nav_vertical_line"> </div>
+				<a href="#poster_coupon">
+					<%= image_tag("pc/header/nav_poster_coupon.png", class: "navigation_list") %> 
+				</a>
+				<div class = "nav_vertical_line"> </div>
+				<a href="#brand_talk">
+					<%= image_tag("pc/header/nav_brand_talk.png", class: "navigation_list") %> 
+				</a>
+			</ul>
+		</nav>
+		<a href="">
+			<%= image_tag("pc/header/store.png", class: "store") %>
+		</a>
+	</div>
 </header>
 <article>
 	<section id = "brand_flim">
-		<%= image_tag("title.png", :alt => "title") %>
-		<vidio></vidio>
+		<div class = "centering">
+			<%= image_tag("pc/title.png") %>
+			<vidio>
+				
+			</vidio>
+			<div class = "other_movies">
+				<div class = "thumbnail_movie">
+					<%= image_tag("pc/title_thumbnail_movie.png") %>
+					<%= image_tag("pc/image_thumbnail_movie.png") %>
+					<div class = "share">
+						<%= image_tag("pc/thumbnail_facebook_icon.png", class: "block") %>
+						<%= image_tag("pc/thumbnail_twitter_icon.png", class: "block") %>
+					</div>
+				</div>
+				<div class = "thumbnail_movie_vertical_line"> </div>
+				<div class = "thumbnail_movie">
+					<%= image_tag("pc/title_thumbnail_movie.png") %>
+					<%= image_tag("pc/image_thumbnail_movie.png") %>
+					<div class = "share">
+						<%= image_tag("pc/thumbnail_facebook_icon.png", class: "block") %>
+						<%= image_tag("pc/thumbnail_twitter_icon.png", class: "block") %>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 	<section id = "poster_coupon">
 		
