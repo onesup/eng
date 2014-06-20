@@ -7,6 +7,22 @@ $(document).ready(function(){
       modalColor: 'black'
     });
   });
+
+  $("#about_personal_information").click(function(event) {
+    $("#participation_event").bPopup().close();
+    event.preventDefault();
+    $("#popup_personal").bPopup({
+      positionStyle: 'fixed',
+      closeClass: "close bt_confirm",
+      modalColor: 'black'
+    });
+  });
+
+  $(".bt_fn_confirm").click(function(event) {
+    event.preventDefault();
+    console.log($(this).parent());
+  });
+
   // navigation bar
   // Hide Header on on scroll down
   var didScroll;
@@ -47,7 +63,9 @@ $(document).ready(function(){
       lastScrollTop = st;
   }
   });
-  //https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c
+  // https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c
+
+
 
 
   

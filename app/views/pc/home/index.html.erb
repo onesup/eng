@@ -18,9 +18,10 @@
 				</a>
 			</ul>
 		</nav>
-		<a href = "#">
+        <%= link_to do %>
 			<%= image_tag("pc/header/store.png", class: "store clearfix") %>
-		</a>
+
+        <% end %>
 	</div>
 </header>
 <article>
@@ -113,9 +114,9 @@
             <div class = "brand_right_column clearfix">
                 <%= image_tag("pc/brand_talk_contents.png") %>
                 
-                <a href = "">
+                <%= link_to do %>
                     <%= image_tag("pc/link_frostine_site.png", class: "link_frostine_site") %>
-                </a>
+                <% end %>
             </div>
             <%= image_tag("pc/comment_about_challenge.png", class: "title_comment") %>
             <div class = "comment_list_wrapper">
@@ -129,6 +130,57 @@
         <%= image_tag("pc/event_information.png") %>
     </div>
 </footer>
+
+<div class = "popup" id = "popup_already">
+    <div class = "popup_contents_wrapper">
+        <%= image_tag("pc/popup/already_participation.png", class: "popup_fn_title") %>
+        <a href = "#">
+            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
+        </a>
+    </div>
+    <a href = "">
+        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+</div>
+
+<div class = "popup" id = "popup_thank">
+    <div class = "popup_contents_wrapper">
+        <%= image_tag("pc/popup/thank_event.png", class: "popup_fn_title") %>
+
+        <a href = "#">
+            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
+        </a>
+    </div>
+    <a href = "#">
+        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+</div>
+
+<div class = "popup" id = "popup_nexttime">
+    <div class = "popup_contents_wrapper">
+        <%= image_tag("pc/popup/popup_next_time.png", class: "popup_fn_title") %>
+        <a href = "#">
+            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
+        </a>
+    </div>
+    <a href = "">
+        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+</div>
+<div class = "popup" id = "popup_personal">
+    <div class = "popup_contents_wrapper">
+        <%= image_tag("pc/popup/snow_icon.png", class: "snow_icon") %>
+        <div class = "privacy_wrapper centering">
+            
+        </div>
+        <a class = "confirm">
+            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_confirm") %>
+        </a>
+    </div>
+    <a href = "">
+        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+</div>
 
 <div id = "participation_event" class = "popup">
     <div class = "popup_contents_wrapper participate_event_wrapper">
@@ -148,27 +200,11 @@
             </div>
             <%= image_submit_tag("pc/popup/popup_input_submit.png", id: "bt_submit") %>
         </form>
+        <a herf = "" id = "about_personal_information">
         <%= image_tag("pc/popup/more_info.png", class: "more_info") %>
+        </a>
     </div>
+    <a href = "">
     <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-</div>
-
-<div class = "popup" id = "popup_personal">
-    <div class = "popup_contents-wrapper"></div>
-    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-</div>
-
-<div class = "popup" id = "popup_already">
-    <div class = "popup_contents-wrapper"></div>
-    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-</div>
-
-<div class = "popup" id = "popup_thank">
-    <div class = "popup_contents-wrapper"></div>
-    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-</div>
-
-<div class = "popup" id = "popup_nexttime">
-    <div class = "popup_contents-wrapper"></div>
-    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
 </div>
