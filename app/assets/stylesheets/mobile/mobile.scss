@@ -1,0 +1,200 @@
+body{
+  margin: 0;
+}
+
+// index.html.erb
+
+.menu_form{
+  position: fixed;
+  width: 100%;
+  background-color: #2C2C2C;
+  z-index: 1;
+}
+
+.menu_form .menu_list{
+  margin-left: 16%;
+  width: 100%;
+  display: block;
+}
+
+.contain{
+  position: absolute;
+  width: 100%;
+  margin-bottom: 0%;
+  z-index: 2;
+}
+
+.navi{
+  background-color: #2C2C2C;
+  width: 100%;
+}
+
+.navi .logo{
+  width: 20%;
+  margin: 4%;
+
+}
+
+.navi #menu{
+  width: 10%;
+  margin: 5% 4% 4% 4%;
+  float: right;
+}
+
+.content{
+  background-color: #424242;
+  color: white;
+  width: 92.5%;
+  padding: 4%;
+}
+
+.content .content_full_element{
+  width: 100%;
+  margin: 2% 0% 2% 0%;
+  position: relative;
+}
+
+.video_small{
+  padding-bottom: 15%;
+}
+
+.video_small .video_div{
+  width: 49%;
+  display: inline-block;
+}
+
+.video_small .video_title{
+  width: 70%;
+}
+
+.video_small .video_vid{
+  width: 50%;
+  margin: 1% 0% 1% 0%;
+}
+
+.poster{
+  background-image: asset-url("mobile/background.jpg");
+  width: 100%;
+  text-align: center;
+}
+
+.poster .poster_title{
+  width: 90%;
+  margin: 20% 5% 5% 5%;
+}
+
+.poster .poster_box{
+  width: 100%;
+  overflow: scroll;
+}
+
+.poster .poster_inbox{
+  width: 350%;
+  display: inline-block;
+}
+
+.poster .poster_element{
+  width: 19%;
+}
+
+.poster .poster_button{
+  width: 48%;
+  margin-bottom: 8%;
+}
+
+.poster .gift{
+  width: 100%;
+}
+
+.site{
+  width: 100%;
+  padding-top: 20%;
+  text-align: center;
+  background-color: white;
+}
+
+.site .site_btn{
+  width: 48%;
+}
+
+.site .site_content{
+  margin: 12%;
+  width: 76%;
+}
+
+.caution{
+  width: 100%;
+  background-color: #262626;
+}
+
+
+
+// thanks.index.erb
+
+.popup{
+  width: 100%;
+  background-color: #464646;
+  text-align: center;
+}
+
+.navi2{
+  background-image: asset-url('mobile/background.jpg');
+  width: 100%;
+}
+
+.navi2 #exit{
+  width: 12%;
+  margin: 3% 3% 3% 85%;
+}
+
+.popup_title{
+  width: 85%;
+  margin-top: 6%;
+}
+
+.input_box{
+  width: 85%;
+  margin-top: 8%;
+  margin-left: 7%;
+  background-color: #363636;
+  padding: 5% 0% 5% 0%;
+}
+
+.popup_input{
+  width: 45%;
+  margin-left: 10%;
+}
+
+.agree_box{
+  text-align: left;
+  padding-left: 30%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.text_agree_more{
+  margin-left: 4%;
+  width: 31%;
+}
+
+.apply_btn{
+  width: 60%;
+  margin-bottom: 10%;
+}
+
+.ok_btn{
+  width: 60%;
+  margin-top: 6%;
+}
+
+.address_box{
+  font-size:8pt;
+	position: absolute;
+	background: white;
+	display: none;
+	border: 1px solid gray;
+	overflow: scroll;
+  margin: 0% 0% 0% 0%;
+  padding: 0% 0% 0% 0%;
+
+}

@@ -4,4 +4,8 @@ class Pc::HomeController < ApplicationController
     @code = '<a href="https://birthday.su-m37.co.kr/?s=blog">
     <img src="http://birthday.su-m37.co.kr/blog_730.jpg"/></a>'
   end
+  
+  def test
+  end
+  
 end
