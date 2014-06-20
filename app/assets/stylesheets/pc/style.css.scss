@@ -298,13 +298,13 @@ a{
 .title_participation_event{
   display: block;
   margin-top: 30px;
-  margin-left: 100px;
+  margin-left: 90px;
 }
 .input_information_form{
   display: block;
   width: 380px;
-  height: 180px;
-  margin-top: 10px;
+  height: 190px;
+  margin-top: 20px;
   margin-left: 32px;
   padding-top: 30px;
   background-image: url(/assets/pc/popup/input_form_background.png);
@@ -326,7 +326,7 @@ input[type=text]{
   margin-bottom: 4px;
 }
 .input_detail_address{
-  margin-bottom: 30px;
+  margin-bottom: 44px;
 }
 input[type=checkbox]{
   width: 20px;
@@ -338,6 +338,7 @@ input[type=checkbox]{
   position: relative;
   width: 200px;
   height: 40px;
+  margin-top: 10px;
   margin-left: 120px;
 }
 .agree_personal_info{
@@ -360,7 +361,7 @@ input[type=checkbox]{
 #bt_submit{
   display: block;
   height: 50px;
-  margin-top: 10px;
+  margin-top: 14px;
   margin-left: 110px;
 }
 .more_info{

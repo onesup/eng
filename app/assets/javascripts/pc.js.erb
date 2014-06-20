@@ -9,14 +9,14 @@ $(document).ready(function(){
   });
 
   $("#about_personal_information").click(function(event) {
-    $("#participation_event").bPopup().close();
     event.preventDefault();
+    $("#participation_event").bPopup().close();
     $("#popup_personal").bPopup({
       positionStyle: 'fixed',
-      closeClass: "close bt_confirm",
-      modalColor: 'black'
-    });
+      closeClass: 'close '
+    })
   });
+
 
   
 
