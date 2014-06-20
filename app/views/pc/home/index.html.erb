@@ -59,29 +59,32 @@
 		<div class = "center">
 			<div class = "poster_left_column">
 				<%= image_tag("pc/poster/poster_title.png", class: "title_poster") %>
-				<div class = "poster_list">
-					<%= image_tag("pc/poster/posters_thinking.png") %>
-					<%= image_tag("pc/poster/small_poster.png") %>
-					<%= image_tag("pc/poster/small_poster.png") %>
-                    <br>
-					<%= image_tag("pc/poster/small_poster.png") %>
-					<%= image_tag("pc/poster/small_poster.png") %>
-					<%= image_tag("pc/poster/small_poster.png") %>
-				</div>
+				<ul class = "poster_list">
+					<li class = "poster_item posters_thinking"> </li>
+					<li class = "poster_item">
+                        <%= image_tag("pc/poster/small_poster.png") %>
+                    </li>
+                    <li class = "poster_item"><%= image_tag("pc/poster/small_poster.png") %></li>
+					<li class = "poster_item"><%= image_tag("pc/poster/small_poster.png") %></li>
+					<li class = "poster_item"><%= image_tag("pc/poster/small_poster.png") %></li>
+					<li class = "poster_item"><%= image_tag("pc/poster/small_poster.png") %></li>
+				</ul>
 			</div>
 			<div class = "poster_right_column clearfix">
                 <div class = "poster_wrapper">
     				<%= image_tag("pc/poster/contents_large_poster.png") %>
                 </div>
-                <div class = "center">
+                <div class = "poster_request_wrapper center">
+                    <a href = "">
     				<%= image_tag("pc/poster/request_poster.png") %>
+                    </a>
                     <div class = "share_sns">
                             <%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %>
                             <%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %>
                         </div>
         			</div>
                 </div>
-			<%= image_tag("pc/poster/poster_gift.png") %>
+			<%= image_tag("pc/poster/poster_gift.png", class: "poster_gift") %>
 		</div>
 	</section>
 	<section id = "brand_talk">
@@ -91,6 +94,7 @@
             <%= image_tag("pc/link_frostine_site.png") %>
             <%= image_tag("pc/comment_about_challenge.png") %>
             <div class = "comment_list_wrapper">
+                
             </div>
         </div>
 	</section>
