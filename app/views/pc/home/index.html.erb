@@ -1,1 +1,102 @@
-		<%= image_tag("pc/bg.jpg", class: "close") %>
+<header class = "navigation_bar">
+	<div class = "center">
+		<a href="">
+			<%= image_tag("pc/header/logo.png", class: "logo", :alt => "logo") %>
+		</a>
+		<nav class = "navigation">
+			<ul>
+				<a href="#brand_flim">
+					<%= image_tag("pc/header/nav_brand_flim.png", class: "navigation_list") %>
+				</a>
+				<div class = "nav_vertical_line"> </div>
+				<a href="#poster_coupon">
+					<%= image_tag("pc/header/nav_poster_coupon.png", class: "navigation_list") %> 
+				</a>
+				<div class = "nav_vertical_line"> </div>
+				<a href="#brand_talk">
+					<%= image_tag("pc/header/nav_brand_talk.png", class: "navigation_list") %> 
+				</a>
+			</ul>
+		</nav>
+		<a href="">
+			<%= image_tag("pc/header/store.png", class: "store clearfix") %>
+		</a>
+	</div>
+</header>
+<article>
+	<section id = "brand_flim">
+		<div class = "contents_wrapper center">
+			<%= image_tag("pc/title.png", class: "title_brand_flim") %>
+			<div class = "movie_wrapper center">
+
+            </div>
+            <div class = "other_movies center">
+				<div class = "thumbnail_movie">
+                    <a href="">
+    					<%= image_tag("pc/title_thumbnail_movie.png", class: "title_thumbnail_movie") %>
+    					<%= image_tag("pc/image_thumbnail_movie.png") %>
+                    </a>
+					<div class = "share_sns">
+						<%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %>
+						<%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %>
+					</div>
+				</div>
+				<div class = "thumbnail_movie_vertical_line"> </div>
+				<div class = "thumbnail_movie">
+					<a href="">
+                        <%= image_tag("pc/title_thumbnail_movie.png", class: "title_thumbnail_movie") %>
+                        <%= image_tag("pc/image_thumbnail_movie.png") %>
+                    </a>
+					<div class = "share_sns">
+						<%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %>
+						<%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id = "poster_coupon">
+		<div class = "center">
+			<div class = "poster_left_column">
+				<%= image_tag("pc/poster/poster_title.png", class: "title_poster") %>
+				<div class = "poster_list">
+					<%= image_tag("pc/poster/posters_thinking.png") %>
+					<%= image_tag("pc/poster/small_poster.png") %>
+					<%= image_tag("pc/poster/small_poster.png") %>
+                    <br>
+					<%= image_tag("pc/poster/small_poster.png") %>
+					<%= image_tag("pc/poster/small_poster.png") %>
+					<%= image_tag("pc/poster/small_poster.png") %>
+				</div>
+			</div>
+			<div class = "poster_right_column clearfix">
+                <div class = "poster_wrapper">
+    				<%= image_tag("pc/poster/contents_large_poster.png") %>
+                </div>
+                <div class = "center">
+    				<%= image_tag("pc/poster/request_poster.png") %>
+                    <div class = "share_sns">
+                            <%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %>
+                            <%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %>
+                        </div>
+        			</div>
+                </div>
+			<%= image_tag("pc/poster/poster_gift.png") %>
+		</div>
+	</section>
+	<section id = "brand_talk">
+        <div class = "contents_wrapper center">
+    		<%= image_tag("pc/title_brand_talk.png") %>
+            <%= image_tag("pc/brand_talk_contents.png") %>
+            <%= image_tag("pc/link_frostine_site.png") %>
+            <%= image_tag("pc/comment_about_challenge.png") %>
+            <div class = "comment_list_wrapper">
+            </div>
+        </div>
+	</section>
+</article>
+<footer id = "about_event">
+    <div class = "contents_wrapper center">
+        <%= image_tag("pc/event_information.png") %>
+    </div>
+</footer>
