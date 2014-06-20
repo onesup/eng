@@ -89,10 +89,15 @@
 	</section>
 	<section id = "brand_talk">
         <div class = "contents_wrapper center">
-    		<%= image_tag("pc/title_brand_talk.png") %>
-            <%= image_tag("pc/brand_talk_contents.png") %>
-            <%= image_tag("pc/link_frostine_site.png") %>
-            <%= image_tag("pc/comment_about_challenge.png") %>
+    		<%= image_tag("pc/title_brand_talk.png", class: "brand_talk_title") %>
+            <div class = "brand_right_column clearfix">
+                <%= image_tag("pc/brand_talk_contents.png") %>
+                <br>
+                <a href = "">
+                    <%= image_tag("pc/link_frostine_site.png", class: "link_frostine_site") %>
+                </a>
+            </div>
+            <%= image_tag("pc/comment_about_challenge.png", class: "title_comment") %>
             <div class = "comment_list_wrapper">
                 
             </div>
