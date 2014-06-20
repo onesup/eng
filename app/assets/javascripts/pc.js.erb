@@ -1,285 +1,53 @@
-$(document).ready(function(){	
-	var clip = new ZeroClipboard( $(".copy_html"), {
-		moviePath: "<%= asset_path('ZeroClipboard.swf') %>",
-		swfPath: "<%= asset_path('ZeroClipboard.swf') %>",
-		// trustedDomains: ['*'],
-		// allowScriptAccess: "always",
-		debug: false
-	} );
-	
-	$('.select_custom_1').selectric();
-	$('.select_custom_2').selectric('refresh');
-
-	clip.on("load", function (clip) {
-		clip.on( "complete", function(clip, args) {
-			ga('send', 'event', 'button', 'click', '클립보드로 복사하는 버튼');
-			alert("ctrl+c 되었습니다.\nctrl+v 만 해주시면 되어요^^");
-		});
-	});
-  ga('send', 'event', 'button', 'click', '메인 페이지');
-  $('#select_month').change(function(e){
-    e.preventDefault();
-    var month;
-    var days;
-    month = $("#select_month").val();
-		d = new Date();
-		this_day = d.getDate();
-    if(month === '6'){
-			add_days = range(this_day, 30);
-      $("#select_day option").remove();
-      $.each(add_days, function( index, value ){
-        $("#select_day").append($('<option>',{
-          value:value,
-          text:value
-        })).selectric('refresh');
-      });
-    }else if(month === '7'){
-      $("#select_day option").remove();
-			add_days = range(1, 27);
-      $.each(add_days, function( index, value ){
-        $("#select_day").append($('<option>',{
-          value:value,
-          text:value
-        })).selectric('refresh');
-      });
-    }
+$(document).ready(function(){
+  $("#request_poster").click(function(event) {
+    event.preventDefault();
+    $("#participation_event").bPopup({
+      positionStyle: 'fixed',
+      closeClass: 'close',
+      modalColor: 'black'
+    });
   });
-  $("#gift_button").click(function(e){
-    e.preventDefault();
-		if(event_open() == "running"){
-	    $("#popup_info").bPopup({
-	      follow: [false, false], //x, y
-	      position: ['auto', 60], //x, y
-	      closeClass: 'b-close',
-	      modalColor: 'black'
-	    });
-		}
-    ga('send', 'event', 'button', 'click', '피부 선물 받기');
+  // navigation bar
+  // Hide Header on on scroll down
+  var didScroll;
+  var lastScrollTop = 0;
+  var delta = 5;
+  var navbarHeight = $('header').outerHeight();
+
+  $(window).scroll(function(event){
+      didScroll = true;
   });
 
-  $("#popup_info_to_personal").click(function(e){
-    e.preventDefault();
-    $("#popup_personal").bPopup({
-      closeClass: 'b-close-2',
-      modalColor: 'black',
-      follow: [false, false], //x, y
-      position: ['auto', 70] //x, y
+  setInterval(function() {
+      if (didScroll) {
+          hasScrolled();
+          didScroll = false;
+      }
+  }, 250);
+
+  function hasScrolled() {
+      var st = $(this).scrollTop();
       
-    });
-    ga('send', 'event', 'button', 'click', '개인정보 동의 팝업');
-  });
-
-  $("#new_user").bind("ajax:success", function(evt,data,status,xhr){
-    response = JSON.parse(xhr.responseText);
-    if(response.status==="success"){
-  			fb_analytics();
-      $("#popup_fin1").bPopup({
-        closeClass: 'b-close',
-        modalColor: 'black',
-        follow: [false, false], //x, y
-        position: ['auto', 70], //x, y
-        onClose: function(){$("#popup_info").bPopup().close();}
-      });
-    }else {
-    }
-  
-  }).bind('ajax:error',function(evt,xhr,status,error){
-    var $form = $(this),errors,errorText;
-    errors = $.parseJSON(xhr.responseText);
-  
-    if(errors.status === "duplicated"){
-      $("#popup_fin2").bPopup({
-        closeClass: 'b-close',
-        modalColor: '#000',
-        follow: [false, false], //x, y
-        position: ['auto', 70], //x, y
-        onClose: function(){$("#popup_info").bPopup().close();}
-      });
-    }else{
-      validation(errors);
-    }
-  });
-
-  $("#product_button").click(function(e){
-    e.preventDefault();
-    $("#popup_product").modal({
-      closeClass: 'b-close',
-    });
-    ga('send', 'event', 'button', 'click', '제품 자세히 보기');
-  });
-
-  $("#qna_button").click(function(e){
-    e.preventDefault();
-    $("#popup_qna").modal({
-      closeClass: 'b-close',
-    });
-    ga('send', 'event', 'button', 'click', 'pc qna');
-  });
-
-  $("#blog_share_link").click(function(e){
-    e.preventDefault();
-		if(event_open() == "running"){
-	    $("#popup_blog").modal({
-	      closeClass: 'b-close',
-	    });
-		}
-    blog_share();
-    ga('send', 'event', 'button', 'click', 'pc 블로그로 공유하기 버튼');
-  });	
-	
-  $("#twitter_share_link").click(function(e){
-    e.preventDefault();
-		var text = $(this).attr("data-text");
-		var url = $(this).attr("data-url");
-		if(event_open() == "running"){
-	    twitter_share(text, url);
-		}
-    ga('send', 'event', 'button', 'click', 'twitter 공유하기 버튼');
-  });	
-		
-  $("#info_phone").mask("999-9999-9999");
-  
-  $.ajaxSetup({ cache: true });
-  $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
-    FB.init({
-      appId      : '<%= Rails.application.secrets.fb_app_id %>',
-      channelUrl : '//<%= Rails.application.secrets.url %>/channel.html', // Channel file for x-domain comms
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
-    FB.Canvas.setSize();
-    FB.Canvas.setAutoGrow();
-    $("#facebook_share_link").click(function(e){
-      e.preventDefault();
-			if(event_open() == "running"){
-	      $.ajax({
-	        type: "POST",
-	        url: "/viral_actions.json",
-	        data: {
-	          'viral_action[platform]': "Facebook",
-	          'viral_action[device]': "pc"
-	        },
-	        success: function (data) {
-	        }
-	      });
-	      share();
-			}
-    });
-  });	
-});
-
-
-function event_open(){
-	var result;
-	result = $.ajax({
-		async: false,
-		type: 'get',
-		url: '/event_open.json',
-		success: function (data) {
-		}
-	});
-	if(result.responseJSON.result == "not_yet"){
-		alert("이벤트 오픈: 6월 12일");
-	}
-	return result.responseJSON.result;
-}
-
-function twitter_share(text, url){
-	window.open("https://twitter.com/intent/tweet?url="+encodeURIComponent(url)+"&text="+encodeURIComponent(text)+ "&count=none/", "", "height=300, width=550, resizable=1");
-	
-  $.ajax({
-    type: "POST",
-    url: "/viral_actions.json",
-    data: {
-      'viral_action[platform]': "Twitter",
-      'viral_action[device]': "pc"
-    },
-    success: function (data) {
-    }
-  });
-}
-
-function blog_share()
-{
-  $.ajax({
-    type: "POST",
-    url: "/viral_actions.json",
-    data: {
-      'viral_action[platform]': "Blog",
-      'viral_action[device]': "pc"
-    },
-    success: function (data) {
+      // Make sure they scroll more than delta
+      if(Math.abs(lastScrollTop - st) <= delta)
+          return;
       
-    }
-    });
-}
-
-
-function validation(errors){
-	var flag;
-	flag = "uniqueness";
-	$.each(errors,function(key, value){
-		if(value == "must be accepted" || value == "can't be blank" ){
-			flag = "presence";
-		}
-	});
-	if(flag == "presence"){
-		$(".star").empty();
-		for ( error in errors ) {
-		  $('input[data-name ='+error+']').parent().find('span').remove();
-		 $('input[data-name ='+error+']').after("<span class='star "+error+"'>*</span>");
-		}
-	}else if(flag == "uniqueness"){
-    $("#popup_fin2").bPopup({
-      closeClass: 'b-close',
-      modalColor: '#000',
-      follow: [false, false], //x, y
-      position: ['auto', 70], //x, y
-      onClose: function(){$("#popup_info").bPopup().close();}
-    });		
-	}
-}
-
-function share() {
-  var text = "첫 구매 고객님에게\n워터-풀 타임리스 워터 젤 크림 (20ml)를 선물로 드립니다.";
-  var share_content = {
-    method: "feed",
-    name: "Skin Birthday",
-    link: "<%= Rails.application.secrets.url %>?s=fb",
-    picture: 'https://<%= Rails.application.secrets.url %><%=asset_url("sns/facebook_share.jpg") %>',
-    caption: "Make your skin birthday Sponsored by 숨37",
-    description: text
-  };
-  FB.ui(share_content, function(response) {
-    if(response && response.post_id) {
-      track_viral_action(viral_url, "facebook");
-      alert("공유되었습니다.");
-    }
-    else {
-      alert("다시 공유해주세요!");
-    }
+      // If they scrolled down and are past the navbar, add class .nav-up.
+      // This is necessary so you never see what is "behind" the navbar.
+      if (st > lastScrollTop && st > navbarHeight){
+          // Scroll Down
+          $('header').removeClass('nav-down').addClass('nav-up');
+      } else {
+          // Scroll Up
+          if(st + $(window).height() < $(document).height()) {
+              $('header').removeClass('nav-up').addClass('nav-down');
+          }
+      }
+      
+      lastScrollTop = st;
+  }
   });
-}
+  //https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c
 
-function range(lowEnd, highEnd){
-	var list = [];
-	for (var i = lowEnd; i <= highEnd; i++) {
-	    list.push(i);
-	}
-	return list;
-}
 
-function fb_analytics(){
-	var fb_param = {};
-	fb_param.pixel_id = '6012354702952';
-	fb_param.value = '0.00';
-	fb_param.currency = 'KRW';
-	(function(){
-	  var fpw = document.createElement('script');
-	  fpw.async = true;
-	  fpw.src = '//connect.facebook.net/en_US/fp.js';
-	  var ref = document.getElementsByTagName('script')[0];
-	  ref.parentNode.insertBefore(fpw, ref);
-	})();
-}
+  

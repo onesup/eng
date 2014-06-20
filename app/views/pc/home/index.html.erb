@@ -1,6 +1,6 @@
 <header class = "navigation_bar">
 	<div class = "center">
-		<a href="">
+		<a href = "#">
 			<%= image_tag("pc/header/logo.png", class: "logo", :alt => "logo") %>
 		</a>
 		<nav class = "navigation">
@@ -18,7 +18,7 @@
 				</a>
 			</ul>
 		</nav>
-		<a href="">
+		<a href = "#">
 			<%= image_tag("pc/header/store.png", class: "store clearfix") %>
 		</a>
 	</div>
@@ -32,24 +32,24 @@
             </div>
             <div class = "other_movies center">
 				<div class = "thumbnail_movie">
-                    <a href="">
+                    <a href = "#">
     					<%= image_tag("pc/title_thumbnail_movie.png", class: "title_thumbnail_movie") %>
     					<%= image_tag("pc/image_thumbnail_movie.png") %>
                     </a>
 					<div class = "share_sns">
-						<%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %>
-						<%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %>
+						<a herf = "http://facebook.com"><%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
+						<a href = ""><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
 					</div>
 				</div>
 				<div class = "thumbnail_movie_vertical_line"> </div>
 				<div class = "thumbnail_movie">
-					<a href="">
+					<a href = "#">
                         <%= image_tag("pc/title_thumbnail_movie.png", class: "title_thumbnail_movie") %>
                         <%= image_tag("pc/image_thumbnail_movie.png") %>
                     </a>
 					<div class = "share_sns">
-						<%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %>
-						<%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %>
+						<a herf = ""><%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
+						<a href = ""><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
 					</div>
 				</div>
 			</div>
@@ -62,12 +62,32 @@
 				<ul class = "poster_list">
 					<li class = "poster_item posters_thinking"> </li>
 					<li class = "poster_item">
+                        <a herf = "">
                         <%= image_tag("pc/poster/small_poster.png") %>
+                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+                        </a>
                     </li>
-                    <li class = "poster_item"><%= image_tag("pc/poster/small_poster.png") %></li>
-					<li class = "poster_item"><%= image_tag("pc/poster/small_poster.png") %></li>
-					<li class = "poster_item"><%= image_tag("pc/poster/small_poster.png") %></li>
-					<li class = "poster_item"><%= image_tag("pc/poster/small_poster.png") %></li>
+                    <li class = "poster_item">
+                        <a herf = "">
+                        <%= image_tag("pc/poster/small_poster.png") %>
+                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+                        </a>
+                    </li>                   <li class = "poster_item">
+                        <a herf = "">
+                        <%= image_tag("pc/poster/small_poster.png") %>
+                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+                        </a>
+                    </li>                   <li class = "poster_item">
+                        <a herf = "">
+                        <%= image_tag("pc/poster/small_poster.png") %>
+                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+                        </a>
+                    </li>                   <li class = "poster_item">
+                        <a herf = "">
+                        <%= image_tag("pc/poster/small_poster.png") %>
+                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+                        </a>
+                    </li>
 				</ul>
 			</div>
 			<div class = "poster_right_column clearfix">
@@ -75,12 +95,12 @@
     				<%= image_tag("pc/poster/contents_large_poster.png") %>
                 </div>
                 <div class = "poster_request_wrapper center">
-                    <a href = "">
+                    <a href = "" id = "request_poster">
     				<%= image_tag("pc/poster/request_poster.png") %>
                     </a>
                     <div class = "share_sns">
-                            <%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %>
-                            <%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %>
+                           <a herf = ""> <%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
+                            <a href = ""><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
                         </div>
         			</div>
                 </div>
@@ -92,7 +112,7 @@
     		<%= image_tag("pc/title_brand_talk.png", class: "brand_talk_title") %>
             <div class = "brand_right_column clearfix">
                 <%= image_tag("pc/brand_talk_contents.png") %>
-                <br>
+                
                 <a href = "">
                     <%= image_tag("pc/link_frostine_site.png", class: "link_frostine_site") %>
                 </a>
@@ -109,3 +129,46 @@
         <%= image_tag("pc/event_information.png") %>
     </div>
 </footer>
+
+<div id = "participation_event" class = "popup">
+    <div class = "popup_contents_wrapper participate_event_wrapper">
+        <%= image_tag("pc/popup/participate_event.png", class: "title_participation_event") %>
+        <form action = "" name = "submit_information" class = "input_information_form">
+            <input type="text" name = "name" class = "input_name" required>
+            <input type="text" name = "phone_number" class = "input_phone" required>
+            <input type="text" name = "address" class = "input_address">
+            <input type="text" name = "detail_address" class = "input_detail_address">
+            <div class = "agree_wrapper">
+                <input type="checkbox" name = "agree_personal_info" class = "agree_personal_info">
+                <input type="checkbox" name = "agree_dealing_personal_info" class = "agree_dealing_personal_info">
+                <%= image_tag("pc/popup/agree_personal_information.png", class: "image_agree") %>
+                <a href = "#">
+                <%= image_tag("pc/popup/popup_input_show_more.png", class: "view_more_personal_info") %>
+                </a>
+            </div>
+            <%= image_submit_tag("pc/popup/popup_input_submit.png", id: "bt_submit") %>
+        </form>
+        <%= image_tag("pc/popup/more_info.png", class: "more_info") %>
+    </div>
+    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+</div>
+
+<div class = "popup" id = "popup_personal">
+    <div class = "popup_contents-wrapper"></div>
+    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+</div>
+
+<div class = "popup" id = "popup_already">
+    <div class = "popup_contents-wrapper"></div>
+    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+</div>
+
+<div class = "popup" id = "popup_thank">
+    <div class = "popup_contents-wrapper"></div>
+    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+</div>
+
+<div class = "popup" id = "popup_nexttime">
+    <div class = "popup_contents-wrapper"></div>
+    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+</div>
