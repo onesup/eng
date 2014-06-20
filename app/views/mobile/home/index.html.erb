@@ -28,14 +28,24 @@
 		<%= image_tag("mobile/main/poster_title.png", class:"poster_title") %>
 		<div class="poster_box">
 			<div class="poster_inbox">
-				<%= link_to(image_tag("mobile/main/poster_1.png", class:"poster_element"), "#poster_1") %>
-				<%= link_to(image_tag("mobile/main/poster_1.png", class:"poster_element"), "#poster_2") %>
-				<%= link_to(image_tag("mobile/main/poster_1.png", class:"poster_element"), "#poster_3") %>
-				<%= link_to(image_tag("mobile/main/poster_1.png", class:"poster_element"), "#poster_4") %>
-				<%= link_to(image_tag("mobile/main/poster_1.png", class:"poster_element"), "#poster_5") %>
+				<%= link_to "#poster_1", code:"1", class:"poster_select" do%>
+          <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
+        <%end%>
+			  <%= link_to "#poster_2", code:"2", class:"poster_select" do%>
+          <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
+        <%end%>
+			  <%= link_to "#poster_3", code:"3", class:"poster_select" do%>
+          <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
+        <%end%>
+			  <%= link_to "#poster_4", code:"4", class:"poster_select" do%>
+          <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
+        <%end%>
+			  <%= link_to "#poster_5", code:"5", class:"poster_select" do%>
+          <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
+        <%end%>
 			</div>
 		</div>
-		<%= link_to(image_tag("mobile/main/poster_apply.png", class:"poster_button"), "#poster_btn") %><br>
+		<%= link_to(image_tag("mobile/main/poster_apply.png", class:"poster_button"), "#poster_btn", "data-href"=>"#poster_btn", id:"poster_btn") %><br>
 		<%= link_to(image_tag("mobile/main/scroll_icon.png", class:"poster_button"), "#poster_btn") %><br>
 		<%= image_tag("mobile/main/gift.png", class:"gift") %>
 	</div>
