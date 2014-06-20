@@ -1,55 +1,43 @@
 $(document).ready(function(){
+  
+  var q;  
+      
+  var handler = function(event){
+      if (event.which == 13) {      
+        q = $("#address_query").val();
+        test_out(q);
 
-  $("#request_poster").click(function(event) {
-    event.preventDefault();
-    $("#participation_event").bPopup({
-      positionStyle: 'fixed',
-      closeClass: 'close',
-      modalColor: 'black'
+          }
+  };
+  $('#address_query').keyup(handler);
+  
+  var clip = new ZeroClipboard( $(".copy_html"), {
+    moviePath: "<%= asset_path('ZeroClipboard.swf') %>",
+    swfPath: "<%= asset_path('ZeroClipboard.swf') %>",
+    // trustedDomains: ['*'],
+    // allowScriptAccess: "always",
+    debug: false
+  } );
+  
+  $('.select_custom_1').selectric();
+  $('.select_custom_2').selectric('refresh');
+
+  clip.on("load", function (clip) {
+    clip.on( "complete", function(clip, args) {
+      ga('send', 'event', 'button', 'click', '클립보드로 복사하는 버튼');
+      alert("ctrl+c 되었습니다.\nctrl+v 만 해주시면 되어요^^");
     });
   });
-
-	
-	var q;	
-			
-	var handler = function(event){
-			if (event.which == 13) {			
-				q = $("#address_query").val();
-				test_out(q);
-
-	        }
-	};
-	$('#address_query').keyup(handler);
-	
-	
-	
-	var clip = new ZeroClipboard( $(".copy_html"), {
-		moviePath: "<%= asset_path('ZeroClipboard.swf') %>",
-		swfPath: "<%= asset_path('ZeroClipboard.swf') %>",
-		// trustedDomains: ['*'],
-		// allowScriptAccess: "always",
-		debug: false
-	} );
-	
-	$('.select_custom_1').selectric();
-	$('.select_custom_2').selectric('refresh');
-
-	clip.on("load", function (clip) {
-		clip.on( "complete", function(clip, args) {
-			ga('send', 'event', 'button', 'click', '클립보드로 복사하는 버튼');
-			alert("ctrl+c 되었습니다.\nctrl+v 만 해주시면 되어요^^");
-		});
-	});
   ga('send', 'event', 'button', 'click', '메인 페이지');
   $('#select_month').change(function(e){
     e.preventDefault();
     var month;
     var days;
     month = $("#select_month").val();
-		d = new Date();
-		this_day = d.getDate();
+    d = new Date();
+    this_day = d.getDate();
     if(month === '6'){
-			add_days = range(this_day, 30);
+      add_days = range(this_day, 30);
       $("#select_day option").remove();
       $.each(add_days, function( index, value ){
         $("#select_day").append($('<option>',{
@@ -59,7 +47,7 @@ $(document).ready(function(){
       });
     }else if(month === '7'){
       $("#select_day option").remove();
-			add_days = range(1, 27);
+      add_days = range(1, 27);
       $.each(add_days, function( index, value ){
         $("#select_day").append($('<option>',{
           value:value,
@@ -70,14 +58,14 @@ $(document).ready(function(){
   });
   $("#gift_button").click(function(e){
     e.preventDefault();
-		if(event_open() == "running"){
-	    $("#popup_info").bPopup({
-	      follow: [false, false], //x, y
-	      position: ['auto', 60], //x, y
-	      closeClass: 'b-close',
-	      modalColor: 'black'
-	    });
-		}
+    if(event_open() == "running"){
+      $("#popup_info").bPopup({
+        follow: [false, false], //x, y
+        position: ['auto', 60], //x, y
+        closeClass: 'b-close',
+        modalColor: 'black'
+      });
+    }
     ga('send', 'event', 'button', 'click', '피부 선물 받기');
   });
 
@@ -90,7 +78,6 @@ $(document).ready(function(){
       position: ['auto', 70] //x, y
     });
   });
-    
 
   $("#about_personal_information").click(function(event) {
     event.preventDefault();
@@ -101,142 +88,131 @@ $(document).ready(function(){
     })
   });
 
-function test_out(q){
-	
+  function test_out(q){
     $.ajax({
-        "url": "//api.poesis.kr/post/search.php",
-        "type": "get",
-        "data": { "v": "1.1", "q": q, "ref": window.location.hostname },
-        "dataType": "jsonp",
-        "processData": true,
-        "cache": false,
-        
-        // 요청이 성공한 경우 이 함수를 호출한다.
-        
-        "success": function(data, textStatus, jqXHR) {
-            			
-			// address: "광주광역시 광산구 월곡산정로 80"
-			// canonical: "월곡동 613-1"
-			// code5: "62356"
-			// code6: "506-825"
-			// dbid: "2920012800106130001001692"
-			// english_address: "80, Wolgoksanjeong-ro, Gwangsan-gu, Gwangju"
-			// extra_info_long: "월곡동 613-1, 금호아파트"
-			// extra_info_short: "월곡동, 금호아파트"
-			// jibeon_address: "광주광역시 광산구 월곡동 613-1"
-			// other: "월곡1동; 금호타운아파트"
-			 
+      "url": "//api.poesis.kr/post/search.php",
+      "type": "get",
+      "data": { "v": "1.1", "q": q, "ref": window.location.hostname },
+      "dataType": "jsonp",
+      "processData": true,
+      "cache": false,
 
-            // 검색후 콜백 함수를 실행한다.
-			query_results = data.results;
-			
-			$(".address_box").empty();
-			
-			
-			if(query_results.length > 20 || query_results.length === 0){
-				$(".address_box").hide();
-				alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지");
-				
-			}else {
-			
-				$.each(query_results, function( index, value ) {
-				
-					li = "<li class='address_list' address-data='"+value.address+"' code6='"+value.code6+"'>";
-					p_new = "<p class='address_new'>"+value.address+"  "+value.code6+"</p>";
-					p_old = "<p class='address_old'>   ("+ value.extra_info_long+ ")</p></li>";
-						
-					$("#test_out").append(li+p_new+p_old);
-					$(".address_box").show();
-								
-				});
-			
-				$('.address_list').on("click", function(){
-					code6 = $(this).attr("code6");
-					address_data = $(this).attr("address-data");
-					$("#code6").val(code6);
-					$("#address_query").val(address_data);
-					$(".address_box").hide();
-					$(".address_box").empty();
-				
-				});	
-			}
-			
-        },
+      // 요청이 성공한 경우 이 함수를 호출한다.
         
-        // 요청이 실패한 경우 이 함수를 호출한다.
-        
-        "error": function(jqXHR, textStatus, errorThrown) {
+      "success": function(data, textStatus, jqXHR) {
+
+        // address: "광주광역시 광산구 월곡산정로 80"
+        // canonical: "월곡동 613-1"
+        // code5: "62356"
+        // code6: "506-825"
+        // dbid: "2920012800106130001001692"
+        // english_address: "80, Wolgoksanjeong-ro, Gwangsan-gu, Gwangju"
+        // extra_info_long: "월곡동 613-1, 금호아파트"
+        // extra_info_short: "월곡동, 금호아파트"
+        // jibeon_address: "광주광역시 광산구 월곡동 613-1"
+        // other: "월곡1동; 금호타운아파트"
+
+        query_results = data.results;
+
+        if(query_results.length > 20 || query_results.length === 0){
+          $(".address_box").hide();
+          alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지");
+        }else {
+          $.each(query_results, function( index, value ) {
+
+            li = "<li class='address_list' address-data='"+value.address+"' code6='"+value.code6+"'>";
+            p_new = "<p class='address_new'>"+value.address+"  "+value.code6+"</p>";
+            p_old = "<p class='address_old'>   ("+ value.extra_info_long+ ")</p></li>";
+              
+            $("#test_out").append(li+p_new+p_old);
+            $(".address_box").show();
+
+          });
+          $('.address_list').on("click", function(){
+            code6 = $(this).attr("code6");
+            address_data = $(this).attr("address-data");
+            $("#code6").val(code6);
+            $("#address_query").val(address_data);
+            $(".address_box").hide();
+            $(".address_box").empty();
           
-		  
-			  dd  
-		},
-        
-        // 요청 후에는 이 함수를 호출한다.
-        
-        "complete": function(jqXHR, textStatus) {
-        
-		}
+          });
+
+        }
+      },
+
+      // 요청이 실패한 경우 이 함수를 호출한다.
+
+      "error": function(jqXHR, textStatus, errorThrown) {
+
+      },
+
+      // 요청 후에는 이 함수를 호출한다.
+      "complete": function(jqXHR, textStatus) {
+      }
     });
-}
+  }
+  function event_open(){
+    var result;
+    result = $.ajax({
+      async: false,
+      type: 'get',
+      url: '/event_open.json',
+      success: function (data) {
+      }
+    });
+    if(result.responseJSON.result == "not_yet"){
+      alert("이벤트 오픈: 6월 12일");
+    }
+    return result.responseJSON.result;
+  }
 
-function event_open(){
-	var result;
-	result = $.ajax({
-		async: false,
-		type: 'get',
-		url: '/event_open.json',
-		success: function (data) {
-		}
-	});
-	if(result.responseJSON.result == "not_yet"){
-		alert("이벤트 오픈: 6월 12일");
-	}
-	return result.responseJSON.result;
-}
 
-  //header hide by scrolling
+  $("#request_poster").click(function(event) {
+    event.preventDefault();
+    $("#participation_event").bPopup({
+      positionStyle: 'fixed',
+      closeClass: 'close',
+      modalColor: 'black'
+    });
+  });
 
+  //header scroll event
   var didScroll;
   var lastScrollTop = 0;
   var delta = 5;
   var navbarHeight = $('header').outerHeight();
 
   $(window).scroll(function(event){
-      didScroll = true;
+    didScroll = true;
   });
 
   setInterval(function() {
-      if (didScroll) {
-          hasScrolled();
-          didScroll = false;
-      }
+    if (didScroll) {
+      hasScrolled();
+      didScroll = false;
+    }
   }, 250);
 
   function hasScrolled() {
-      var st = $(this).scrollTop();
-      
-      // Make sure they scroll more than delta
-      if(Math.abs(lastScrollTop - st) <= delta)
-          return;
-      
-      // If they scrolled down and are past the navbar, add class .nav-up.
-      // This is necessary so you never see what is "behind" the navbar.
-      if (st > lastScrollTop && st > navbarHeight){
-          // Scroll Down
-          $('header').removeClass('nav-down').addClass('nav-up');
-      } else {
-          // Scroll Up
-          if(st + $(window).height() < $(document).height()) {
-              $('header').removeClass('nav-up').addClass('nav-down');
-          }
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+      return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+      // Scroll Down
+      $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+      // Scroll Up
+      if(st + $(window).height() < $(document).height()) {
+        $('header').removeClass('nav-up').addClass('nav-down');
       }
-      
-      lastScrollTop = st;
+    }
+    
+    lastScrollTop = st;
   }
-  });
-  // https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c
-
-
-
-
-  
+});
