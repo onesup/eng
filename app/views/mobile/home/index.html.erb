@@ -45,7 +45,10 @@
         <%end%>
 			</div>
 		</div>
-		<%= link_to(image_tag("mobile/main/poster_apply.png", class:"poster_button"), "#poster_btn", "data-href"=>"#poster_btn", id:"poster_btn") %><br>
+		<%= link_to new_mobile_user_path(code:"1"), "data-href" => new_mobile_user_path, id:"poster_btn" do%>
+      <%= image_tag("mobile/main/poster_apply.png", class:"poster_button") %>
+    <%end%>
+    <br>
 		<%= link_to(image_tag("mobile/main/scroll_icon.png", class:"poster_button"), "#poster_btn") %><br>
 		<%= image_tag("mobile/main/gift.png", class:"gift") %>
 	</div>

@@ -5,10 +5,17 @@
   <div class="content">
     <%= image_tag("mobile/apply/title.png", class:"popup_title") %>
     <div class="input_box">
-      <%= image_tag("mobile/apply/text_name.png", style:"width: 20%;") %> <input type="text" class="popup_input"><br><br>
-      <%= image_tag("mobile/apply/text_phone.png", style:"width: 20%;") %> <input type="text" class="popup_input"><br><br>
-      <%= image_tag("mobile/apply/text_address.png", style:"width: 20%;") %> <input type="text" class="popup_input"><br>
-      <%= image_tag("mobile/apply/text_address_more.png", style:"width: 20%;") %> <input type="text" class="popup_input">
+      <%= image_tag("mobile/apply/text_name.png", style:"width: 20%;") %> 
+      <input type="text" class="popup_input" name="code">
+      <br><br>
+      <%= image_tag("mobile/apply/text_phone.png", style:"width: 20%;") %> 
+      <input type="text" class="popup_input">
+      <br><br>
+      <%= image_tag("mobile/apply/text_address.png", style:"width: 20%;") %> 
+      <input type="text" class="popup_input">
+      <br>
+      <%= image_tag("mobile/apply/text_address_more.png", style:"width: 20%;") %> 
+      <input type="text" class="popup_input">
     </div>
     <div class="agree_box">
       <input type="checkbox"><%= image_tag("mobile/apply/text_agree_2.png", style:"width: 30%;") %> <%= link_to(image_tag("mobile/apply/text_agree_more.png", class:"text_agree_more"), "#agree_more") %><br>
