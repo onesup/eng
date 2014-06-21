@@ -22,3 +22,5 @@
 //= require ZeroClipboard
 //= require pc
 //= require scrolld.min.js
+//= require headroom.min.js
+//= require jquery.headroom.js
