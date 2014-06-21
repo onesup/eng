@@ -197,5 +197,12 @@ $(document).ready(function(){
   // head navigation
   $("header").headroom();
 
+  // 
+  $("a[id^='bt_poster_item']").click(function(event) {
+    event.preventDefault();
+    var selectId = "#" + $(this).attr("id").slice(3);
+    $(".poster_display").removeClass('poster_display').addClass('poster_hidden');
+    $(selectId).removeClass('poster_hidden').addClass('poster_display');
 
+  });
 });

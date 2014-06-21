@@ -210,9 +210,17 @@ a{
   background-repeat: no-repeat;
   background-position-y: -140px;
 }
+
 .poster_request_wrapper{
   width: 280px;
   padding-left: 60px;
+}
+// 바꾸는게 가능할 듯
+.poster_hidden{
+  display: none;
+}
+.poster_display{
+  display: run-in;
 }
 .poster_gift{
   margin-top: 120px;
@@ -473,3 +481,4 @@ input[type=checkbox]{
   width: 100%;
   bottom: 0px;
 }
+

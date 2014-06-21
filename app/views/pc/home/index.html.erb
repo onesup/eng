@@ -63,28 +63,31 @@
 				<ul class = "poster_list">
 					<li class = "poster_item posters_thinking"> </li>
 					<li class = "poster_item">
-                        <a href = "#">
+                        <a href = "#" id = "bt_poster_item_1">
                         <%= image_tag("pc/poster/small_poster.png") %>
                         <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
                         </a>
                     </li>
                     <li class = "poster_item">
-                        <a href = "#">
+                        <a href = "#" id = "bt_poster_item_2">
                         <%= image_tag("pc/poster/small_poster.png") %>
                         <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
                         </a>
-                    </li>                   <li class = "poster_item">
-                        <a href = "#">
+                    </li>
+                   <li class = "poster_item">
+                        <a href = "#" id = "bt_poster_item_3">
                         <%= image_tag("pc/poster/small_poster.png") %>
                         <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
                         </a>
-                    </li>                   <li class = "poster_item">
-                        <a href = "#">
+                    </li>
+                   <li class = "poster_item">
+                        <a href = "#" id = "bt_poster_item_4">
                         <%= image_tag("pc/poster/small_poster.png") %>
                         <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
                         </a>
-                    </li>                   <li class = "poster_item">
-                        <a href = "#">
+                    </li>
+                   <li class = "poster_item">
+                        <a href = "#" id = "bt_poster_item_5">
                         <%= image_tag("pc/poster/small_poster.png") %>
                         <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
                         </a>
@@ -93,11 +96,16 @@
 			</div>
 			<div class = "poster_right_column clearfix">
                 <div class = "poster_wrapper">
-    				<%= image_tag("pc/poster/contents_large_poster.png") %>
+                    <%= image_tag("pc/poster/contents_large_poster_1.png", id: "poster_item_1",class: "poster_display") %>
+                    <%= image_tag("pc/poster/contents_large_poster_2.png", id: "poster_item_2",class: "poster_hidden") %>
+                    <%= image_tag("pc/poster/contents_large_poster_3.png", id: "poster_item_3",class: "poster_hidden") %>
+                    <%= image_tag("pc/poster/contents_large_poster_4.png", id: "poster_item_4",class: "poster_hidden") %>
+                    <%= image_tag("pc/poster/contents_large_poster_5.png", id: "poster_item_5",class: "poster_hidden") %>
+    				
                 </div>
                 <div class = "poster_request_wrapper center">
                     <a href = "#" id = "request_poster">
-        				<%= image_tag("pc/poster/request_poster.png") %>
+                        <%= image_tag("pc/poster/request_poster.png") %>
                     </a>
                     <div class = "share_sns">
                            <a href = "#"> <%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
