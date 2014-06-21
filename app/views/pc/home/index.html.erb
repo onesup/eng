@@ -5,15 +5,15 @@
 		</a>
 		<nav class = "navigation">
 			<ul>
-				<a href="#brand_flim">
+				<a href="#brand_flim" id = "brand_flimBtn">
 					<%= image_tag("pc/header/nav_brand_flim.png", class: "navigation_list") %>
 				</a>
 				<div class = "nav_vertical_line"> </div>
-				<a href="#poster_coupon">
+				<a href="#poster_coupon" id = "poster_couponBtn">
 					<%= image_tag("pc/header/nav_poster_coupon.png", class: "navigation_list") %> 
 				</a>
 				<div class = "nav_vertical_line"> </div>
-				<a href="#brand_talk">
+				<a href="#brand_talk" id = "brand_talkBtn">
 					<%= image_tag("pc/header/nav_brand_talk.png", class: "navigation_list") %> 
 				</a>
 			</ul>
@@ -38,8 +38,8 @@
     					<%= image_tag("pc/image_thumbnail_movie.png") %>
                     </a>
 					<div class = "share_sns">
-						<a href = ""><%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
-						<a href = ""><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
+						<a href = "#"><%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
+						<a href = "#"><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
 					</div>
 				</div>
 				<div class = "thumbnail_movie_vertical_line"> </div>
@@ -49,8 +49,8 @@
                         <%= image_tag("pc/image_thumbnail_movie.png") %>
                     </a>
 					<div class = "share_sns">
-						<a href = ""><%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
-						<a href = ""><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
+						<a href = "#"><%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
+						<a href = "#"><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
 					</div>
 				</div>
 			</div>
@@ -63,28 +63,28 @@
 				<ul class = "poster_list">
 					<li class = "poster_item posters_thinking"> </li>
 					<li class = "poster_item">
-                        <a href = "">
+                        <a href = "#">
                         <%= image_tag("pc/poster/small_poster.png") %>
                         <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
                         </a>
                     </li>
                     <li class = "poster_item">
-                        <a href = "">
+                        <a href = "#">
                         <%= image_tag("pc/poster/small_poster.png") %>
                         <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
                         </a>
                     </li>                   <li class = "poster_item">
-                        <a href = "">
+                        <a href = "#">
                         <%= image_tag("pc/poster/small_poster.png") %>
                         <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
                         </a>
                     </li>                   <li class = "poster_item">
-                        <a href = "">
+                        <a href = "#">
                         <%= image_tag("pc/poster/small_poster.png") %>
                         <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
                         </a>
                     </li>                   <li class = "poster_item">
-                        <a href = "">
+                        <a href = "#">
                         <%= image_tag("pc/poster/small_poster.png") %>
                         <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
                         </a>
@@ -100,8 +100,8 @@
         				<%= image_tag("pc/poster/request_poster.png") %>
                     </a>
                     <div class = "share_sns">
-                           <a href = ""> <%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
-                            <a href = ""><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
+                           <a href = "#"> <%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
+                            <a href = "#"><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
                         </div>
         			</div>
                 </div>
@@ -138,7 +138,7 @@
             <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
         </a>
     </div>
-    <a href = "">
+    <a href = "#">
         <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
     </a>
 </div>
@@ -163,7 +163,7 @@
             <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
         </a>
     </div>
-    <a href = "">
+    <a href = "#">
         <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
     </a>
 </div>
@@ -173,11 +173,11 @@
         <div class = "privacy_wrapper centering">
             
         </div>
-        <a class = "confirm">
+        <a href = "#">
             <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_confirm") %>
         </a>
     </div>
-    <a href = "">
+    <a href = "#">
         <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
     </a>
 </div>
@@ -202,7 +202,7 @@
         </form>
         <%= image_tag("pc/popup/more_info.png", class: "more_info") %>
     </div>
-    <a href = "">
+    <a href = "#">
     <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
     </a>
 </div>

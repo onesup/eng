@@ -79,15 +79,6 @@ $(document).ready(function(){
     });
   });
 
-  $("#about_personal_information").click(function(event) {
-    event.preventDefault();
-    $("#participation_event").bPopup().close();
-    $("#popup_personal").bPopup({
-      positionStyle: 'fixed',
-      closeClass: 'close '
-    })
-  });
-
   function test_out(q){
     $.ajax({
       "url": "//api.poesis.kr/post/search.php",
@@ -167,7 +158,6 @@ $(document).ready(function(){
     return result.responseJSON.result;
   }
 
-
   $("#request_poster").click(function(event) {
     event.preventDefault();
     $("#participation_event").bPopup({
@@ -177,7 +167,31 @@ $(document).ready(function(){
     });
   });
 
-  //header scroll event
+  $("#about_personal_information").click(function(event) {
+    event.preventDefault();
+    $("#participation_event").bPopup().close();
+    $("#popup_personal").bPopup({
+      positionStyle: 'fixed',
+      closeClass: 'close',
+      modalColor: 'black',
+      onClose: function(){
+        $("#participation_event").bPopup({
+          positionStyle: 'fixed',
+          closeClass: 'close',
+          modalColor: 'black'
+        });
+      }
+    });
+  });
+
+  $(".bt_fn_confirm, .bt_confirm").click(function(event) {
+    event.preventDefault();
+    $(this).parents(".popup").bPopup().close();
+  });
+  //scrolld.js
+  $("[id*='Btn']").stop(true).on('click',function(e){e.preventDefault();$(this).scrolld();});
+
+  //header navigation fix
   var didScroll;
   var lastScrollTop = 0;
   var delta = 5;
