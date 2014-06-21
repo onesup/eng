@@ -190,7 +190,9 @@ $(document).ready(function(){
   });
 
   //scrolld.js
-  $("[id*='Btn']").stop(true).on('click',function(e){e.preventDefault();$(this).scrolld();});
+  $("[id*='Btn']").stop(true).on('click',function(e){e.preventDefault();$(this).scrolld({
+    
+  });});
 
   // head navigation
   $("header").headroom();
