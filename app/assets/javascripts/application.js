@@ -21,6 +21,7 @@
 // require jquery.modal
 //= require ZeroClipboard
 //= require pc
-//= require scrolld.min.js
+//= require smooth-scroll.js
 //= require headroom.min.js
 //= require jquery.headroom.js
+//= require waypoints.min.js

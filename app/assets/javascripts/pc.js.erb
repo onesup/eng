@@ -189,20 +189,38 @@ $(document).ready(function(){
     $(this).parents(".popup").bPopup().close();
   });
 
-  //scrolld.js
-  $("[id*='Btn']").stop(true).on('click',function(e){e.preventDefault();$(this).scrolld({
-    
-  });});
+  //smooth-scroll.js
+  smoothScroll.init();
 
   // head navigation
   $("header").headroom();
 
-  // 
+  // change large event
   $("a[id^='bt_poster_item']").click(function(event) {
     event.preventDefault();
     var selectId = "#" + $(this).attr("id").slice(3);
     $(".poster_display").removeClass('poster_display').addClass('poster_hidden');
     $(selectId).removeClass('poster_hidden').addClass('poster_display');
 
+  });
+
+  //
+  $('#brand_flim').waypoint(function(direction) {
+    if( direction == "down" ) {
+      smoothScroll.animateScroll( null, '#poster_coupon');
+    }
+  }, {
+    offset: function(){
+      return -$(this).outerHeight() + $(window).height() - 100;
+    }
+  });
+  $('#poster_coupon').waypoint(function(direction) {
+    if( direction == "down" ) {
+      smoothScroll.animateScroll( null, '#brand_talk');
+    }
+  }, {
+    offset: function(){
+      return -$(this).outerHeight() + $(window).height() - 100;
+    }
   });
 });
