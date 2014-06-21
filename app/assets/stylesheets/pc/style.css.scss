@@ -206,7 +206,7 @@ a{
   height: 580px;
   padding-left: 60px;
   padding-top: 260px;
-  background-image: url(/assets/pc/poster/poster_background.png);
+  background-image: asset-url("pc/poster/poster_background.png");
   background-repeat: no-repeat;
   background-position-y: -140px;
 }
