@@ -1,44 +1,44 @@
 <div class="popup">
   <%= form_for([:mobile, @user]) do |f| %>
   <div class="navi2">
-    <%= link_to(image_tag("mobile/exit.png", id:"exit"), "#exit") %>
+    <%= link_to(image_tag("mobile/exit.png", id:"exit"), "index") %>
   </div>
   <div class="content">
     <%= image_tag("mobile/apply/title.png", class:"popup_title") %>
     <div class="input_box">
-      <%= image_tag("mobile/apply/text_name.png", style:"width: 20%;") %> 
+      <%= image_tag("mobile/apply/text_name.png", style:"width: 20%;") %>
       <%= f.hidden_field(:poster_code,
-      {"data-name" => "name", id: "info_poster_code", 
+      {"data-name" => "name", id: "info_poster_code",
         class:"popup_input", value: "", maxlength: "12"
       })%>
       <!-- <%= f.submit%> -->
-      <%= f.text_field(:name, 
-       {"data-name" => "name", id: "info_name", 
-          class:"popup_input", value: "", maxlength: "12"})%>      
-      <br><br>
-      <%= image_tag("mobile/apply/text_phone.png", style:"width: 20%;") %> 
-      <%= f.text_field(:phone, 
-        {"data-name" => "name", id: "info_phone", 
+      <%= f.text_field(:name,
+       {"data-name" => "name", id: "info_name",
           class:"popup_input", value: "", maxlength: "12"})%>
       <br><br>
-      <%= image_tag("mobile/apply/text_address.png", style:"width: 20%;") %> 
-      <%= f.text_field(:address, 
-        {"data-name" => "name", id: "info_address", 
+      <%= image_tag("mobile/apply/text_phone.png", style:"width: 20%;") %>
+      <%= f.text_field(:phone,
+        {"data-name" => "name", id: "info_phone",
+          class:"popup_input", value: "", maxlength: "12"})%>
+      <br><br>
+      <%= image_tag("mobile/apply/text_address.png", style:"width: 20%;") %>
+      <%= f.text_field(:address,
+        {"data-name" => "name", id: "info_address",
           class:"popup_input", value: "", maxlength: "12", placeholder: "주소 검색 (예: OO동 OO번지)"})%>
       <br>
       <select id="addresses" class="address_box">
       </select>
-      <%= f.hidden_field(:code6, 
-        {"data-name" => "name", id: "info_code6", 
-          class:"popup_input", value: "", maxlength: "12"})%> 
+      <%= f.hidden_field(:code6,
+        {"data-name" => "name", id: "info_code6",
+          class:"popup_input", value: "", maxlength: "12"})%>
       <br>
-      <%= image_tag("mobile/apply/text_address_more.png", style:"width: 20%;") %> 
-      <%= f.text_field(:address_detail, 
-        {"data-name" => "name", id: "info_address_detail", 
+      <%= image_tag("mobile/apply/text_address_more.png", style:"width: 20%;") %>
+      <%= f.text_field(:address_detail,
+        {"data-name" => "name", id: "info_address_detail",
           class:"popup_input", value: "", maxlength: "12"})%>
     </div>
     <div class="agree_box">
-      <input type="checkbox"><%= image_tag("mobile/apply/text_agree_2.png", style:"width: 30%;") %> <%= link_to(image_tag("mobile/apply/text_agree_more.png", class:"text_agree_more"), "#agree_more") %><br>
+      <input type="checkbox"><%= image_tag("mobile/apply/text_agree_2.png", style:"width: 30%;") %> <%= link_to(image_tag("mobile/apply/text_agree_more.png", class:"text_agree_more"), "agree") %><br>
       <input type="checkbox"><%= image_tag("mobile/apply/text_agree_1.png", style:"width: 50%; margin-right: 12%;") %>
     </div>
     <%= link_to(image_tag("mobile/apply/button.png", class:"apply_btn"), "#apply_btn_event") %>

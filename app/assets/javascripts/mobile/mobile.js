@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  $.mobile.ajaxEnabled=false;
+  $.mobile.loadingMessage = false;
   $("#info_address").focus(function(){
     alert("검색할 주소를 입력하세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지)");
   });
