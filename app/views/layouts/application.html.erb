@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application'%>
+  <%= stylesheet_link_tag    'application', media: 'all' %>  
   <%= csrf_meta_tags %>
   <title>FROSTINE PC</title>
 
@@ -40,5 +39,6 @@ ga('create', '<%= Rails.application.secrets.ga_tracking_id%>', '<%= Rails.applic
 ga('set', 'referrer', '<%= session[:referer] %>');
 ga('send', 'pageview');
 </script>
+<%= javascript_include_tag 'application'%>
 </body>
 </html>

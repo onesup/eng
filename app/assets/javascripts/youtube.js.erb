@@ -1,0 +1,27 @@
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('ytplayer', {
+    videoId: '8X6nCG95J1Y',
+    width: 500,
+    height: 500,
+    events: {
+      'onReady': ytHover
+      // 'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+function ytHover(event){
+  $("#ytplayer").mouseover(function(event) {
+    console.log("lll");
+  }); 
+  // ytplayer = document.getElementById("ytplayer");
+  // ytplayer.onmouseover=function(){
+    
+  // };
+}

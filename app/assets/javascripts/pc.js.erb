@@ -1,33 +1,18 @@
 $(document).ready(function(){
-  
   var q;  
-      
   var handler = function(event){
       if (event.which == 13) {      
         q = $("#address_query").val();
         test_out(q);
-
-          }
+      }
   };
   $('#address_query').keyup(handler);
   
-  var clip = new ZeroClipboard( $(".copy_html"), {
-    moviePath: "<%= asset_path('ZeroClipboard.swf') %>",
-    swfPath: "<%= asset_path('ZeroClipboard.swf') %>",
-    // trustedDomains: ['*'],
-    // allowScriptAccess: "always",
-    debug: false
-  } );
   
   $('.select_custom_1').selectric();
   $('.select_custom_2').selectric('refresh');
 
-  clip.on("load", function (clip) {
-    clip.on( "complete", function(clip, args) {
-      ga('send', 'event', 'button', 'click', '클립보드로 복사하는 버튼');
-      alert("ctrl+c 되었습니다.\nctrl+v 만 해주시면 되어요^^");
-    });
-  });
+  
   ga('send', 'event', 'button', 'click', '메인 페이지');
   $('#select_month').change(function(e){
     e.preventDefault();
@@ -212,15 +197,17 @@ $(document).ready(function(){
   // });
   // 
 
-  
-
-
 });
+
+
+
+
+
 
 $(window).scroll(function() {
     clearTimeout($.data(this, 'scrollTimer'));
     $.data(this, 'scrollTimer', setTimeout(function() {
-        var offset = 60;
+        var offset = 55;
         if( checkRatioOfElementInView("#poster_coupon") >= offset) {
           smoothScroll.animateScroll( null, '#poster_coupon' );
           console.log("move #poster_coupon");
@@ -229,8 +216,9 @@ $(window).scroll(function() {
           smoothScroll.animateScroll( null, '#brand_talk' );
           console.log("move #brand_talk");
         }
-    }, 250));
+    }, 100));
 });
+
 
 function checkRatioOfElementInView(elem) { 
   var result = 0;
