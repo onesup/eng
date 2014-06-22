@@ -1,19 +1,19 @@
-<header class = "headroom" id = "nav_bar">
+<header id = "nav_bar">
 	<div class = "center">
 		<a href = "#">
 			<%= image_tag("pc/header/logo.png", class: "logo", :alt => "logo") %>
 		</a>
 		<nav class = "navigation">
 			<ul>
-				<a data-scroll href="#brand_flim">
+				<a data-scroll href="#brand_flim" class = "bt_paging" id = "bt_brand_flim">
 					<%= image_tag("pc/header/nav_brand_flim.png", class: "navigation_list") %>
 				</a>
 				<div class = "nav_vertical_line"> </div>
-				<a data-scroll href="#poster_coupon">
+				<a data-scroll href="#poster_coupon" class = "bt_paging", id = "bt_poster_coupon">
 					<%= image_tag("pc/header/nav_poster_coupon.png", class: "navigation_list") %> 
 				</a>
 				<div class = "nav_vertical_line"> </div>
-				<a data-scroll href="#brand_talk">
+				<a data-scroll href="#brand_talk" class = "bt_paging" id = "bt_brand_talk">
 					<%= image_tag("pc/header/nav_brand_talk.png", class: "navigation_list") %> 
 				</a>
 			</ul>
@@ -118,7 +118,10 @@
 	</section>
 	<section id = "brand_talk">
         <div class = "contents_wrapper center">
-    		<%= image_tag("pc/title_brand_talk.png", class: "brand_talk_title") %>
+            <div class = "brand_left_column">
+        		<%= image_tag("pc/title_brand_talk.png", class: "brand_talk_title") %>
+                <%= image_tag("pc/brand_talk_background.png", class: "brand_talk_background clearfix") %>
+            </div>
             <div class = "brand_right_column clearfix">
                 <%= image_tag("pc/brand_talk_contents.png") %>
                 <br>

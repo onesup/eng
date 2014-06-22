@@ -24,4 +24,3 @@
 //= require smooth-scroll.js
 //= require headroom.min.js
 //= require jquery.headroom.js
-//= require waypoints.min.js

@@ -193,7 +193,7 @@ $(document).ready(function(){
   smoothScroll.init();
 
   // head navigation
-  $("header").headroom();
+  
 
   // change large event
   $("a[id^='bt_poster_item']").click(function(event) {
@@ -201,26 +201,39 @@ $(document).ready(function(){
     var selectId = "#" + $(this).attr("id").slice(3);
     $(".poster_display").removeClass('poster_display').addClass('poster_hidden');
     $(selectId).removeClass('poster_hidden').addClass('poster_display');
-
   });
 
-  //
-  $('#brand_flim').waypoint(function(direction) {
-    if( direction == "down" ) {
-      smoothScroll.animateScroll( null, '#poster_coupon');
-    }
-  }, {
-    offset: function(){
-      return -$(this).outerHeight() + $(window).height() - 100;
-    }
-  });
-  $('#poster_coupon').waypoint(function(direction) {
-    if( direction == "down" ) {
-      smoothScroll.animateScroll( null, '#brand_talk');
-    }
-  }, {
-    offset: function(){
-      return -$(this).outerHeight() + $(window).height() - 100;
-    }
-  });
+  // inital loading page 
+  // scroll to top
+  // $(window).load(function() {
+  //   setTimeout($('html, body').animate({ scrollTop: 0 }, 0));
+  // });
+  // 
+
+  
+
+
 });
+
+function checkRatioOfElementInView(elem) { 
+  var result = 0;
+  var docViewHeight = $(window).height();
+  var docViewTop = $(window).scrollTop();
+  var docViewBottom = docViewTop + docViewHeight;
+
+  var elemOuterHeight = $(elem).outerHeight();
+  var elemTop = $(elem).offset().top;
+  var elemBottom = elemTop + elemOuterHeight;
+
+
+
+  console.log(elem);
+  //console.log("docViewHeight :" + docViewHeight);
+  console.log("docViewHeight : " + docViewHeight);
+  console.log("elemOuterHeight : " + elemOuterHeight);
+  console.log("docViewTop : " + docViewTop);
+  console.log("elemTop : " + elemTop);
+  console.log("docViewBottom : " + docViewBottom);
+  console.log("elemBottom : " + elemBottom);
+  return result;
+}
