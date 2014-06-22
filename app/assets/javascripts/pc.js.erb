@@ -190,7 +190,9 @@ $(document).ready(function(){
   });
 
   //smooth-scroll.js
-  smoothScroll.init();
+  smoothScroll.init({
+    offset: $("#nav_bar").outerHeight()
+  });
 
   // head navigation
   
@@ -215,6 +217,21 @@ $(document).ready(function(){
 
 });
 
+$(window).scroll(function() {
+    clearTimeout($.data(this, 'scrollTimer'));
+    $.data(this, 'scrollTimer', setTimeout(function() {
+        var offset = 60;
+        if( checkRatioOfElementInView("#poster_coupon") >= offset) {
+          smoothScroll.animateScroll( null, '#poster_coupon' );
+          console.log("move #poster_coupon");
+        }
+        if( checkRatioOfElementInView("#brand_talk") >= offset) {
+          smoothScroll.animateScroll( null, '#brand_talk' );
+          console.log("move #brand_talk");
+        }
+    }, 250));
+});
+
 function checkRatioOfElementInView(elem) { 
   var result = 0;
   var docViewHeight = $(window).height();
@@ -225,7 +242,11 @@ function checkRatioOfElementInView(elem) {
   var elemTop = $(elem).offset().top;
   var elemBottom = elemTop + elemOuterHeight;
 
-
+  if( (elemTop >= docViewTop + $("#nav_bar").outerHeight()) && (elemTop <= docViewBottom)) {
+    return ( (docViewBottom - elemTop) / docViewHeight * 100 );
+  }else {
+    return 0;
+  }
 
   console.log(elem);
   //console.log("docViewHeight :" + docViewHeight);
