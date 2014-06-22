@@ -115,26 +115,27 @@ a{
   background-color: #000;
 }
 
-.share_facebook_on_movie,
-.share_twitter_on_movie{
-  visibility: hidden;
-  // position: absolute;
-  // width: 50px;
-  // height: 50px;
-  // top: 50px;
-  // left: 200px;
+.share_facebook_on_movie{
+  visibility: visible;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50px;
+  left: 100px;
   background: #ffffff;
   opacity: 0;
-  -webkit-transition: visibility 0ms linear, opacity 200ms linear;
-  -moz-transition: visibility 0ms linear, opacity 200ms linear;
-  -ms-transition: visibility 0ms linear, opacity 200ms linear;
-  -o-transition: visibility 0ms linear, opacity 200ms linear;
-  transition: visibility 0ms linear, opacity 200ms linear;
+  z-index: 1000;
 }
-.share_facebook_on_movie_hover,
-.share_twitter_on_movie_hover{
+.share_twitter_on_movie{
   visibility: visible;
-  opacity: 1;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50px;
+  left: 200px;
+  background: #ffffff;
+  opacity: 0;
+  z-index: 1000;
 }
 .other_movies{
   width: 820px;

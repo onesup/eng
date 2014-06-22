@@ -23,7 +23,22 @@ function onYouTubeIframeAPIReady() {
 }
 
 function ytHover(event){
-  $("#ytplayer").mouseover(function(event) {
-    console.log("lll");
-  }); 
+  $('#ytplayer').hover(
+    function() {
+      $(".share_facebook_on_movie, .share_twitter_on_movie").animate({
+        opacity: 1},
+        500, function() {
+        /* stuff to do after animation is complete */
+      });
+    },
+    function() {
+      if( ! $("[class$='_on_movie']:hover").length > 0) {
+        $(".share_facebook_on_movie, .share_twitter_on_movie").animate({
+          opacity: 0},
+          500, function() {
+          /* stuff to do after animation is complete */
+        });
+      }
+    }
+  );
 }
