@@ -207,12 +207,15 @@ $(document).ready(function(){
 $(window).scroll(function() {
     clearTimeout($.data(this, 'scrollTimer'));
     $.data(this, 'scrollTimer', setTimeout(function() {
-        var offset = 55;
-        if( checkRatioOfElementInView("#poster_coupon") >= offset) {
+        var poster_coupon_offset = 10;
+        var brand_talk_offset = 38;
+        console.log(checkRatioOfElementInView("#poster_coupon"));
+        console.log(checkRatioOfElementInView("#brand_talk"));
+        if( checkRatioOfElementInView("#poster_coupon") >= poster_coupon_offset) {
           smoothScroll.animateScroll( null, '#poster_coupon' );
           console.log("move #poster_coupon");
         }
-        if( checkRatioOfElementInView("#brand_talk") >= offset) {
+        if( checkRatioOfElementInView("#brand_talk") >= brand_talk_offset) {
           smoothScroll.animateScroll( null, '#brand_talk' );
           console.log("move #brand_talk");
         }

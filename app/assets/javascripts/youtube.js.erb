@@ -9,6 +9,12 @@ function onYouTubeIframeAPIReady() {
     videoId: 'df2ujJZzKvw',
     width: 960,
     height: 500,
+    playerVars: {
+      controls: 0,
+      showinfo: 0 ,
+      modestbranding: 1,
+      wmode: "opaque"
+    },
     events: {
       'onReady': ytHover
       // 'onStateChange': onPlayerStateChange
