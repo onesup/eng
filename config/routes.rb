@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   namespace :pc do
     get 'index' => 'home#index'
+    get 'test' => 'home#test'
     resources :users, only: [:create]
   end
 

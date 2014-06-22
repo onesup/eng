@@ -5,12 +5,12 @@ class User < ActiveRecord::Base
   has_many :access_logs
   has_one :coupon
   
-  validates :agree, acceptance: true
-  validates :agree2, acceptance: true
-  validates :birthday, presence: true
-  validates :name, presence: true
-  validates :phone, presence: true
-  validates :phone, uniqueness: true
+  # validates :agree, acceptance: true
+ #  validates :agree2, acceptance: true
+ #  validates :birthday, presence: true
+ #  validates :name, presence: true
+ #  validates :phone, presence: true
+ #  validates :phone, uniqueness: true
 
   attr_accessor :birthday_month, :birthday_day
 

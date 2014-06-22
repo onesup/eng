@@ -1,117 +1,222 @@
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<div class="contain">
-	<div class="content"> <!-- Content -->
-		<div class="c_title">
-			<%= image_tag("pc/title.png", class: "content_title") %>
-		</div>
-		<div class="btn_event">
-			<%= link_to "#", id: "gift_button" do %>
-			<%= image_tag "pc/button.png" %>
-			<% end %>
-		</div>
-		<div class="share_block">
-			<%= link_to "#popup_product", {id: "product_button", class:"view_p"} do %>
-			<%= image_tag("pc/vedio_button.png", class: "video_button") %>
-			<% end %>
+<header id = "nav_bar">
+	<div class = "center">
+		<a href = "#">
+			<%= image_tag("pc/header/logo.png", class: "logo", :alt => "logo") %>
+		</a>
+		<nav class = "navigation">
+			<ul>
+				<a data-scroll href="#brand_flim" class = "bt_paging" id = "bt_brand_flim">
+					<%= image_tag("pc/header/nav_brand_flim.png", class: "navigation_list") %>
+				</a>
+				<div class = "nav_vertical_line"> </div>
+				<a data-scroll href="#poster_coupon" class = "bt_paging", id = "bt_poster_coupon">
+					<%= image_tag("pc/header/nav_poster_coupon.png", class: "navigation_list") %> 
+				</a>
+				<div class = "nav_vertical_line"> </div>
+				<a data-scroll href="#brand_talk" class = "bt_paging" id = "bt_brand_talk">
+					<%= image_tag("pc/header/nav_brand_talk.png", class: "navigation_list") %> 
+				</a>
+			</ul>
+		</nav>
+        <%= link_to do %>
+			<%= image_tag("pc/header/store.png", class: "store clearfix") %>
 
-			<a href="#" id="blog_share_link" class="s_blog">
-				<%= image_tag("pc/share_blog.png", class: "share_icon_b") %>
-			</a>			
-			<a href="#" id="twitter_share_link" class="s_tw" data-text="여름에 꼭 한번 써보고 싶었던 숨37 젤 크림! 피부생일 선물로 준다고!? Make Your Skin Birthday Sponsored by 숨37" data-url="https://birthday.su-m37.co.kr?s=tw">
-				<%= image_tag("pc/share_twitter.png", class: "share_icon_t") %>
-			</a>
-			<a href="#" id="facebook_share_link" class="s_fb">
-				<%= image_tag("pc/share_facebook.png", class: "share_icon_f") %>
-			</a>
-		</div>
-		<div class="product_new">
-		</div>
+        <% end %>
 	</div>
-	<!-- popup -->
-	<div id="popup_info">
-		<div>
-			<%= link_to "#", class: "b-close" do %>
-			<%= image_tag("pc/popup/close.png", class: "close") %>
-			<% end %>
-		</div>
-		<%= form_for([:pc, @user], remote: true, html: {'data-type'=>'json'}) do |f| %>
-		<div class="info_birth">
-			<div class="info_birth_date">
-				<%#= select_year(DateTime.parse("1988. 1. 1."), {start_year: 1900, end_year: 1995}, {name:'user[birthday_year]', class:'select_custom_1'})%>
-				<%#= image_tag("pc/popup/info/birth_label_1.png", class:"birth_label_class") %>
-				<%= select_tag "user[birthday_month]", 
-				options_for_select(months_option_helper, Time.now.month), 
-				{class: 'select_custom_2', id: "select_month"} %>
-				<%= image_tag("pc/popup/info/birth_label_2.png", class:"birth_label_class") %>
-				<%= 
-				select_tag(
-				"user[birthday_day]", 
-				options_for_select(days_option_helper, Time.now.day),
-				{name:'user[birthday_day]', class: 'select_custom_2', id: "select_day"}
-				)
-				%>
-				<%= image_tag("pc/popup/info/birth_label_3.png", class:"birth_label_class") %>
-			</div>
-			<div class="info_birth_date_empty"></div>
-		</div>  
-		<div class="info_other">
-			<div> <%= image_tag("pc/popup/info/info_label_1.png", class:"info_input_label_1") %>
-				<input type='text' data-name='name' id='info_name' name='user[name]' class="info_input_name" value="" maxlength="4" />
-			</div>
-			<div class="phone_num"> 
-				<%= image_tag("pc/popup/info/info_label_2.png", class:"info_input_label_2") %>
-				<input type='text' data-name='phone' id='info_phone' name='user[phone]' class="info_input_call" value="" maxlength="13" />
-			</div>
-			<div class="check_box clearfix">
-				<div class="label_01">
-					<%= image_tag("pc/popup/info/info_label_3.png", class:"info_input_label_3") %>
-				</div>
-				<div class="check">
-					<%= f.check_box "agree", {"data-name" => "agree", id:"info_input_radio", class:"info_input_radio" }%>
-				</div>
-				<div class="btn_view_personal">
-					<%= link_to "#", class:"popup_info_to_personal", id: "popup_info_to_personal" do %>
-					<%= image_tag("pc/popup/info/info_personal_button.png", class: "to_personal") %>
-					<% end %>
-				</div>
-			</div>
-			<div class="check_box clearfix">
-				<div class="label_01">
-					<%= image_tag("pc/popup/info/info_label_4.png") %>
-				</div>
-				<div class="check">
-					<%= f.check_box "agree2", {"data-name" => "agree2", id:"info_input_radio2", class:"info_input_radio" }%>
-				</div>
-			</div>
-		</div>
-		<%= image_submit_tag("pc/popup/info/button.png",{id: "info_fin"}) %>
-		<%end%>
-	</div>
-	<%= render 'popup_personal'%>
-	<%= render 'popup_fin1'%>
-	<%= render 'popup_fin2'%>
-	<%= render 'popup_product'%>
-	<%= render "popup_qna" %>
-	<div id="popup_blog" class="popup_blog">
-		<%= link_to "#", class: "b-close", rel: "modal:close" do %>
-		<%= image_tag("pc/popup/close.png", class: "close") %>
-		<% end %>
-		<div class="code">
-			<a href="#" class="copy_html" id="html-copy-link" data-clipboard-text="<%= @code %>">
-				<%= @code %>
-			</a>
-		</div>
-		<%= link_to "#", class: "btn copy_html", id: "html-copy-button", 
-		"data-clipboard-text" => @code do %>
-			<%= image_tag("pc/popup/blog/btn.png") %>
-			<% end %>
-		</div>	  
-	</div>
-	<div class="footer_custom"> <!-- Caution -->
-		<div class="inner">
-			<%= link_to "#popup_qna", {id: "qna_button", class:"btn_qna"} do %>
-			<%= image_tag("pc/btn_qna.png") %>
-			<% end %>
-		</div>
-	</div>
+</header>
+<article>
+	<section id = "brand_flim">
+		<div class = "contents_wrapper center">
+			<%= image_tag("pc/title.png", class: "title_brand_flim") %>
+			<div class = "movie_wrapper center">
+                <div id = "ytplayer"></div>
+                <div class = "share_facebook_on_movie"></div>
+                <div class = "share_twitter_on_movie"></div>
 
+            </div>
+            <div class = "other_movies center">
+				<div class = "thumbnail_movie">
+                    <a href = "#">
+    					<%= image_tag("pc/title_thumbnail_movie.png", class: "title_thumbnail_movie") %>
+    					<%= image_tag("pc/image_thumbnail_movie.png") %>
+                    </a>
+					<div class = "share_sns">
+						<a href = "#"><%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
+						<a href = "#"><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
+					</div>
+				</div>
+				<div class = "thumbnail_movie_vertical_line"> </div>
+				<div class = "thumbnail_movie">
+					<a href = "#">
+                        <%= image_tag("pc/title_thumbnail_movie.png", class: "title_thumbnail_movie") %>
+                        <%= image_tag("pc/image_thumbnail_movie.png") %>
+                    </a>
+					<div class = "share_sns">
+						<a href = "#"><%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
+						<a href = "#"><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id = "poster_coupon">
+		<div class = "center">
+			<div class = "poster_left_column">
+				<%= image_tag("pc/poster/poster_title.png", class: "title_poster") %>
+				<ul class = "poster_list">
+					<li class = "poster_item posters_thinking"> </li>
+					<li class = "poster_item">
+                        <a href = "#" id = "bt_poster_item_1">
+                        <%= image_tag("pc/poster/small_poster.png") %>
+                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+                        </a>
+                    </li>
+                    <li class = "poster_item">
+                        <a href = "#" id = "bt_poster_item_2">
+                        <%= image_tag("pc/poster/small_poster.png") %>
+                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+                        </a>
+                    </li>
+                   <li class = "poster_item">
+                        <a href = "#" id = "bt_poster_item_3">
+                        <%= image_tag("pc/poster/small_poster.png") %>
+                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+                        </a>
+                    </li>
+                   <li class = "poster_item">
+                        <a href = "#" id = "bt_poster_item_4">
+                        <%= image_tag("pc/poster/small_poster.png") %>
+                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+                        </a>
+                    </li>
+                   <li class = "poster_item">
+                        <a href = "#" id = "bt_poster_item_5">
+                        <%= image_tag("pc/poster/small_poster.png") %>
+                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+                        </a>
+                    </li>
+				</ul>
+			</div>
+			<div class = "poster_right_column clearfix">
+                <div class = "poster_wrapper">
+                    <%= image_tag("pc/poster/contents_large_poster_1.png", id: "poster_item_1",class: "poster_display") %>
+                    <%= image_tag("pc/poster/contents_large_poster_2.png", id: "poster_item_2",class: "poster_hidden") %>
+                    <%= image_tag("pc/poster/contents_large_poster_3.png", id: "poster_item_3",class: "poster_hidden") %>
+                    <%= image_tag("pc/poster/contents_large_poster_4.png", id: "poster_item_4",class: "poster_hidden") %>
+                    <%= image_tag("pc/poster/contents_large_poster_5.png", id: "poster_item_5",class: "poster_hidden") %>
+    				
+                </div>
+                <div class = "poster_request_wrapper center">
+                    <a href = "#" id = "request_poster">
+                        <%= image_tag("pc/poster/request_poster.png") %>
+                    </a>
+                    <div class = "share_sns">
+                           <a href = "#"> <%= image_tag("pc/share_facebook_icon.png", class: "share_facebook") %></a>
+                            <a href = "#"><%= image_tag("pc/share_twitter_icon.png", class: "share_twitter") %></a>
+                        </div>
+        			</div>
+                </div>
+			<%= image_tag("pc/poster/poster_gift.png", class: "poster_gift") %>
+		</div>
+	</section>
+	<section id = "brand_talk">
+        <div class = "contents_wrapper center">
+            <div class = "brand_left_column">
+        		<%= image_tag("pc/title_brand_talk.png", class: "brand_talk_title") %>
+                <%= image_tag("pc/brand_talk_background.png", class: "brand_talk_background clearfix") %>
+            </div>
+            <div class = "brand_right_column clearfix">
+                <%= image_tag("pc/brand_talk_contents.png") %>
+                <br>
+                <%= link_to do %>
+                    <%= image_tag("pc/link_frostine_site.png", class: "link_frostine_site") %>
+                <% end %>
+            </div>
+            <%= image_tag("pc/comment_about_challenge.png", class: "title_comment") %>
+            <div class = "comment_list_wrapper">
+                
+            </div>
+        </div>
+	</section>
+</article>
+<footer id = "about_event">
+    <div class = "contents_wrapper center">
+        <%= image_tag("pc/event_information.png") %>
+    </div>
+</footer>
+
+<div class = "popup" id = "popup_already">
+    <div class = "popup_contents_wrapper">
+        <%= image_tag("pc/popup/already_participation.png", class: "popup_fn_title") %>
+        <a href = "#">
+            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
+        </a>
+    </div>
+    <a href = "#">
+        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+</div>
+
+<div class = "popup" id = "popup_thank">
+    <div class = "popup_contents_wrapper">
+        <%= image_tag("pc/popup/thank_event.png", class: "popup_fn_title") %>
+
+        <a href = "#">
+            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
+        </a>
+    </div>
+    <a href = "#">
+        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+</div>
+
+<div class = "popup" id = "popup_nexttime">
+    <div class = "popup_contents_wrapper">
+        <%= image_tag("pc/popup/popup_next_time.png", class: "popup_fn_title") %>
+        <a href = "#">
+            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
+        </a>
+    </div>
+    <a href = "#">
+        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+</div>
+<div class = "popup" id = "popup_personal">
+    <div class = "popup_contents_wrapper">
+        <%= image_tag("pc/popup/snow_icon.png", class: "snow_icon") %>
+        <div class = "privacy_wrapper centering">
+            
+        </div>
+        <a href = "#">
+            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_confirm") %>
+        </a>
+    </div>
+    <a href = "#">
+        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+</div>
+
+<div id = "participation_event" class = "popup">
+    <div class = "popup_contents_wrapper participate_event_wrapper">
+        <%= image_tag("pc/popup/participation_event.png", class: "title_participation_event") %>
+        <form action = "" name = "submit_information" class = "input_information_form">
+            <input type="text" name = "name" class = "input_name" required>
+            <input type="text" name = "phone_number" class = "input_phone" required>
+            <input type="text" name = "address" class = "input_address">
+            <input type="text" name = "detail_address" class = "input_detail_address">
+            <div class = "agree_wrapper">
+                <input type="checkbox" name = "agree_personal_info" class = "agree_personal_info">
+                <input type="checkbox" name = "agree_dealing_personal_info" class = "agree_dealing_personal_info">
+                <%= image_tag("pc/popup/agree_personal_information.png", class: "image_agree") %>
+                <a href = "#" id = "about_personal_information">
+                <%= image_tag("pc/popup/popup_input_show_more.png", class: "view_more_personal_info") %>
+                </a>
+            </div>
+            <%= image_submit_tag("pc/popup/popup_input_submit.png", id: "bt_submit") %>
+        </form>
+        <%= image_tag("pc/popup/more_info.png", class: "more_info") %>
+    </div>
+    <a href = "#">
+    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+</div>

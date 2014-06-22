@@ -1,31 +1,28 @@
-$(document).ready(function(){	
-	var clip = new ZeroClipboard( $(".copy_html"), {
-		moviePath: "<%= asset_path('ZeroClipboard.swf') %>",
-		swfPath: "<%= asset_path('ZeroClipboard.swf') %>",
-		// trustedDomains: ['*'],
-		// allowScriptAccess: "always",
-		debug: false
-	} );
-	
-	$('.select_custom_1').selectric();
-	$('.select_custom_2').selectric('refresh');
+$(document).ready(function(){
+  var q;  
+  var handler = function(event){
+      if (event.which == 13) {      
+        q = $("#address_query").val();
+        test_out(q);
+      }
+  };
+  $('#address_query').keyup(handler);
+  
+  
+  $('.select_custom_1').selectric();
+  $('.select_custom_2').selectric('refresh');
 
-	clip.on("load", function (clip) {
-		clip.on( "complete", function(clip, args) {
-			ga('send', 'event', 'button', 'click', '클립보드로 복사하는 버튼');
-			alert("ctrl+c 되었습니다.\nctrl+v 만 해주시면 되어요^^");
-		});
-	});
+  
   ga('send', 'event', 'button', 'click', '메인 페이지');
   $('#select_month').change(function(e){
     e.preventDefault();
     var month;
     var days;
     month = $("#select_month").val();
-		d = new Date();
-		this_day = d.getDate();
+    d = new Date();
+    this_day = d.getDate();
     if(month === '6'){
-			add_days = range(this_day, 30);
+      add_days = range(this_day, 30);
       $("#select_day option").remove();
       $.each(add_days, function( index, value ){
         $("#select_day").append($('<option>',{
@@ -35,7 +32,7 @@ $(document).ready(function(){
       });
     }else if(month === '7'){
       $("#select_day option").remove();
-			add_days = range(1, 27);
+      add_days = range(1, 27);
       $.each(add_days, function( index, value ){
         $("#select_day").append($('<option>',{
           value:value,
@@ -46,14 +43,14 @@ $(document).ready(function(){
   });
   $("#gift_button").click(function(e){
     e.preventDefault();
-		if(event_open() == "running"){
-	    $("#popup_info").bPopup({
-	      follow: [false, false], //x, y
-	      position: ['auto', 60], //x, y
-	      closeClass: 'b-close',
-	      modalColor: 'black'
-	    });
-		}
+    if(event_open() == "running"){
+      $("#popup_info").bPopup({
+        follow: [false, false], //x, y
+        position: ['auto', 60], //x, y
+        closeClass: 'b-close',
+        modalColor: 'black'
+      });
+    }
     ga('send', 'event', 'button', 'click', '피부 선물 받기');
   });
 
@@ -64,222 +61,190 @@ $(document).ready(function(){
       modalColor: 'black',
       follow: [false, false], //x, y
       position: ['auto', 70] //x, y
-      
     });
-    ga('send', 'event', 'button', 'click', '개인정보 동의 팝업');
   });
 
-  $("#new_user").bind("ajax:success", function(evt,data,status,xhr){
-    response = JSON.parse(xhr.responseText);
-    if(response.status==="success"){
-  			fb_analytics();
-      $("#popup_fin1").bPopup({
-        closeClass: 'b-close',
-        modalColor: 'black',
-        follow: [false, false], //x, y
-        position: ['auto', 70], //x, y
-        onClose: function(){$("#popup_info").bPopup().close();}
-      });
-    }else {
+  function test_out(q){
+    $.ajax({
+      "url": "//api.poesis.kr/post/search.php",
+      "type": "get",
+      "data": { "v": "1.1", "q": q, "ref": window.location.hostname },
+      "dataType": "jsonp",
+      "processData": true,
+      "cache": false,
+
+      // 요청이 성공한 경우 이 함수를 호출한다.
+        
+      "success": function(data, textStatus, jqXHR) {
+
+        // address: "광주광역시 광산구 월곡산정로 80"
+        // canonical: "월곡동 613-1"
+        // code5: "62356"
+        // code6: "506-825"
+        // dbid: "2920012800106130001001692"
+        // english_address: "80, Wolgoksanjeong-ro, Gwangsan-gu, Gwangju"
+        // extra_info_long: "월곡동 613-1, 금호아파트"
+        // extra_info_short: "월곡동, 금호아파트"
+        // jibeon_address: "광주광역시 광산구 월곡동 613-1"
+        // other: "월곡1동; 금호타운아파트"
+
+        query_results = data.results;
+
+        if(query_results.length > 20 || query_results.length === 0){
+          $(".address_box").hide();
+          alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지");
+        }else {
+          $.each(query_results, function( index, value ) {
+
+            li = "<li class='address_list' address-data='"+value.address+"' code6='"+value.code6+"'>";
+            p_new = "<p class='address_new'>"+value.address+"  "+value.code6+"</p>";
+            p_old = "<p class='address_old'>   ("+ value.extra_info_long+ ")</p></li>";
+              
+            $("#test_out").append(li+p_new+p_old);
+            $(".address_box").show();
+
+          });
+          $('.address_list').on("click", function(){
+            code6 = $(this).attr("code6");
+            address_data = $(this).attr("address-data");
+            $("#code6").val(code6);
+            $("#address_query").val(address_data);
+            $(".address_box").hide();
+            $(".address_box").empty();
+          
+          });
+
+        }
+      },
+
+      // 요청이 실패한 경우 이 함수를 호출한다.
+
+      "error": function(jqXHR, textStatus, errorThrown) {
+
+      },
+
+      // 요청 후에는 이 함수를 호출한다.
+      "complete": function(jqXHR, textStatus) {
+      }
+    });
+  }
+  function event_open(){
+    var result;
+    result = $.ajax({
+      async: false,
+      type: 'get',
+      url: '/event_open.json',
+      success: function (data) {
+      }
+    });
+    if(result.responseJSON.result == "not_yet"){
+      alert("이벤트 오픈: 6월 12일");
     }
-  
-  }).bind('ajax:error',function(evt,xhr,status,error){
-    var $form = $(this),errors,errorText;
-    errors = $.parseJSON(xhr.responseText);
-  
-    if(errors.status === "duplicated"){
-      $("#popup_fin2").bPopup({
-        closeClass: 'b-close',
-        modalColor: '#000',
-        follow: [false, false], //x, y
-        position: ['auto', 70], //x, y
-        onClose: function(){$("#popup_info").bPopup().close();}
-      });
-    }else{
-      validation(errors);
-    }
+    return result.responseJSON.result;
+  }
+
+  $("#request_poster").click(function(event) {
+    event.preventDefault();
+    $("#participation_event").bPopup({
+      positionStyle: 'fixed',
+      closeClass: 'close',
+      modalColor: 'black'
+    });
   });
 
-  $("#product_button").click(function(e){
-    e.preventDefault();
-    $("#popup_product").modal({
-      closeClass: 'b-close',
+  $("#about_personal_information").click(function(event) {
+    event.preventDefault();
+    $("#participation_event").bPopup().close();
+    $("#popup_personal").bPopup({
+      positionStyle: 'fixed',
+      closeClass: 'close',
+      modalColor: 'black',
+      onClose: function(){
+        $("#participation_event").bPopup({
+          positionStyle: 'fixed',
+          closeClass: 'close',
+          modalColor: 'black'
+        });
+      }
     });
-    ga('send', 'event', 'button', 'click', '제품 자세히 보기');
   });
 
-  $("#qna_button").click(function(e){
-    e.preventDefault();
-    $("#popup_qna").modal({
-      closeClass: 'b-close',
-    });
-    ga('send', 'event', 'button', 'click', 'pc qna');
+  $(".bt_fn_confirm, .bt_confirm").click(function(event) {
+    event.preventDefault();
+    $(this).parents(".popup").bPopup().close();
   });
 
-  $("#blog_share_link").click(function(e){
-    e.preventDefault();
-		if(event_open() == "running"){
-	    $("#popup_blog").modal({
-	      closeClass: 'b-close',
-	    });
-		}
-    blog_share();
-    ga('send', 'event', 'button', 'click', 'pc 블로그로 공유하기 버튼');
-  });	
-	
-  $("#twitter_share_link").click(function(e){
-    e.preventDefault();
-		var text = $(this).attr("data-text");
-		var url = $(this).attr("data-url");
-		if(event_open() == "running"){
-	    twitter_share(text, url);
-		}
-    ga('send', 'event', 'button', 'click', 'twitter 공유하기 버튼');
-  });	
-		
-  $("#info_phone").mask("999-9999-9999");
+  //smooth-scroll.js
+  smoothScroll.init({
+    speed: 300,
+    easing: 'easeOutQuint',
+    offset: $("#nav_bar").outerHeight()
+  });
+
+  // head navigation
   
-  $.ajaxSetup({ cache: true });
-  $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
-    FB.init({
-      appId      : '<%= Rails.application.secrets.fb_app_id %>',
-      channelUrl : '//<%= Rails.application.secrets.url %>/channel.html', // Channel file for x-domain comms
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
-    FB.Canvas.setSize();
-    FB.Canvas.setAutoGrow();
-    $("#facebook_share_link").click(function(e){
-      e.preventDefault();
-			if(event_open() == "running"){
-	      $.ajax({
-	        type: "POST",
-	        url: "/viral_actions.json",
-	        data: {
-	          'viral_action[platform]': "Facebook",
-	          'viral_action[device]': "pc"
-	        },
-	        success: function (data) {
-	        }
-	      });
-	      share();
-			}
-    });
-  });	
+
+  // change large event
+  $("a[id^='bt_poster_item']").click(function(event) {
+    event.preventDefault();
+    var selectId = "#" + $(this).attr("id").slice(3);
+    $(".poster_display").removeClass('poster_display').addClass('poster_hidden');
+    $(selectId).removeClass('poster_hidden').addClass('poster_display');
+  });
+
+  // inital loading page 
+  // scroll to top
+  // $(window).load(function() {
+  //   setTimeout($('html, body').animate({ scrollTop: 0 }, 0));
+  // });
+  // 
 });
 
 
-function event_open(){
-	var result;
-	result = $.ajax({
-		async: false,
-		type: 'get',
-		url: '/event_open.json',
-		success: function (data) {
-		}
-	});
-	if(result.responseJSON.result == "not_yet"){
-		alert("이벤트 오픈: 6월 12일");
-	}
-	return result.responseJSON.result;
-}
-
-function twitter_share(text, url){
-	window.open("https://twitter.com/intent/tweet?url="+encodeURIComponent(url)+"&text="+encodeURIComponent(text)+ "&count=none/", "", "height=300, width=550, resizable=1");
-	
-  $.ajax({
-    type: "POST",
-    url: "/viral_actions.json",
-    data: {
-      'viral_action[platform]': "Twitter",
-      'viral_action[device]': "pc"
-    },
-    success: function (data) {
-    }
-  });
-}
-
-function blog_share()
-{
-  $.ajax({
-    type: "POST",
-    url: "/viral_actions.json",
-    data: {
-      'viral_action[platform]': "Blog",
-      'viral_action[device]': "pc"
-    },
-    success: function (data) {
-      
-    }
-    });
-}
 
 
-function validation(errors){
-	var flag;
-	flag = "uniqueness";
-	$.each(errors,function(key, value){
-		if(value == "must be accepted" || value == "can't be blank" ){
-			flag = "presence";
-		}
-	});
-	if(flag == "presence"){
-		$(".star").empty();
-		for ( error in errors ) {
-		  $('input[data-name ='+error+']').parent().find('span').remove();
-		 $('input[data-name ='+error+']').after("<span class='star "+error+"'>*</span>");
-		}
-	}else if(flag == "uniqueness"){
-    $("#popup_fin2").bPopup({
-      closeClass: 'b-close',
-      modalColor: '#000',
-      follow: [false, false], //x, y
-      position: ['auto', 70], //x, y
-      onClose: function(){$("#popup_info").bPopup().close();}
-    });		
-	}
-}
 
-function share() {
-  var text = "첫 구매 고객님에게\n워터-풀 타임리스 워터 젤 크림 (20ml)를 선물로 드립니다.";
-  var share_content = {
-    method: "feed",
-    name: "Skin Birthday",
-    link: "<%= Rails.application.secrets.url %>?s=fb",
-    picture: 'https://<%= Rails.application.secrets.url %><%=asset_url("sns/facebook_share.jpg") %>',
-    caption: "Make your skin birthday Sponsored by 숨37",
-    description: text
-  };
-  FB.ui(share_content, function(response) {
-    if(response && response.post_id) {
-      track_viral_action(viral_url, "facebook");
-      alert("공유되었습니다.");
-    }
-    else {
-      alert("다시 공유해주세요!");
-    }
-  });
-}
 
-function range(lowEnd, highEnd){
-	var list = [];
-	for (var i = lowEnd; i <= highEnd; i++) {
-	    list.push(i);
-	}
-	return list;
-}
+$(window).scroll(function() {
+    clearTimeout($.data(this, 'scrollTimer'));
+    $.data(this, 'scrollTimer', setTimeout(function() {
+        var poster_coupon_offset = 55;
+        var brand_talk_offset = 38;
+        // console.log(checkRatioOfElementInView("#poster_coupon"));
+        // console.log(checkRatioOfElementInView("#brand_talk"));
+        if( checkRatioOfElementInView("#poster_coupon") >= poster_coupon_offset) {
+          smoothScroll.animateScroll( null, '#poster_coupon' );
+        }
+        if( checkRatioOfElementInView("#brand_talk") >= brand_talk_offset) {
+          smoothScroll.animateScroll( null, '#brand_talk' );
+        }
+    }, 100));
+});
 
-function fb_analytics(){
-	var fb_param = {};
-	fb_param.pixel_id = '6012354702952';
-	fb_param.value = '0.00';
-	fb_param.currency = 'KRW';
-	(function(){
-	  var fpw = document.createElement('script');
-	  fpw.async = true;
-	  fpw.src = '//connect.facebook.net/en_US/fp.js';
-	  var ref = document.getElementsByTagName('script')[0];
-	  ref.parentNode.insertBefore(fpw, ref);
-	})();
+
+function checkRatioOfElementInView(elem) { 
+  var result = 0;
+  var docViewHeight = $(window).height();
+  var docViewTop = $(window).scrollTop();
+  var docViewBottom = docViewTop + docViewHeight;
+
+  var elemOuterHeight = $(elem).outerHeight();
+  var elemTop = $(elem).offset().top;
+  var elemBottom = elemTop + elemOuterHeight;
+
+  if( (elemTop >= docViewTop + $("#nav_bar").outerHeight()) && (elemTop <= docViewBottom)) {
+    return ( (docViewBottom - elemTop) / docViewHeight * 100 );
+  }else {
+    return 0;
+  }
+
+  // console.log(elem);
+  // //console.log("docViewHeight :" + docViewHeight);
+  // console.log("docViewHeight : " + docViewHeight);
+  // console.log("elemOuterHeight : " + elemOuterHeight);
+  // console.log("docViewTop : " + docViewTop);
+  // console.log("elemTop : " + elemTop);
+  // console.log("docViewBottom : " + docViewBottom);
+  // console.log("elemBottom : " + elemBottom);
+  return result;
 }

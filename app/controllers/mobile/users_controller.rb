@@ -9,23 +9,16 @@ class Mobile::UsersController < ApplicationController
     user_agent = UserAgent.parse(request.user_agent)
     device = "mobile" if user_agent.mobile?
     @user = User.new(user_params)
-    birthday = "2014-"+params[:user][:birthday_month]+"-"+params[:user][:birthday_day]
-    @user.birthday = DateTime.parse(birthday)
     @user.device = device
     @user.source = session[:source]
     Rails.logger.info "@@@session@@@"+session[:source].to_s
     
     respond_to do |format|
       if @user.save
-        c = Coupon.new
-        c.code = c.random_code
-        c.user = @user
-        c.save
-        MessageJob.new.async.perform(c)
         @log = AccessLog.new(ip: request.remote_ip, device: device)
         @log.user = @user
         @log.save
-        format.html { redirect_to mobile_thank_you_path, notice: 'User was successfully created.' }
+        format.html { redirect_to mobile_thanks_path, notice: 'User was successfully created.' }
         format.json { render json: {status: "success"}, status: :created, location: @user }
       else
         format.html {
@@ -65,7 +58,7 @@ class Mobile::UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :phone, :birthday, :agree, :agree2, :birthday_month, :birthday_day)
+    params.require(:user).permit(:name, :phone, :agree, :agree2, :address, :address_detail, :poster_code, :code6)
   end
       
 end
