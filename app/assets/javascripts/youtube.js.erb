@@ -6,8 +6,8 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('ytplayer', {
-    videoId: '8X6nCG95J1Y',
-    width: 500,
+    videoId: 'df2ujJZzKvw',
+    width: 960,
     height: 500,
     events: {
       'onReady': ytHover
@@ -20,8 +20,4 @@ function ytHover(event){
   $("#ytplayer").mouseover(function(event) {
     console.log("lll");
   }); 
-  // ytplayer = document.getElementById("ytplayer");
-  // ytplayer.onmouseover=function(){
-    
-  // };
 }
