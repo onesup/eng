@@ -229,27 +229,30 @@
             
               <% if @user.errors[:agree2].any? %>
                 <script>alert("개인정보활용 동의를 확인해주세요.");</script>
-                <span class="check_error">*</span>
+                <!-- <span class="check_error">*</span> -->
               <% end %>
+              <div class="agree2">
+                <!-- <span class="star">*</span> -->
               <%= f.check_box "agree2", 
               {"data-name" => "agree2", id:"info_input_radio2", 
                 class: "agree_personal_info" }%>
+                </div>
         <% if @user.errors[:agree].any? %>
           <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
-          <span class="check_error">*</span>
+          <!-- <span class="check_error">*</span> -->
         <% end %>
+        <div class="agree1">
+          <!-- <span class="star">*</span> -->
         <%= f.check_box "agree", 
         {"data-name" => "agree", id:"info_input_radio1", 
-          class: "agree_dealing_personal_info" }%>          
-                <!-- <input type="checkbox" name = "agree_personal_info" class = "agree_personal_info">
-                <input type="checkbox" name = "agree_dealing_personal_info" class = "agree_dealing_personal_info"> -->
+          class: "agree_dealing_personal_info" }%>   </div>
                 <%= image_tag("pc/popup/agree_personal_information.png", class: "image_agree") %>
                 
-                <a href = "#" id = "about_personal_information">
-                <%= image_tag("pc/popup/popup_input_show_more.png", class: "view_more_personal_info") %>
+                <a href="#" id="about_personal_information" class="view_more_personal_info">
+                  <%= image_tag("pc/popup/popup_input_show_more.png") %>
                 </a>
-                <a href = "#" id = "about_brand_information">
-                <%= image_tag("pc/popup/popup_input_show_more.png", class: "view_more_brand_info") %>
+                <a href="#" id="about_brand_information" class="view_more_brand_info">
+                  <%= image_tag("pc/popup/popup_input_show_more.png") %>
                 </a>
             </div>
             <%= image_submit_tag("pc/popup/popup_input_submit.png", id: "bt_submit") %>

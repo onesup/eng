@@ -18,12 +18,12 @@ $(document).ready(function(){
     errors = $.parseJSON(xhr.responseText);
   
     if(errors.status === "duplicated"){
-      $("#popup_fin2").bPopup({
+      $("#popup_already").bPopup({
         closeClass: 'b-close',
         modalColor: '#000',
         follow: [false, false], //x, y
-        position: ['auto', 70], //x, y
-        onClose: function(){$("#popup_info").bPopup().close();}
+        position: ['auto', 'auto'], //x, y
+        onClose: function(){$("#participation_event").bPopup().close();}
       });
     }else{
       validation(errors);
@@ -317,6 +317,7 @@ function address_success_query(query_results){
 }
 
 function validation(errors){
+  console.log(errors);
 	var flag;
 	flag = "uniqueness";
 	$.each(errors,function(key, value){
@@ -326,17 +327,20 @@ function validation(errors){
 	});
 	if(flag == "presence"){
 		$(".star").empty();
+    $('.popup_input').css('background','white');
+
 		for ( error in errors ) {
-		  $('input[data-name ='+error+']').parent().find('span').remove();
-		 $('input[data-name ='+error+']').after("<span class='star "+error+"'>*</span>");
+      $('input[data-name ='+error+']').css('background','pink');
+		 // $('input[data-name ='+error+']').parent().find('span').remove();
+	   // $('input[data-name ='+error+']').after("<span class='star "+error+"'>*</span>");
 		}
 	}else if(flag == "uniqueness"){
-    $("#popup_fin2").bPopup({
+    $("#popup_already").bPopup({
       closeClass: 'b-close',
       modalColor: '#000',
       follow: [false, false], //x, y
-      position: ['auto', 70], //x, y
-      onClose: function(){$("#popup_info").bPopup().close();}
+      position: ['auto', 'auto'], //x, y
+      onClose: function(){$("#participation_event").bPopup().close();}
     });		
 	}
 }

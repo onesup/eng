@@ -475,16 +475,17 @@ margin-top:6px;
 
 //input[type=text]
 .popup_input{
+  border: 0px;
   display: block;
   width: 200px;
-  height: 26px;
+  height: 28px;
   margin-left: 120px;
 }
 .input_name{
   margin-bottom: 18px;
 }
 .input_phone{
-  margin-bottom: 22px;
+  margin-bottom: 27px;
 }
 .input_address{
   width: 160px;
@@ -493,7 +494,9 @@ margin-top:6px;
 }
 
 .btn_address{
-  width: 30px;
+  border: 0px;
+  height: 28px;
+  width: 32px;
   margin-left: 5px;
 }
 
@@ -522,21 +525,37 @@ input[type=checkbox]{
   position: absolute;
   top: 22px;
 }
+.checkboxes{
+  float:left;
+}
+.checkbox-image{
+  float:left;
+}
+.checkbox-buttons{
+  float:left;
+}
+.agree1{
+  width: 20px;
+}
+.agree2{
+  width: 20px;
+}
 .image_agree{
-  position: absolute;
-  left: 20px;
+  position: relative;
+  left: 31px;
+  top: 1;
 }
 .view_more_personal_info{
   position: absolute;
   top: -4px;
-  left: 100px;
+  left: 112px;
 }
 
 
 .view_more_brand_info{
   position: absolute;
   top: 19px;
-  left: 140px;
+  left: 155px;
 }
 
 #bt_submit{
