@@ -5,14 +5,13 @@ class Mobile::UsersController < ApplicationController
   
   def create
     user_agent = UserAgent.parse(request.user_agent)
-    device = "mobile" if user_agent.mobile?
     @user = User.new(user_params)
     @user.device = "mobile"
     @user.source = session[:source]
     
     respond_to do |format|
-      if @user.save!
-        @log = AccessLog.new(ip: request.remote_ip, device: device)
+      if @user.save
+        @log = AccessLog.new(ip: request.remote_ip, device: "mobile")
         @log.user = @user
         @log.save
         format.html { redirect_to mobile_thanks_path, notice: 'User was successfully created.' }
@@ -48,14 +47,12 @@ class Mobile::UsersController < ApplicationController
       redirect_to mobile_unique_error_path()
     else
       redirect_to action: "new"
-      
     end
   end
 
-
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :phone, :agree, :agree2, :address, :address_detail, :poster_code, :code6)
-  end
-      
+    params.require(:user)
+      .permit(:name, :phone, :agree, :agree2, :address, :address_detail, :poster_code, :code6)
+  end 
 end
