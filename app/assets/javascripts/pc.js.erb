@@ -2,11 +2,17 @@ $(document).ready(function(){
   var q;  
   var handler = function(event){
       if (event.which == 13) {      
-        q = $("#address_query").val();
+        q = $("#info_address").val();
         test_out(q);
       }
   };
-  $('#address_query').keyup(handler);
+  $('#info_address').keyup(handler);
+  
+  $('#info_address_btn').click(function(e){
+    e.preventDefault();
+		q = $("#info_address").val();
+		test_out(q);
+  });
   
   
   $('.select_custom_1').selectric();
@@ -87,33 +93,39 @@ $(document).ready(function(){
         // extra_info_short: "월곡동, 금호아파트"
         // jibeon_address: "광주광역시 광산구 월곡동 613-1"
         // other: "월곡1동; 금호타운아파트"
-
-        query_results = data.results;
-
-        if(query_results.length > 20 || query_results.length === 0){
-          $(".address_box").hide();
-          alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지");
-        }else {
-          $.each(query_results, function( index, value ) {
-
-            li = "<li class='address_list' address-data='"+value.address+"' code6='"+value.code6+"'>";
-            p_new = "<p class='address_new'>"+value.address+"  "+value.code6+"</p>";
-            p_old = "<p class='address_old'>   ("+ value.extra_info_long+ ")</p></li>";
-              
-            $("#test_out").append(li+p_new+p_old);
-            $(".address_box").show();
-
-          });
-          $('.address_list').on("click", function(){
-            code6 = $(this).attr("code6");
-            address_data = $(this).attr("address-data");
-            $("#code6").val(code6);
-            $("#address_query").val(address_data);
-            $(".address_box").hide();
-            $(".address_box").empty();
+        
+        
+  			query_results = data.results;
+        
+  			$("#addresses").empty();
+        	$("#addresses").append("<option selected disabled>주소검색결과</option>");
+			
+			
+  			if(query_results.length > 20 || query_results.length === 0){
+  				$(".address_box").css("display", "none");
+  				alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지");
+				
+  			}else {
+			
+  				$.each(query_results, function( index, value ) {
+				
           
-          });
-
+            extra_info = "<optgroup label='"+value.address+"'>";
+            address = "<option class='address_list' value='"+value.address+"'>"+value.extra_info_long+"</option></optgroup>";
+          
+  					$("#addresses").append(extra_info+address);
+  					$(".address_box").css("display", "block");
+								
+  				});
+			
+  				$('#addresses').on("change", function(){
+  					code6 = $(this).attr("code6");
+  					address_data = $(this).val();
+  					$("#info_code6").val(code6);
+  					$("#info_address").val(address_data);
+  					$(".address_box").css("display", "none");
+				
+  				});	
         }
       },
 
@@ -146,6 +158,16 @@ $(document).ready(function(){
   $("#request_poster").click(function(event) {
     event.preventDefault();
     $("#participation_event").bPopup({
+      positionStyle: 'fixed',
+      closeClass: 'close',
+      modalColor: 'black'
+    });
+  });
+
+
+  $("#request_address").click(function(event) {
+    event.preventDefault();
+    $("#address_request_event").bPopup({
       positionStyle: 'fixed',
       closeClass: 'close',
       modalColor: 'black'

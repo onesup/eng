@@ -373,10 +373,11 @@ margin-top:6px;
 	background: white;
 	display: none;
 	border: 1px solid red;
-	width: 500px;
-	height: 100px;
+	width: 200px;
+	height: 20px;
 	overflow: scroll;
 }
+
 #about_event{
   width: 100%;
   background-color: #444444;
@@ -455,7 +456,9 @@ margin-top:6px;
   background-image: url(/assets/pc/popup/input_form_background.png);
   background-repeat: no-repeat;
 }
-input[type=text]{
+
+//input[type=text]
+.popup_input{
   display: block;
   width: 200px;
   height: 26px;
@@ -468,11 +471,24 @@ input[type=text]{
   margin-bottom: 22px;
 }
 .input_address{
+  width: 160px;
   margin-bottom: 4px;
+  float: left;
 }
+
+.btn_address{
+  width: 30px;
+  margin-left: 5px;
+}
+
 .input_detail_address{
   margin-bottom: 44px;
 }
+
+#address_request_event{
+  float: left;
+}
+
 input[type=checkbox]{
   width: 20px;
   height: 20px;
