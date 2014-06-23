@@ -6,11 +6,17 @@ $(document).ready(function(){
   
 	var q;	
 			
+  $('#info_address_btn').click(function(e){
+    e.preventDefault();
+		q = $("#info_address").val();
+        console.log(q);
+		test_out(q);
+  });
+ 
 	var handler = function(event){
 			if (event.which == 13) {			
 				q = $("#info_address").val();
 				test_out(q);
-
 	        }
 	};
 	$('#info_address').keyup(handler);
@@ -82,7 +88,7 @@ function test_out(q){
 			
 			
 			if(query_results.length > 20 || query_results.length === 0){
-				$(".address_box").hide();
+				$(".address_box").css("display", "none");
 				alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지");
 				
 			}else {
@@ -94,7 +100,7 @@ function test_out(q){
           address = "<option class='address_list' value='"+value.address+"'>"+value.extra_info_long+"</option></optgroup>";
           
 					$("#addresses").append(extra_info+address);
-					$(".address_box").show();
+					$(".address_box").css("display", "block");
 								
 				});
 			
@@ -103,7 +109,7 @@ function test_out(q){
 					address_data = $(this).val();
 					$("#info_code6").val(code6);
 					$("#info_address").val(address_data);
-					$(".address_box").hide();
+					$(".address_box").css("display", "none");
 				
 				});	
 			}
