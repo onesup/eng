@@ -1,23 +1,23 @@
-<div class="popup">
+<div class="popup" data-enhance="false">
   <%= form_for([:mobile, @user]) do |f| %>
   <div class="navi2">
-    <%= link_to(image_tag("mobile/exit.png", id:"exit"), "#exit") %>
+    <%= link_to(image_tag("mobile/exit.png", id:"exit"), "index") %>
   </div>
   <div class="content">
     <%= image_tag("mobile/apply/title.png", class:"popup_title") %>
     <div class="input_box">
-      <%= image_tag("mobile/apply/text_name.png", style:"width: 20%;") %> 
+      <%= image_tag("mobile/apply/text_name.png", style:"width: 20%;") %>
       <%= f.hidden_field(:poster_code,
-      {"data-name" => "name", id: "info_poster_code", 
+      {"data-name" => "name", id: "info_poster_code",
         class:"popup_input", value: "", maxlength: "12"
       })%>
       <%= f.text_field(:name, 
        {"data-name" => "name", id: "info_name", 
           class:"popup_input", value: "", maxlength: "12"})%>      
       <br><br>
-      <%= image_tag("mobile/apply/text_phone.png", style:"width: 20%;") %> 
-      <%= f.text_field(:phone, 
-        {"data-name" => "name", id: "info_phone", 
+      <%= image_tag("mobile/apply/text_phone.png", style:"width: 20%;") %>
+      <%= f.text_field(:phone,
+        {"data-name" => "name", id: "info_phone",
           class:"popup_input", value: "", maxlength: "12"})%>
       <br><br>
       <%= image_tag("mobile/apply/text_address.png", style:"width: 20%;") %> 
@@ -26,17 +26,16 @@
           class:"popup_input popup_input_address", value: "", maxlength: "12", placeholder: "주소 검색 (예: OO동 OO번지)"})%>
             
       <%= button_tag("검색", id:"info_address_btn", class:"btn_address") %>      
-            
       <br>
       <select id="addresses" class="address_box">
       </select>
-      <%= f.hidden_field(:code6, 
-        {"data-name" => "name", id: "info_code6", 
-          class:"popup_input", value: "", maxlength: "12"})%> 
+      <%= f.hidden_field(:code6,
+        {"data-name" => "name", id: "info_code6",
+          class:"popup_input", value: "", maxlength: "12"})%>
       <br>
-      <%= image_tag("mobile/apply/text_address_more.png", style:"width: 20%;") %> 
-      <%= f.text_field(:address_detail, 
-        {"data-name" => "name", id: "info_address_detail", 
+      <%= image_tag("mobile/apply/text_address_more.png", style:"width: 20%;") %>
+      <%= f.text_field(:address_detail,
+        {"data-name" => "name", id: "info_address_detail",
           class:"popup_input", value: "", maxlength: "12"})%>
     </div>
     <div class="agree_box">

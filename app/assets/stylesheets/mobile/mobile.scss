@@ -70,6 +70,15 @@ body{
 .video_small .video_vid{
   width: 50%;
   margin: 1% 0% 1% 0%;
+
+}
+
+.video_small .video_twitter{
+  width: 12%;
+}
+
+.video_small .video_facebook{
+  width: 12%;
 }
 
 .poster{
@@ -83,14 +92,15 @@ body{
   margin: 20% 5% 5% 5%;
 }
 
-.poster .poster_box{
+.poster #poster_box{
   width: 100%;
-  overflow: scroll;
+  overflow: hidden;
 }
 
-.poster .poster_inbox{
+.poster #poster_inbox{
   width: 350%;
   display: inline-block;
+  margin-left: 9%;
 }
 
 .poster .poster_element{
@@ -100,6 +110,11 @@ body{
 .poster .poster_button{
   width: 48%;
   margin-bottom: 8%;
+}
+
+.poster .poster_scroll{
+  width: 6%;
+  margin: 0 2% 8% 2%;
 }
 
 .poster .gift{
@@ -163,6 +178,7 @@ body{
 .popup_input{
   width: 45%;
   margin-left: 10%;
+  display: inline-block;
 }
 
 .popup_input_address{
