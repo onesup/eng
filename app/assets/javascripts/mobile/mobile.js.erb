@@ -1,4 +1,6 @@
 $(document).ready(function(){
+ 
+  
 	$('#poster_inbox').owlCarousel({
 		navigation : true, // Show next and prev buttons
 		slideSpeed : 300,
@@ -19,7 +21,25 @@ $(document).ready(function(){
 		q = $("#info_address").val();
 		test_out(q);
   });
-
+  
+  $('#btn_poster_coupon').click(function(e){
+    e.preventDefault();
+    $('.contain').css("margin-left", "0");
+    smoothScroll.animateScroll( null, '#poster_coupon' );
+  });
+  
+  $('#btn_brand_talk').click(function(e){
+    e.preventDefault();
+    $('.contain').css("margin-left", "0");
+    smoothScroll.animateScroll( null, '#brand_talk' );
+  });
+  
+  $('#btn_brand_film').click(function(e){
+    e.preventDefault();
+    $('.contain').css("margin-left", "0");
+    smoothScroll.animateScroll( null, '#brand_film' );
+  });
+  
 	var handler = function(event){
 			if (event.which == 13) {
 				q = $("#info_address").val();
@@ -46,7 +66,6 @@ $(document).ready(function(){
   get_poster_code();
 
 });
-
 
 function get_poster_code(){
   $(".poster_select").click(function(e){
