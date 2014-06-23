@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  get_poster_code();
+  
   var q;  
   var handler = function(event){
       if (event.which == 13) {      
@@ -220,11 +222,16 @@ $(document).ready(function(){
   //   setTimeout($('html, body').animate({ scrollTop: 0 }, 0));
   // });
   // 
+  
+
 });
 
-
-
-
+function get_poster_code(){
+  $(".poster_select").click(function(e){
+    var code = $(this).attr("code");
+    $("#info_poster_code").val(code);
+  });
+}
 
 
 $(window).scroll(function() {

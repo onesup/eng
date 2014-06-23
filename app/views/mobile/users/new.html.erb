@@ -9,7 +9,7 @@
       <%= image_tag("mobile/apply/text_name.png", style:"width: 20%;") %>
       <%= f.hidden_field(:poster_code,
       {"data-name" => "name", id: "info_poster_code",
-        class:"popup_input", value: "", maxlength: "12"
+        class:"popup_input", value: ""
       })%>
       <%= f.text_field(:name, 
        {"data-name" => "name", id: "info_name", 
@@ -31,7 +31,7 @@
       </select>
       <%= f.hidden_field(:code6,
         {"data-name" => "code6", id: "info_code6",
-          class:"popup_input", value: "", maxlength: "12"})%>
+          class:"popup_input", value: ""})%>
       <br>
       <%= image_tag("mobile/apply/text_address_more.png", style:"width: 20%;") %>
       <%= f.text_field(:address_detail,
