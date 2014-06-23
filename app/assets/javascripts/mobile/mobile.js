@@ -7,8 +7,6 @@ $(document).ready(function(){
     navigationText: ["<<",">>"]
 	});
 
-  $.mobile.ajaxEnabled=false;
-  $.mobile.loadingMessage = false;
   
   $("#info_address").focus(function(){
     alert("검색할 주소를 입력하세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지)");
@@ -19,7 +17,6 @@ $(document).ready(function(){
   $('#info_address_btn').click(function(e){
     e.preventDefault();
 		q = $("#info_address").val();
-        console.log(q);
 		test_out(q);
   });
 
@@ -36,7 +33,7 @@ $(document).ready(function(){
   $('#menu').click(function(e){
     e.preventDefault();
     if( swt ){
-      $('.contain').animate({'margin-left': '-70%'});
+      $('.contain').animate({'margin-left': '-60%'});
       swt = false;
     } else {
       $('.contain').animate({'margin-left': '0%'});

@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :phone, presence: true
   validates :phone, uniqueness: true
+  validates :address, presence: true
+  validates :address_detail, presence: true
 
   attr_accessor :birthday_month, :birthday_day
   attr_accessor :agree, :agree2

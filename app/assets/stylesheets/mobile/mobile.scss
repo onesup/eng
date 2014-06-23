@@ -12,8 +12,8 @@ body{
 }
 
 .menu_form .menu_list{
-  margin-left: 16%;
-  width: 100%;
+  margin-left: 26%;
+  width: 83%;
   display: block;
 }
 
@@ -204,6 +204,8 @@ body{
 }
 
 .popup_input{
+  border: 0;
+  height: 18px;
   width: 45%;
   margin-left: 10%;
   display: inline-block;
@@ -215,22 +217,27 @@ body{
 
 .btn_address{
   width: 16%;
+  border: 0;
+  height: 20px;
 }
 
 #poster_inbox .item img{
     display: block;
 }
 
+.dummy{
+  height: 500px;
+}
 .agree_box{
   text-align: left;
-  padding-left: 30%;
+  padding-left: 15%;
   margin-top: 10%;
   margin-bottom: 10%;
 }
 
 .text_agree_more{
   margin-left: 4%;
-  width: 31%;
+  width: 25%;
 }
 
 .apply_btn{
@@ -263,6 +270,8 @@ body{
 }
 
 .field_with_errors .popup_input{
+  background: #ffcfd9;
+  border: 0;
 }
 
 .check_error{
@@ -272,6 +281,10 @@ body{
   background: #424242;
 }
 
+.agree_content{
+  text-align: left;
+  font-size: 10pt;
+}
 .info_input_radio{
   
 }
