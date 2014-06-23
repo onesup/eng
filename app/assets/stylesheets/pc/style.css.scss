@@ -375,7 +375,6 @@ margin-top:6px;
 .address_box{
 	position: absolute;
 	background: white;
-	display: none;
 	border: 1px solid red;
 	width: 200px;
 	height: 20px;
@@ -395,6 +394,12 @@ margin-top:6px;
 #popup_personal > .popup_contents_wrapper{
   height: 560px;
 }
+
+
+#popup_brand > .popup_contents_wrapper{
+  height: 560px;
+}
+
 .snow_icon{
   margin-top: 20px;
   margin-left: 190px;
@@ -504,7 +509,7 @@ input[type=checkbox]{
   width: 200px;
   height: 40px;
   margin-top: 10px;
-  margin-left: 120px;
+  margin-left: 100px;
 }
 .agree_personal_info{
   position: absolute;
@@ -521,6 +526,13 @@ input[type=checkbox]{
   position: absolute;
   top: -4px;
   left: 100px;
+}
+
+
+.view_more_brand_info{
+  position: absolute;
+  top: 19px;
+  left: 140px;
 }
 
 #bt_submit{

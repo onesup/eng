@@ -184,21 +184,15 @@
         <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
     </a>
 </div>
-<div class = "popup" id = "popup_personal">
-    <div class = "popup_contents_wrapper">
-        <%= image_tag("pc/popup/snow_icon.png", class: "snow_icon") %>
-        <div class = "privacy_wrapper centering">
-            
-        </div>
-        <a href = "#">
-            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_confirm") %>
-        </a>
-    </div>
-    <a href = "#">
-        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-    </a>
-</div>
+
+   <%= render "popup_personal"%>      
          
+
+  <%= render "popup_brand"%>        
+         
+<div id="test_out" class="address_box">
+
+</div>                     
          
 <div id = "participation_event" class = "popup">
     <div class = "popup_contents_wrapper participate_event_wrapper">
@@ -215,15 +209,11 @@
               class:"popup_input input_phone", value: ""})%>
           <%= f.text_field(:address, 
             {"data-name" => "address", id: "info_address", 
-              class:"popup_input input_address popup_input_address", value: "",  placeholder: "주소 검색 (예: OO동 OO번지)"})%>
+              class:"popup_input input_address popup_input_address", value: "가산동 램킨",  placeholder: "주소 검색 (예: OO동 OO번지)"})%>
            <a href = "#" id = "request_address">
                <%= button_tag("검색", id:"info_address_btn", class:"btn_address") %>
            </a>    
-         
-          <div id="address_request_event" class="popup">
-            <select id="addresses" class="address_box">
-            </select>
-          </div>          
+               
           
             <%= f.text_field(:address_detail, 
               {"data-name" => "address_detail", id: "info_address_detail", 
@@ -250,11 +240,16 @@
                 <!-- <input type="checkbox" name = "agree_personal_info" class = "agree_personal_info">
                 <input type="checkbox" name = "agree_dealing_personal_info" class = "agree_dealing_personal_info"> -->
                 <%= image_tag("pc/popup/agree_personal_information.png", class: "image_agree") %>
+                
                 <a href = "#" id = "about_personal_information">
                 <%= image_tag("pc/popup/popup_input_show_more.png", class: "view_more_personal_info") %>
                 </a>
+                <a href = "#" id = "about_brand_information">
+                <%= image_tag("pc/popup/popup_input_show_more.png", class: "view_more_brand_info") %>
+                </a>
             </div>
             <%= image_submit_tag("pc/popup/popup_input_submit.png", id: "bt_submit") %>
+            
         <%end%>
         <%= image_tag("pc/popup/more_info.png", class: "more_info") %>
     </div>
