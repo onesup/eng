@@ -1,4 +1,12 @@
 $(document).ready(function(){
+	$('#poster_inbox').owlCarousel({
+		navigation : true, // Show next and prev buttons
+		slideSpeed : 300,
+		paginationSpeed : 400,
+    singleItem:true,
+    navigationText: ["<<",">>"]
+	});
+
   $.mobile.ajaxEnabled=false;
   $.mobile.loadingMessage = false;
   
@@ -38,24 +46,10 @@ $(document).ready(function(){
 
   var posterPage = 0;
 
-  $('#poster_swipe_1').click(function(){posterToLeft(0)});
-  $('#poster_swipe_2').click(function(){posterToLeft(1)});
-  $('#poster_swipe_3').click(function(){posterToLeft(2)});
-  $('#poster_swipe_4').click(function(){posterToLeft(3)});
-  $('#poster_swipe_5').click(function(){posterToLeft(4)});
-
-  $('#poster_box').on("swipeleft", function(){if(posterPage<4) posterToLeft(++posterPage)});
-  $('#poster_box').on("swiperight", function(){if(posterPage>0) posterToLeft(--posterPage)});
-
   get_poster_code();
 
 });
 
-function posterToLeft( input ){
-  event.preventDefault();
-  $('#poster_inbox').animate({'margin-left': 9-(input*67)+"%"});
-  posterPage = input;
-}
 
 function get_poster_code(){
   $(".poster_select").click(function(e){
