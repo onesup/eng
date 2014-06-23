@@ -70,6 +70,15 @@ body{
 .video_small .video_vid{
   width: 50%;
   margin: 1% 0% 1% 0%;
+
+}
+
+.video_small .video_twitter{
+  width: 12%;
+}
+
+.video_small .video_facebook{
+  width: 12%;
 }
 
 .poster{
@@ -169,6 +178,7 @@ body{
 .popup_input{
   width: 45%;
   margin-left: 10%;
+  display: inline-block;
 }
 
 .agree_box{
