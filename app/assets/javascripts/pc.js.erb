@@ -1,4 +1,36 @@
 $(document).ready(function(){
+  
+  $("#new_user").bind("ajax:success", function(evt,data,status,xhr){
+    response = JSON.parse(xhr.responseText);
+    if(response.status==="success"){
+      $("#popup_thank").bPopup({
+        closeClass: 'b-close',
+        modalColor: 'black',
+        follow: [false, false], //x, y
+        position: ['auto', 'auto'], //x, y
+        onClose: function(){$("#participation_event").bPopup().close();}
+      });
+    }else {
+    }
+  
+  }).bind('ajax:error',function(evt,xhr,status,error){
+    var $form = $(this),errors,errorText;
+    errors = $.parseJSON(xhr.responseText);
+  
+    if(errors.status === "duplicated"){
+      $("#popup_fin2").bPopup({
+        closeClass: 'b-close',
+        modalColor: '#000',
+        follow: [false, false], //x, y
+        position: ['auto', 70], //x, y
+        onClose: function(){$("#popup_info").bPopup().close();}
+      });
+    }else{
+      validation(errors);
+    }
+  });
+  
+  
   get_poster_code();
   
   var q;  
@@ -100,7 +132,7 @@ $(document).ready(function(){
 
   $("#request_address").click(function(event) {
     event.preventDefault();
-    $("#address_request_event").bPopup({
+    $("#address_box").bPopup({
       positionStyle: 'fixed',
       closeClass: 'close',
       modalColor: 'black'
@@ -247,7 +279,7 @@ function test_out(q){
     // 요청이 성공한 경우 이 함수를 호출한다.
     "success": function(data, textStatus, jqXHR) {
 			query_results = data.results;
-			$(".address_box").empty();
+			$("#addresses").empty();
 			if(query_results.length > 20 || query_results.length === 0){
 				$(".address_box").hide();
 				alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지)");
@@ -270,16 +302,41 @@ function address_success_query(query_results){
     var p_new = "<p class='address_new'>"+value.address+"  "+value.code6+"</p>";
     var p_old = "<p class='address_old'>   ("+ value.extra_info_long+ ")</p></li>";
 						
-    $("#test_out").append(li+p_new+p_old);
-    $(".address_box").show();		
+    $("#addresses").append(li+p_new+p_old);
+    $(".address_box").bPopup();		
   });
           
   $('.address_list').on("click", function(){
     var code6 = $(this).attr("code6");
     var address_data = $(this).attr("address-data");
-    $("#code6").val(code6);
-    $("#address-data").val(address_data);
-    $(".address_box").hide();
-    $(".address_box").empty();
+    $("#info_code6").val(code6);
+    $("#info_address").val(address_data);
+    $(".address_box").bPopup().close();
+    $("#addresses").empty();
   });
+}
+
+function validation(errors){
+	var flag;
+	flag = "uniqueness";
+	$.each(errors,function(key, value){
+		if(value == "must be accepted" || value == "can't be blank" ){
+			flag = "presence";
+		}
+	});
+	if(flag == "presence"){
+		$(".star").empty();
+		for ( error in errors ) {
+		  $('input[data-name ='+error+']').parent().find('span').remove();
+		 $('input[data-name ='+error+']').after("<span class='star "+error+"'>*</span>");
+		}
+	}else if(flag == "uniqueness"){
+    $("#popup_fin2").bPopup({
+      closeClass: 'b-close',
+      modalColor: '#000',
+      follow: [false, false], //x, y
+      position: ['auto', 70], //x, y
+      onClose: function(){$("#popup_info").bPopup().close();}
+    });		
+	}
 }

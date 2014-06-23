@@ -373,11 +373,12 @@ margin-top:6px;
 }
 
 .address_box{
+  float: left;
 	position: absolute;
 	background: white;
 	border: 1px solid red;
-	width: 200px;
-	height: 20px;
+	width: 400px;
+	height: 350px;
 	overflow: scroll;
 }
 
@@ -438,6 +439,12 @@ margin-top:6px;
   width: 440px;
   background-color: white;
 }
+
+.address_wrapper{
+  margin: 10px;
+  background-color: white;
+}
+
 .close{
   float: left;
   width: 46px;
@@ -494,9 +501,6 @@ margin-top:6px;
   margin-bottom: 44px;
 }
 
-#address_request_event{
-  float: left;
-}
 
 input[type=checkbox]{
   width: 20px;
