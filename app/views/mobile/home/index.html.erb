@@ -1,13 +1,14 @@
 <div class="menu_form">
-	<%= link_to(image_tag("mobile/back/menu_1.png", class:"menu_list"), "#menu_1") %>
-	<%= link_to(image_tag("mobile/back/menu_2.png", class:"menu_list"), "#menu_2") %>
-	<%= link_to(image_tag("mobile/back/menu_3.png", class:"menu_list"), "#menu_3") %>
+	<%= link_to(image_tag("mobile/back/menu_1.png", class:"menu_list"), "#menu_1", id:"btn_poster_coupon") %>
+	<%= link_to(image_tag("mobile/back/menu_2.png", class:"menu_list"), "#menu_2", id:"btn_brand_talk") %>
+	<%= link_to(image_tag("mobile/back/menu_3.png", class:"menu_list"), "#menu_3", id:"btn_brand_film") %>
 </div>
 <div class="contain">
-	<div class="navi">
+  <nav data-scroll-header class="navi" id="mobile_navi">
 		<%= image_tag("mobile/logo.png", class:"logo") %>
 		<%= link_to(image_tag("mobile/main/button_menu.png", id:"menu"), "#menu") %>
-	</div>
+	</nav>
+  <section id="brand_film">
 	<div class="content">
 		<%= image_tag("mobile/main/title.png", class:"content_full_element") %>
 		<%= link_to(image_tag("mobile/main/video_main.png", class:"content_full_element"), "#video_main") %>
@@ -15,19 +16,23 @@
 			<div class="video_div">
 				<%= image_tag("mobile/main/video_2_title.png", class:"video_title") %><br>
 				<%= image_tag("mobile/main/video_2.png", class:"video_vid") %>
-				<%= link_to(image_tag("mobile/twitter.png", class:"video_twitter"), "#") %>
-				<%= link_to(image_tag("mobile/facebook.png", class:"video_facebook"), "#") %>
+				<%= link_to(image_tag("mobile/twitter.png", class:"video_twitter"), "#", id:"twitter_share_link_2", "data-text" => "당신과 가장 닮은 포스터를 선택하세요. 무모할만큼 실속있는 시크릿 선물을 담아 포스터와 함께 보내드립니다. 5천명 모두에게", "data-url" => "http://www.youtube.com/watch?v=yK7pEo4qnN0") %>
+				<%= link_to(image_tag("mobile/facebook.png", class:"video_facebook"), "#", id:"facebook_share_link_2") %>
 				<%= image_tag("mobile/main/video_2_content.png", class:"video_title") %>
 			</div>
 			<div class="video_div">
 				<%= image_tag("mobile/main/video_1_title.png", class:"video_title") %><br>
 				<%= image_tag("mobile/main/video_1.png", class:"video_vid") %>
-				<%= link_to(image_tag("mobile/twitter.png", class:"video_twitter"), "#") %>
-				<%= link_to(image_tag("mobile/facebook.png", class:"video_facebook"), "#") %>
+      
+				<%= link_to(image_tag("mobile/twitter.png", class:"video_twitter"), "#", id:"twitter_share_link_1", "data-text" => "당신과 가장 닮은 포스터를 선택하세요. 무모할만큼 실속있는 시크릿 선물을 담아 포스터와 함께 보내드립니다. 5천명 모두에게", "data-url" => "http://www.youtube.com/watch?v=yK7pEo4qnN0") %>
+  			  <%= link_to(image_tag("mobile/facebook.png", class:"video_facebook"), "#", id:"facebook_share_link_1") %>	
+        
 				<%= image_tag("mobile/main/video_1_content.png", class:"video_title") %>
 			</div>
 		</div>
 	</div>
+</section>
+  <section id="poster_coupon">
 	<div class="poster">
 		<%= image_tag("mobile/main/poster_title.png", class:"poster_title") %>
 		<div id="poster_box">
@@ -63,10 +68,13 @@
     <br>
 		<%= image_tag("mobile/main/gift.png", class:"gift") %>
 	</div>
+</section>
+<section id="brand_talk">
 	<div class="site">
-		<%= link_to(image_tag("mobile/main/button_site.png", class:"site_btn"), "#site_btn") %><br>
+		<%= link_to(image_tag("mobile/main/button_site.png", class:"site_btn"), "http://www.frostine.com/", target: "_blank") %><br>
 		<%= image_tag("mobile/main/site.png", class:"site_content") %>
 	</div>
+</section>
 	<div class="caution">
 		<%= image_tag("mobile/main/caution.png", class:"caution") %>
 	</div>
