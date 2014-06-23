@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     get 'apply' => 'home#apply'
     get 'fail' => 'home#fail'
     get 'already' => 'home#already'
+    get 'agree' => 'home#agree'
     resources :users
   end
 
