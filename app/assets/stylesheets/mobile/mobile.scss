@@ -98,13 +98,17 @@ body{
 }
 
 .poster #poster_inbox{
-  width: 350%;
+  width: 100%;
   display: inline-block;
   margin-left: 9%;
 }
 
+.owl-theme .owl-controls{
+  width: 100%;
+}
+
 .poster .poster_element{
-  width: 19%;
+  width: 83%;
 }
 
 .poster .poster_button{
@@ -112,6 +116,30 @@ body{
   margin-bottom: 8%;
 }
 
+.owl-theme .owl-controls {
+  width: 83%;
+  margin-bottom: 15px;
+}
+.owl-theme .owl-controls .owl-buttons{
+  width: 100%;
+  margin-top: -80%;
+  margin-left:-9%;
+  position: absolute;
+  
+}
+
+
+.owl-theme .owl-controls .owl-buttons .owl-prev{
+  margin-right:67%;
+}
+.owl-theme .owl-controls .owl-page span{
+  background: none;
+  border: 3px solid #343434;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  margin-right: 14px;
+}
 .poster .poster_scroll{
   width: 6%;
   margin: 0 2% 8% 2%;
@@ -181,6 +209,18 @@ body{
   display: inline-block;
 }
 
+.popup_input_address{
+  width: 28%;
+}
+
+.btn_address{
+  width: 16%;
+}
+
+#poster_inbox .item img{
+    display: block;
+}
+
 .agree_box{
   text-align: left;
   padding-left: 30%;
@@ -204,13 +244,34 @@ body{
 }
 
 .address_box{
-  font-size:8pt;
-	position: absolute;
-	background: white;
 	display: none;
+	position: absolute;
+  width: 37%;
+  right: 20%;
+  margin: 0;
+  padding: 0;
 	border: 1px solid gray;
 	overflow: scroll;
-  margin: 0% 0% 0% 0%;
-  padding: 0% 0% 0% 0%;
+  font-size:8pt;
+	background: white;
+}
 
+.field_with_errors{
+  display: inline;
+  width: 45%;
+  
+}
+
+.field_with_errors .popup_input{
+}
+
+.check_error{
+}
+
+.caution{
+  background: #424242;
+}
+
+.info_input_radio{
+  
 }

@@ -1,4 +1,12 @@
 $(document).ready(function(){
+	$('#poster_inbox').owlCarousel({
+		navigation : true, // Show next and prev buttons
+		slideSpeed : 300,
+		paginationSpeed : 400,
+    singleItem:true,
+    navigationText: ["<<",">>"]
+	});
+
   $.mobile.ajaxEnabled=false;
   $.mobile.loadingMessage = false;
   
@@ -6,18 +14,22 @@ $(document).ready(function(){
     alert("검색할 주소를 입력하세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지)");
   });
 
+	var q;	
 
-	var q;
+  $('#info_address_btn').click(function(e){
+    e.preventDefault();
+		q = $("#info_address").val();
+        console.log(q);
+		test_out(q);
+  });
 
 	var handler = function(event){
 			if (event.which == 13) {
 				q = $("#info_address").val();
 				test_out(q);
-
 	        }
 	};
 	$('#info_address').keyup(handler);
-
 
   var swt = true;
   $('.menu_form').css('height', $(window).height());
@@ -34,24 +46,10 @@ $(document).ready(function(){
 
   var posterPage = 0;
 
-  $('#poster_swipe_1').click(function(){posterToLeft(0)});
-  $('#poster_swipe_2').click(function(){posterToLeft(1)});
-  $('#poster_swipe_3').click(function(){posterToLeft(2)});
-  $('#poster_swipe_4').click(function(){posterToLeft(3)});
-  $('#poster_swipe_5').click(function(){posterToLeft(4)});
-
-  $('#poster_box').on("swipeleft", function(){if(posterPage<4) posterToLeft(++posterPage)});
-  $('#poster_box').on("swiperight", function(){if(posterPage>0) posterToLeft(--posterPage)});
-
   get_poster_code();
 
 });
 
-function posterToLeft( input ){
-  event.preventDefault();
-  $('#poster_inbox').animate({'margin-left': 9-(input*67)+"%"});
-  posterPage = input;
-}
 
 function get_poster_code(){
   $(".poster_select").click(function(e){
@@ -102,7 +100,7 @@ function test_out(q){
 
 
 			if(query_results.length > 20 || query_results.length === 0){
-				$(".address_box").hide();
+				$(".address_box").css("display", "none");
 				alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지");
 
 			}else {
@@ -114,8 +112,7 @@ function test_out(q){
           address = "<option class='address_list' value='"+value.address+"'>"+value.extra_info_long+"</option></optgroup>";
 
 					$("#addresses").append(extra_info+address);
-					$(".address_box").show();
-
+					$(".address_box").css("display", "block");
 				});
 
 				$('#addresses').on("change", function(){
@@ -127,7 +124,6 @@ function test_out(q){
 
 				});
 			}
-
         },
 
         // 요청이 실패한 경우 이 함수를 호출한다.

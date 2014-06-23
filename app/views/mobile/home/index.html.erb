@@ -31,21 +31,36 @@
 	<div class="poster">
 		<%= image_tag("mobile/main/poster_title.png", class:"poster_title") %>
 		<div id="poster_box">
-			<div id="poster_inbox">
-				<%= link_to "#poster_1", code:"1", class:"poster_select" do%><%= image_tag("mobile/main/poster_1.png", class:"poster_element") %><%end%>
-			  <%= link_to "#poster_2", code:"2", class:"poster_select" do%><%= image_tag("mobile/main/poster_1.png", class:"poster_element") %><%end%>
-			  <%= link_to "#poster_3", code:"3", class:"poster_select" do%><%= image_tag("mobile/main/poster_1.png", class:"poster_element") %><%end%>
-			  <%= link_to "#poster_4", code:"4", class:"poster_select" do%><%= image_tag("mobile/main/poster_1.png", class:"poster_element") %><%end%>
-			  <%= link_to "#poster_5", code:"5", class:"poster_select" do%><%= image_tag("mobile/main/poster_1.png", class:"poster_element") %><%end%>
+			<div id="poster_inbox" class="owl-carousel owl-theme">
+				<div class="item">
+          <%= link_to "#poster_1", code:"1", class:"poster_select" do%>
+          <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
+          <%end%>
+        </div>
+			  <div class="item">
+          <%= link_to "#poster_2", code:"2", class:"poster_select" do%>
+          <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
+          <%end%>
+        </div>
+			  <div class="item">
+          <%= link_to "#poster_3", code:"3", class:"poster_select" do%>
+          <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
+          <%end%>
+        </div>
+			  <div class="item">
+          <%= link_to "#poster_4", code:"4", class:"poster_select" do%>
+          <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
+          <%end%>
+        </div>
+			  <div class="item">
+          <%= link_to "#poster_5", code:"5", class:"poster_select" do%>
+          <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
+          <%end%>
+        </div>
 			</div>
 		</div>
 		<%= link_to new_mobile_user_path(code:"1"), "data-href" => new_mobile_user_path, id:"poster_btn" do%><%= image_tag("mobile/main/poster_apply.png", class:"poster_button") %><%end%>
     <br>
-		<%= link_to(image_tag("mobile/main/scroll_icon.png", class:"poster_scroll", id:"poster_swipe_1"), "#") %>
-		<%= link_to(image_tag("mobile/main/scroll_icon.png", class:"poster_scroll", id:"poster_swipe_2"), "#") %>
-		<%= link_to(image_tag("mobile/main/scroll_icon.png", class:"poster_scroll", id:"poster_swipe_3"), "#") %>
-		<%= link_to(image_tag("mobile/main/scroll_icon.png", class:"poster_scroll", id:"poster_swipe_4"), "#") %>
-		<%= link_to(image_tag("mobile/main/scroll_icon.png", class:"poster_scroll", id:"poster_swipe_5"), "#") %>
 		<%= image_tag("mobile/main/gift.png", class:"gift") %>
 	</div>
 	<div class="site">
