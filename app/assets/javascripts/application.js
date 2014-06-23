@@ -21,6 +21,7 @@
 //= require jquery.maskedinput.min
 // require jquery.modal
 //= require ZeroClipboard
+//= require pc/share
 //= require pc
 //= require smooth-scroll.js
 //= require headroom.min.js
