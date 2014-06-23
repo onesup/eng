@@ -24,7 +24,7 @@ class Mobile::UsersController < ApplicationController
           if flag == "presence"
             render action: 'new' 
           else
-            redirect_to mobile_unique_error_path
+            redirect_to mobile_already_path
           end
         }
         format.json { render json: @user.errors, status: :unprocessable_entity }
