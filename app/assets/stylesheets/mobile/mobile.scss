@@ -68,7 +68,11 @@ body{
   display: inline-block;
 }
 
-.video_small .video_title{
+.video_small .link_movie_1{
+  width: 85%;
+}
+
+.video_small .link_movie_2{
   width: 70%;
 }
 
@@ -317,4 +321,9 @@ body{
 .address_caption{
   font-size: 0.7em;
   margin-left: 27%;
+}
+
+.link_movie_icon{
+  text-decoration: none;
+   
 }
