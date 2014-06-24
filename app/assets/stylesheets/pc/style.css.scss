@@ -120,26 +120,43 @@ a{
 }
 
 .share_facebook_on_movie{
+//  border: solid red 1px;
+  float: left;
   visibility: visible;
   position: absolute;
   width: 50px;
   height: 50px;
-  top: 50px;
-  left: 100px;
- // background: #ffffff;
+  top: 200px;
+  left: 370px;
+  background: #00f;
   opacity: 0;
-  z-index: 1;
+  z-index: 2;
 }
 .share_twitter_on_movie{
+//  border: solid red 1px;
+  float: left;
   visibility: visible;
   position: absolute;
   width: 50px;
   height: 50px;
-  top: 50px;
-  left: 200px;
- // background: #ffffff;
+  top: 200px;
+  left: 530px;
+  background: #0f0;
   opacity: 0;
-  z-index: 1;
+  z-index: 2;
+}
+
+.share_on_movie{
+  visibility: visible;
+  position: absolute;
+  width: 960px;
+  height: 500px;
+  top: 0;
+  left: 0;
+  background: #000;
+//  border: solid blue 1px;
+  opacity: 0;
+  z-index: 1;  
 }
 .other_movies{
   width: 820px;
@@ -379,6 +396,7 @@ margin-top:6px;
 	width: 400px;
 	height: 350px;
 	overflow: scroll;
+  display: none;
 }
 
 #about_event{
