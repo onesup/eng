@@ -33,7 +33,7 @@ class Mobile::UsersController < ApplicationController
   end
   
   def new
-    @user = User.new
+    @user = User.new(poster_code: params[:code])
   end
     
   private

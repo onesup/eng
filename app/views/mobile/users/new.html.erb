@@ -3,13 +3,13 @@
   <div class="navi2">
     <%= link_to(image_tag("mobile/exit.png", id:"exit"), mobile_index_path) %>
   </div>
-  <div class="content">
+  <div class="content user_new_content">
     <%= image_tag("mobile/apply/title.png", class:"popup_title") %>
     <div class="input_box">
       <%= image_tag("mobile/apply/text_name.png", style:"width: 20%;") %>
       <%= f.hidden_field(:poster_code,
-      {"data-name" => "name", id: "info_poster_code",
-        class:"popup_input", value: ""
+      {"data-name" => "poster_code", id: "info_poster_code",
+        class:"popup_input"
       })%>
       <%= 
 				f.text_field(:name, {"data-name" => "name", id: "info_name", class:"popup_input", value: ""}) 

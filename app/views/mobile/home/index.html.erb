@@ -38,33 +38,35 @@
 		<div id="poster_box">
 			<div id="poster_inbox" class="owl-carousel owl-theme">
 				<div class="item">
-          <%= link_to "#poster_1", code:"1", class:"poster_select" do%>
+          <%= link_to new_mobile_user_path(code:"1"), code:"1", class:"poster_select" do%>
           <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
           <%end%>
         </div>
 			  <div class="item">
-          <%= link_to "#poster_2", code:"2", class:"poster_select" do%>
+          <%= link_to new_mobile_user_path(code:"2"), code:"2", class:"poster_select" do%>
           <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
           <%end%>
         </div>
 			  <div class="item">
-          <%= link_to "#poster_3", code:"3", class:"poster_select" do%>
+          <%= link_to new_mobile_user_path(code:"3"), code:"3", class:"poster_select" do%>
           <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
           <%end%>
         </div> 
 			  <div class="item">
-          <%= link_to "#poster_4", code:"4", class:"poster_select" do%>
+          <%= link_to new_mobile_user_path(code:"4"), code:"4", class:"poster_select" do%>
           <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
           <%end%>
         </div>
 			  <div class="item">
-          <%= link_to "#poster_5", code:"5", class:"poster_select" do%>
+          <%= link_to new_mobile_user_path(code:"5"), code:"5", class:"poster_select" do%>
           <%= image_tag("mobile/main/poster_1.png", class:"poster_element") %>
           <%end%>
         </div>
 			</div>
 		</div>
-		<%= link_to new_mobile_user_path(code:"1"), "data-href" => new_mobile_user_path, id:"poster_btn" do%><%= image_tag("mobile/main/poster_apply.png", class:"poster_button") %><%end%>
+    
+		<%#= link_to new_mobile_user_path(code:"1"), "data-href" => new_mobile_user_path, id:"poster_btn" do%><%#= image_tag("mobile/main/poster_apply.png", class:"poster_button") %><%#end%>
+    
     <br>
 		<%= image_tag("mobile/main/gift.png", class:"gift") %>
 	</div>
