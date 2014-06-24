@@ -10,10 +10,6 @@ $(document).ready(function(){
 	});
 
   
-  $("#info_address").focus(function(){
-    alert("검색할 주소를 입력하세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지)");
-  });
-
 	var q;	
 
   $('#info_address_btn').click(function(e){
@@ -96,23 +92,11 @@ function test_out(q){
 
         "success": function(data, textStatus, jqXHR) {
 
-			// address: "광주광역시 광산구 월곡산정로 80"
-			// canonical: "월곡동 613-1"
-			// code5: "62356"
-			// code6: "506-825"
-			// dbid: "2920012800106130001001692"
-			// english_address: "80, Wolgoksanjeong-ro, Gwangsan-gu, Gwangju"
-			// extra_info_long: "월곡동 613-1, 금호아파트"
-			// extra_info_short: "월곡동, 금호아파트"
-			// jibeon_address: "광주광역시 광산구 월곡동 613-1"
-			// other: "월곡1동; 금호타운아파트"
-
-
-            // 검색후 콜백 함수를 실행한다.
+		
 			query_results = data.results;
 
 			$("#addresses").empty();
-      	$("#addresses").append("<option selected disabled>주소검색결과</option>");
+      	$("#addresses").append("<option selected disabled value='default'>주소검색결과</option>");
 
 
 			if(query_results.length > 20 || query_results.length === 0){

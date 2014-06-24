@@ -6,6 +6,7 @@
   <div class="content user_new_content">
     <%= image_tag("mobile/apply/title.png", class:"popup_title") %>
     <div class="input_box">
+      <div class="fields">
       <%= image_tag("mobile/apply/text_name.png", style:"width: 20%;") %>
       <%= f.hidden_field(:poster_code,
       {"data-name" => "poster_code", id: "info_poster_code",
@@ -19,22 +20,25 @@
       <%= f.text_field(:phone,
         {"data-name" => "phone", id: "info_phone", class:"popup_input", value: ""})%>
       <br><br>
+        <p class="address_caption">검색 예: 언주로 406, 역삼동 712-3</p>
+
       <%= image_tag("mobile/apply/text_address.png", style:"width: 20%;") %> 
       <%= f.text_field(:address, 
         {"data-name" => "address", id: "info_address", 
-          class:"popup_input popup_input_address", value: "", placeholder: "주소 검색 (예: OO동 OO번지)"})%>
+          class:"popup_input popup_input_address", value: "", placeholder: "역삼동 개나리아파트"})%>
       <%= button_tag("검색", id:"info_address_btn", class:"btn_address") %>      
       <br>
+    
       <select id="addresses" class="address_box">
       </select>
       <%= f.hidden_field(:code6,
         {"data-name" => "code6", id: "info_code6",
           class:"popup_input", value: ""})%>
-      <br>
       <%= image_tag("mobile/apply/text_address_more.png", style:"width: 20%;") %>
       <%= f.text_field(:address_detail,
         {"data-name" => "address_detail", id: "info_address_detail",
-          class:"popup_input", value: ""})%>
+          class:"popup_input", value: "", placeholder: "예) 101동 101호"})%>
+          </div>
     </div>
     <div class="agree_box">
       <% if @user.errors[:agree].any? %>

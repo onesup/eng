@@ -1,3 +1,4 @@
+
 body{
   margin: 0;
 }
@@ -200,29 +201,43 @@ body{
 }
 
 .input_box{
-  width: 85%;
+  width: 100%;
   margin-top: 8%;
-  margin-left: 7%;
+  
   background-color: #363636;
   padding: 5% 0% 5% 0%;
+  text-align: center;
+}
+
+.fields{
+  text-align: left;
+  padding-left: 5%;
 }
 
 .popup_input{
   border: 0;
   height: 18px;
-  width: 45%;
-  margin-left: 10%;
+  width: 65%;
+  margin-left: 5%;
   display: inline-block;
+  -webkit-appearance: none;
+  -webkit-border-radius:0; 
+  border-radius:0;
+  
 }
 
 .popup_input_address{
-  width: 28%;
+  width: 48%;
+  margin-bottom: 3%;
 }
 
 .btn_address{
   width: 16%;
   border: 0;
   height: 20px;
+  font-size: 0.5em;
+  background: #bdbdbd;
+  margin-top: -1%;
 }
 
 #poster_inbox .item img{
@@ -256,15 +271,17 @@ body{
 
 .address_box{
 	display: none;
-	position: absolute;
+	position: relative;
   width: 37%;
-  right: 20%;
+  right: -26%;
   margin: 0;
   padding: 0;
 	border: 1px solid gray;
 	overflow: scroll;
   font-size:8pt;
 	background: white;
+  margin-top: -2%;
+  margin-bottom:1%;
 }
 
 .field_with_errors{
@@ -295,4 +312,9 @@ body{
 
 .user_new_content{
   margin-top: 0;
+}
+
+.address_caption{
+  font-size: 0.7em;
+  margin-left: 27%;
 }
