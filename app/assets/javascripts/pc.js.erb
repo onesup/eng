@@ -122,6 +122,9 @@ $(document).ready(function(){
 
   $("#request_poster").click(function(event) {
     event.preventDefault();
+		$(".star").empty(); 
+    $('.popup_input').css('background','white');
+    
     $("#participation_event").bPopup({
       positionStyle: 'fixed',
       closeClass: 'close',
