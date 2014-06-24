@@ -1,82 +1,78 @@
-
 $.ajaxSetup({ cache: true });
 $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
-	FB.init({
-		appId      : '<%= Rails.application.secrets.fb_app_id %>',
+  FB.init({
+    appId      : '<%= Rails.application.secrets.fb_app_id %>',
     channelUrl : '//<%= Rails.application.secrets.url %>/channel.html', // Channel file for x-domain comms
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
   });
-	FB.Canvas.setSize();
-	FB.Canvas.setAutoGrow();
-  
-  
-	$("#facebook_share_link_1").click(function(e){
-		e.preventDefault();
-		if(event_open()=="running"){
-			$.ajax({
-				type: "POST",
-				url: "/viral_actions.json",
-				data: {
-					'viral_action[platform]': "Facebook",
-					'viral_action[device]': "mobile"
-				},
-				success: function (data) {
-				}
-			});
-			fb_share_video_1();
-		}
-	});
-  
-	$("#facebook_share_link_2").click(function(e){
-		e.preventDefault();
-		if(event_open()=="running"){
-			$.ajax({
-				type: "POST",
-				url: "/viral_actions.json",
-				data: {
-					'viral_action[platform]': "Facebook",
-					'viral_action[device]': "mobile"
-				},
-				success: function (data) {
-				}
-			});
-			fb_share_video_2();
-		}
-	});
-	
+
+  $("#facebook_share_link_1").click(function(e){
+    e.preventDefault();
+    if(event_open()=="running"){
+      $.ajax({
+        type: "POST",
+        url: "/viral_actions.json",
+        data: {
+          'viral_action[platform]': "Facebook",
+          'viral_action[device]': "mobile"
+        },
+        success: function (data) {
+        }
+      });
+      fb_share_video_1();
+    }
+  });
+
+  $("#facebook_share_link_2").click(function(e){
+    e.preventDefault();
+    if(event_open()=="running"){
+      $.ajax({
+        type: "POST",
+        url: "/viral_actions.json",
+        data: {
+          'viral_action[platform]': "Facebook",
+          'viral_action[device]': "mobile"
+        },
+        success: function (data) {
+        }
+      });
+      fb_share_video_2();
+    }
+  });
+
   $("#twitter_share_link_1").click(function(e){
     e.preventDefault();
-		var text = $(this).attr("data-text");
-		var url = $(this).attr("data-url");
-		if(event_open() == "running"){
-	    twitter_share_video_1(text, url);
-		}
+    var text = $(this).attr("data-text");
+    var url = $(this).attr("data-url");
+    if(event_open() == "running"){
+      twitter_share_video_1(text, url);
+    }
     ga('send', 'event', 'button', 'click', 'twitter 공유하기 버튼');
-  });	
-  
+  });
+
   $("#twitter_share_link_2").click(function(e){
     e.preventDefault();
-		var text = $(this).attr("data-text");
-		var url = $(this).attr("data-url");
-		if(event_open() == "running"){
-	    twitter_share_video_2(text, url);
-		}
+    var text = $(this).attr("data-text");
+    var url = $(this).attr("data-url");
+    if(event_open() == "running"){
+      twitter_share_video_2(text, url);
+    }
     ga('send', 'event', 'button', 'click', 'twitter 공유하기 버튼');
-  });	
-});
+  });
 
-  
+
+
   $("#poster_twitter_share_link").click(function(e){
     e.preventDefault();
-		var text = $(this).attr("data-text");
-		var url = $(this).attr("data-url");
-		if(event_open() == "running"){
-	    twitter_share_poster(text, url);
-		}
+    var text = $(this).attr("data-text");
+    var url = $(this).attr("data-url");
+    if(event_open() == "running"){
+      twitter_share_poster(text, url);
+    }
     ga('send', 'event', 'button', 'click', 'twitter 공유하기 버튼');
-  });	
+  });
 });
 
 function event_open() {
@@ -149,10 +145,10 @@ function fb_share_poster() {
       alert("다시 공유해주세요!");
     }
   });
-  
+
 function twitter_share_video_1(text, url){
-	window.open("https://twitter.com/intent/tweet?url="+encodeURIComponent(url)+"&text="+encodeURIComponent(text)+ "&count=none/", "", "height=300, width=550, resizable=1");
-	
+  window.open("https://twitter.com/intent/tweet?url="+encodeURIComponent(url)+"&text="+encodeURIComponent(text)+ "&count=none/", "", "height=300, width=550, resizable=1");
+
   $.ajax({
     type: "POST",
     url: "/viral_actions.json",
@@ -167,8 +163,8 @@ function twitter_share_video_1(text, url){
 
 
 function twitter_share_video_2(text, url){
-	window.open("https://twitter.com/intent/tweet?url="+encodeURIComponent(url)+"&text="+encodeURIComponent(text)+ "&count=none/", "", "height=300, width=550, resizable=1");
-	
+  window.open("https://twitter.com/intent/tweet?url="+encodeURIComponent(url)+"&text="+encodeURIComponent(text)+ "&count=none/", "", "height=300, width=550, resizable=1");
+
   $.ajax({
     type: "POST",
     url: "/viral_actions.json",
@@ -183,8 +179,8 @@ function twitter_share_video_2(text, url){
 
 
 function twitter_share_poster(text, url){
-	window.open("https://twitter.com/intent/tweet?url="+encodeURIComponent(url)+"&text="+encodeURIComponent(text)+ "&count=none/", "", "height=300, width=550, resizable=1");
-	
+  window.open("https://twitter.com/intent/tweet?url="+encodeURIComponent(url)+"&text="+encodeURIComponent(text)+ "&count=none/", "", "height=300, width=550, resizable=1");
+
   $.ajax({
     type: "POST",
     url: "/viral_actions.json",
