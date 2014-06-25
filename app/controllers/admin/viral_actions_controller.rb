@@ -31,5 +31,26 @@ class Admin::ViralActionsController < ApplicationController
       sum(case when viral_actions.platform = 'kakaotalk' then 1 else 0 end) as kakaotalk_count, 
       sum(case when viral_actions.platform = 'blog' then 1 else 0 end) as blog_count, 
       count(*) as total_count") 
+    @viral_title_counts_daily = ViralAction.select(
+    "date(convert_tz(viral_actions.created_at,'+00:00','+09:00')) as created_date,
+    sum(case when viral_actions.title = 'movie1' then 1 else 0 end) as movie1_count, 
+  	sum(case when viral_actions.title = 'movie2' then 1 else 0 end) as movie2_count, 
+  	sum(case when viral_actions.title = 'poster1' then 1 else 0 end) as poster1_count, 
+  	sum(case when viral_actions.title = 'poster2' then 1 else 0 end) as poster2_count, 
+    sum(case when viral_actions.title = 'poster3' then 1 else 0 end) as poster3_count,
+    sum(case when viral_actions.title = 'poster4' then 1 else 0 end) as poster4_count, 
+  	sum(case when viral_actions.title = 'poster5' then 1 else 0 end) as poster5_count,
+    count(*) as total_count")
+    .group("date(convert_tz(viral_actions.created_at,'+00:00','+09:00'))")
+    .order("date(convert_tz(viral_actions.created_at,'+00:00','+09:00'))")
+    @viral_title_counts_sum = ViralAction.select(
+    "sum(case when viral_actions.title = 'movie1' then 1 else 0 end) as movie1_count, 
+  	sum(case when viral_actions.title = 'movie2' then 1 else 0 end) as movie2_count, 
+  	sum(case when viral_actions.title = 'poster1' then 1 else 0 end) as poster1_count, 
+  	sum(case when viral_actions.title = 'poster2' then 1 else 0 end) as poster2_count, 
+    sum(case when viral_actions.title = 'poster3' then 1 else 0 end) as poster3_count,
+    sum(case when viral_actions.title = 'poster4' then 1 else 0 end) as poster4_count, 
+  	sum(case when viral_actions.title = 'poster5' then 1 else 0 end) as poster5_count,
+    count(*) as total_count")
   end
 end

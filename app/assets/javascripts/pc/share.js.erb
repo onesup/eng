@@ -22,7 +22,8 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 				url: "/viral_actions.json",
 				data: {
 					'viral_action[platform]': "Facebook",
-					'viral_action[device]': "mobile"
+					'viral_action[device]': "pc",
+          'viral_action[title]': "poster"+poster_code
 				},
 				success: function (data) {
 				}
@@ -41,7 +42,9 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 				url: "/viral_actions.json",
 				data: {
 					'viral_action[platform]': "Facebook",
-					'viral_action[device]': "mobile"
+					'viral_action[device]': "mobile",
+          'viral_action[title]': "movie1"
+          
 				},
 				success: function (data) {
 				}
@@ -58,7 +61,9 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 				url: "/viral_actions.json",
 				data: {
 					'viral_action[platform]': "Facebook",
-					'viral_action[device]': "mobile"
+					'viral_action[device]': "mobile",
+          'viral_action[title]': "movie2"
+          
 				},
 				success: function (data) {
 				}
@@ -161,7 +166,9 @@ function twitter_share_video_1(text, url){
     url: "/viral_actions.json",
     data: {
       'viral_action[platform]': "Twitter",
-      'viral_action[device]': "pc"
+      'viral_action[device]': "pc",
+      'viral_action[title]': "movie1"
+      
     },
     success: function (data) {
     }
@@ -177,7 +184,8 @@ function twitter_share_video_2(text, url){
     url: "/viral_actions.json",
     data: {
       'viral_action[platform]': "Twitter",
-      'viral_action[device]': "pc"
+      'viral_action[device]': "pc",
+      'viral_action[title]': "movie2"
     },
     success: function (data) {
     }
@@ -216,7 +224,9 @@ function twitter_share_poster(text, url, poster_code){
       url: "/viral_actions.json",
       data: {
         'viral_action[platform]': "Twitter",
-        'viral_action[device]': "pc"
+        'viral_action[device]': "pc",
+        'viral_action[title]': "poster"+poster_code
+        
       },
       success: function (data) {
       }
