@@ -64,30 +64,32 @@ body{
 }
 
 .video_small .video_div{
-  width: 49%;
+  width: 32%;
   display: inline-block;
 }
 
+.video_small .video_div.second,
+.video_small .video_div.third{
+  width: 32%;
+  display: inline-block;
+  margin-left:1%;
+}
+
 .video_small .link_movie_1{
-  width: 85%;
+  width: 100%;
 }
 
 .video_small .link_movie_2{
-  width: 70%;
+  width: 100%;
 }
 
-.video_small .video_vid{
-  width: 50%;
-  margin: 1% 0% 1% 0%;
-
-}
 
 .video_small .video_twitter{
-  width: 12%;
+  width: 48%;
 }
 
 .video_small .video_facebook{
-  width: 12%;
+  width: 48%;
 }
 
 .poster{
@@ -178,7 +180,7 @@ body{
 .sub_title_inner{
 	width:90%;
 	margin:0 auto;
-	padding:0 0 3%;
+	padding:0 0 8%;
 }
 .sub_title{
 	width:100%;
