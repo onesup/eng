@@ -227,12 +227,14 @@ body{
 
 .navi2{
   background-image: asset-url('mobile/background.jpg');
+  background-image:none;
+  background:#000;
   width: 100%;
 }
 
 .navi2 #exit{
-  width: 12%;
-  margin: 3% 3% 3% 85%;
+  width: 10%;
+  margin: 2% 2% 2% 85%;
 }
 
 .popup_title{
@@ -242,7 +244,7 @@ body{
 
 .input_box{
   width: 100%;
-  margin-top: 8%;
+  margin-top: 5%;
   
   background-color: #363636;
   padding: 5% 0% 5% 0%;
@@ -289,7 +291,7 @@ body{
 }
 .agree_box{
   text-align: left;
-  padding-left: 10%;
+  padding-left: 17%;
   margin-top: 10%;
   margin-bottom: 10%;
 }
