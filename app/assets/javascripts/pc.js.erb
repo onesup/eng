@@ -12,6 +12,12 @@ $(document).ready(function(){
   $("#link_movie_1").click(function(e){
     e.preventDefault();
     $("#ytplayer").attr("src", "https://www.youtube.com/embed/MqVf1YmXoHs?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
+   });
+  
+    $("#link_movie_3").click(function(e){
+      e.preventDefault();
+      $("#ytplayer").attr("src", "https://www.youtube.com/embed/EjqZXSLlhFI?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
+  
   
   });
   
@@ -351,8 +357,9 @@ function validation(errors){
 
 		for ( error in errors ) {
       $('input[data-name ='+error+']').css('background','pink');
-		 // $('input[data-name ='+error+']').parent().find('span').remove();
-	   // $('input[data-name ='+error+']').after("<span class='star "+error+"'>*</span>");
+      if(error == "agree"){
+        alert("개인정보활용에 동의하셔야 참여가 가능합니다.");
+      }
 		}
 	}else if(flag == "uniqueness"){
     $("#popup_already").bPopup({

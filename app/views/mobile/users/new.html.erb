@@ -42,7 +42,6 @@
     </div>
     <div class="agree_box">
       <% if @user.errors[:agree].any? %>
-        <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
         <span class="check_error">*</span>
       <% end %>
       <%= f.check_box "agree", 
@@ -55,12 +54,9 @@
 				end
 			%>	  
 			<br/>
-      <% if @user.errors[:agree2].any? %>
-        <script>alert("개인정보활용 동의를 확인해주세요.");</script>
-        <span class="check_error">*</span>
-      <% end %>
-      <%= f.check_box "agree2", {
-						"data-name" => "agree2", id:"info_input_radio2", class: "info_input_radio" 
+     
+      <%= f.check_box "agree_option", {
+						"data-name" => "agree_option", id:"info_input_radio2", class: "info_input_radio" 
 					} %>
       <%= image_tag("mobile/apply/text_agree_2.png", style:"width: 37%;") %>
 			<%= 
@@ -74,3 +70,8 @@
   </div>
   <%end%>
 </div>
+      <% content_for :alert do%>
+      <% if @user.errors[:agree].any? %>
+        <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
+      <% end %>
+      <% end %>

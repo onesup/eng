@@ -53,6 +53,6 @@ class Mobile::UsersController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user)
-      .permit(:name, :phone, :agree, :agree2, :address, :address_detail, :poster_code, :code6)
+      .permit(:name, :phone, :agree, :agree_option, :address, :address_detail, :poster_code, :code6)
   end 
 end
