@@ -253,6 +253,7 @@ body{
   background-color: #363636;
   padding: 5% 0% 5% 0%;
   text-align: center;
+  margin-top: -2%;
 }
 
 .fields{
@@ -263,6 +264,7 @@ body{
 .popup_input{
   border: 0;
   height: 18px;
+  padding:3px;
   width: 65%;
   margin-left: 5%;
   display: inline-block;
@@ -279,11 +281,12 @@ body{
 
 .btn_address{
   width: 16%;
+  padding:3px 0;
   border: 0;
-  height: 20px;
+  height: 22px;
   font-size: 0.5em;
   background: #bdbdbd;
-  margin-top: -1%;
+  margin-top: -2%;
 }
 
 #poster_inbox .item img{
