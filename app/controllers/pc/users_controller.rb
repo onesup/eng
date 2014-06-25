@@ -3,7 +3,6 @@ class Pc::UsersController < ApplicationController
   skip_before_action  :verify_authenticity_token
   
   def create    
-    phone = params[:user][:phone]
     device = "pc"
     user_agent = UserAgent.parse(request.user_agent)
     @user = User.new(user_params)
@@ -16,7 +15,6 @@ class Pc::UsersController < ApplicationController
         coupon.code = coupon.random_code
         coupon.user = @user
         coupon.save
-        MessageJob.new.async.perform(coupon)
       
         @log = AccessLog.new(ip: request.remote_ip, device: device)
         @log.user = @user
@@ -52,6 +50,6 @@ class Pc::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :phone, :birthday, :agree, :agree2, :birthday_month, :birthday_day)
+      params.require(:user).permit(:name, :phone, :agree, :agree_option, :address, :code6, :address_detail, :poster_code)
     end
 end

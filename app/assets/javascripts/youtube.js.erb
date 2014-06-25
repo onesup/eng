@@ -6,7 +6,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('ytplayer', {
-    videoId: 'df2ujJZzKvw',
+    videoId: "df2ujJZzKvw",
     width: 960,
     height: 500,
     playerVars: {
@@ -14,28 +14,49 @@ function onYouTubeIframeAPIReady() {
       showinfo: 0 ,
       modestbranding: 1,
       wmode: "opaque"
-    },
-    events: {
-      'onReady': ytHover
-      // 'onStateChange': onPlayerStateChange
-    }
+    }// ,
+//     events: {
+//       'onReady': ytHover,
+//       'onStateChange': onPlayerStateChange
+//     }
   });
 }
 
 function ytHover(event){
-  $('#ytplayer').hover(
+  $('#share_on_movie').hover(
     function() {
-      $(".share_facebook_on_movie, .share_twitter_on_movie").animate({
+      console.log("klj");
+      // $("#share_on_movie").bPopup();
+      $("#share_on_movie").animate({
+        opacity: 0.5},
+        200, function() {        
+      });
+      $("#share_twitter_on_movie").animate({
         opacity: 1},
-        500, function() {
-        /* stuff to do after animation is complete */
+        100, function() {        
+      });
+      $("#share_facebook_on_movie").animate({
+        opacity: 1},
+        100, function() {        
       });
     },
     function() {
+      console.log("klff");
       if( ! $("[class$='_on_movie']:hover").length > 0) {
-        $(".share_facebook_on_movie, .share_twitter_on_movie").animate({
+        // $("#share_on_movie").bPopup().close();
+        $("#share_on_movie").animate({
           opacity: 0},
-          500, function() {
+          100, function() {
+          /* stuff to do after animation is complete */
+        });
+        $("#share_twitter_on_movie").animate({
+          opacity: 0},
+          100, function() {
+          /* stuff to do after animation is complete */
+        });
+        $("#share_facebook_on_movie").animate({
+          opacity: 0},
+          100, function() {
           /* stuff to do after animation is complete */
         });
       }

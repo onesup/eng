@@ -1,3 +1,8 @@
+*{
+	padding:0;
+	margin:0;
+}
+
 body{
   margin: 0;
 }
@@ -12,8 +17,8 @@ body{
 }
 
 .menu_form .menu_list{
-  margin-left: 16%;
-  width: 100%;
+  margin-left: 26%;
+  width: 83%;
   display: block;
 }
 
@@ -27,6 +32,9 @@ body{
 .navi{
   background-color: #2C2C2C;
   width: 100%;
+  position: fixed;
+  z-index: 999;
+  
 }
 
 .navi .logo{
@@ -46,39 +54,46 @@ body{
   color: white;
   width: 92.5%;
   padding: 4%;
+  margin-top: 15%;
 }
 
 .content .content_full_element{
   width: 100%;
-  margin: 2% 0% 2% 0%;
+  margin: 5% 0% 5% 0%;
   position: relative;
 }
 
 .video_small{
-  padding-bottom: 15%;
+  padding:5% 0 10%;
 }
 
 .video_small .video_div{
-  width: 49%;
+  width: 32%;
   display: inline-block;
 }
 
-.video_small .video_title{
-  width: 70%;
+.video_small .video_div.second,
+.video_small .video_div.third{
+  width: 32%;
+  display: inline-block;
+  margin-left:1%;
 }
 
-.video_small .video_vid{
-  width: 50%;
-  margin: 1% 0% 1% 0%;
-
+.video_small .link_movie_1{
+  width: 100%;
 }
+
+.video_small .link_movie_2{
+  width: 100%;
+}
+
 
 .video_small .video_twitter{
-  width: 12%;
+  width: 48%;
 }
 
 .video_small .video_facebook{
-  width: 12%;
+  width: 48%;
 }
 
 .poster{
@@ -130,8 +145,12 @@ body{
 
 
 .owl-theme .owl-controls .owl-buttons .owl-prev{
-  margin-right:67%;
+  float:left;
 }
+.owl-theme .owl-controls .owl-buttons .owl-next{
+  float:right;
+}
+
 .owl-theme .owl-controls .owl-page span{
   background: none;
   border: 3px solid #343434;
@@ -149,16 +168,46 @@ body{
   width: 100%;
 }
 
+.poster_text_inner{
+	padding:0 0 5% 0;
+}
+.poster_text_inner img{
+	width:60%;
+}
+
 .site{
   width: 100%;
-  padding-top: 20%;
+  padding-top: -3%;
   text-align: center;
   background-color: white;
 }
-
-.site .site_btn{
-  width: 48%;
+.sub_title_inner{
+	width:90%;
+	margin:0 auto;
+	padding:0 0 8%;
 }
+.sub_title{
+	width:100%;
+}
+
+#brand_talk{
+	background:#fff;
+}
+
+.about_top{
+	position:relative;
+	width: 100%;
+}
+.about_top .site_btn{
+  width: 48%;
+  position:absolute;
+  left:25%;
+  bottom:8%;
+}
+.about_top .img img{
+  width: 100%;
+}
+
 
 .site .site_content{
   margin: 12%;
@@ -182,12 +231,14 @@ body{
 
 .navi2{
   background-image: asset-url('mobile/background.jpg');
+  background-image:none;
+  background:#000;
   width: 100%;
 }
 
 .navi2 #exit{
-  width: 12%;
-  margin: 3% 3% 3% 85%;
+  width: 10%;
+  margin: 2% 2% 2% 85%;
 }
 
 .popup_title{
@@ -196,41 +247,65 @@ body{
 }
 
 .input_box{
-  width: 85%;
-  margin-top: 8%;
-  margin-left: 7%;
+  width: 100%;
+  margin-top: 5%;
+  
   background-color: #363636;
   padding: 5% 0% 5% 0%;
+  text-align: center;
+  margin-top: -2%;
+}
+
+.fields{
+  text-align: left;
+  padding-left: 5%;
 }
 
 .popup_input{
-  width: 45%;
-  margin-left: 10%;
+  border: 0;
+  height: 18px;
+  padding:3px;
+  width: 65%;
+  margin-left: 5%;
   display: inline-block;
+  -webkit-appearance: none;
+  -webkit-border-radius:0; 
+  border-radius:0;
+  
 }
 
 .popup_input_address{
-  width: 28%;
+  width: 48%;
+  margin-bottom: 3%;
 }
 
 .btn_address{
   width: 16%;
+  padding:3px 0;
+  border: 0;
+  height: 22px;
+  font-size: 0.5em;
+  background: #bdbdbd;
+  margin-top: -2%;
 }
 
 #poster_inbox .item img{
     display: block;
 }
 
+.dummy{
+  height: 500px;
+}
 .agree_box{
   text-align: left;
-  padding-left: 30%;
+  padding-left: 17%;
   margin-top: 10%;
   margin-bottom: 10%;
 }
 
 .text_agree_more{
   margin-left: 4%;
-  width: 31%;
+  width: 20%;
 }
 
 .apply_btn{
@@ -245,15 +320,17 @@ body{
 
 .address_box{
 	display: none;
-	position: absolute;
+	position: relative;
   width: 37%;
-  right: 20%;
+  right: -26%;
   margin: 0;
   padding: 0;
 	border: 1px solid gray;
 	overflow: scroll;
   font-size:8pt;
 	background: white;
+  margin-top: -2%;
+  margin-bottom:1%;
 }
 
 .field_with_errors{
@@ -263,6 +340,8 @@ body{
 }
 
 .field_with_errors .popup_input{
+  background: #ffcfd9;
+  border: 0;
 }
 
 .check_error{
@@ -272,6 +351,28 @@ body{
   background: #424242;
 }
 
+.agree_content{
+  text-align: left;
+  font-size: 10pt;
+}
 .info_input_radio{
   
+}
+
+.user_new_content{
+  margin-top: 0;
+}
+
+.address_caption{
+  font-size: 0.7em;
+  margin-left: 27%;
+}
+
+.link_movie_icon{
+  text-decoration: none;
+   
+}
+
+.agree_wrapper{
+  margin-top: 0;
 }

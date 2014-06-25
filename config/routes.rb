@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     get 'fail' => 'home#fail'
     get 'already' => 'home#already'
     get 'agree' => 'home#agree'
+    get 'agree_brand' => 'home#agree_brand'
     resources :users
   end
 

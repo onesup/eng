@@ -4,7 +4,7 @@
 */
 
 .owl-theme .owl-controls{
-	margin-top: 10px;
+	margin-top: 0;
 	text-align: center;
 }
 
@@ -16,12 +16,12 @@
 	zoom: 1;
 	*display: inline;/*IE7 life-saver */
 	margin: 5px;
-	padding: 3px 10px;
-	font-size: 12px;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	border-radius: 30px;
-	background: #869791;
+	padding: 10px 5px;
+	font-size: 18px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #000;
 	filter: Alpha(Opacity=50);/*IE7 fix*/
 	opacity: 0.5;
 }

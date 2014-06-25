@@ -1,65 +1,77 @@
 <div class="popup" data-enhance="false">
   <%= form_for([:mobile, @user]) do |f| %>
   <div class="navi2">
-    <%= link_to(image_tag("mobile/exit.png", id:"exit"), "index") %>
+    <%= link_to(image_tag("mobile/exit.png", id:"exit"), mobile_index_path) %>
   </div>
-  <div class="content">
+  <div class="content user_new_content">
     <%= image_tag("mobile/apply/title.png", class:"popup_title") %>
     <div class="input_box">
+      <div class="fields">
       <%= image_tag("mobile/apply/text_name.png", style:"width: 20%;") %>
       <%= f.hidden_field(:poster_code,
-      {"data-name" => "name", id: "info_poster_code",
-        class:"popup_input", value: "", maxlength: "12"
+      {"data-name" => "poster_code", id: "info_poster_code",
+        class:"popup_input"
       })%>
-      <%= f.text_field(:name, 
-       {"data-name" => "name", id: "info_name", 
-          class:"popup_input", value: "", maxlength: "12"})%>      
+      <%= 
+				f.text_field(:name, {"data-name" => "name", id: "info_name", class:"popup_input", value: ""}) 
+			%>      
       <br><br>
       <%= image_tag("mobile/apply/text_phone.png", style:"width: 20%;") %>
       <%= f.text_field(:phone,
-        {"data-name" => "name", id: "info_phone",
-          class:"popup_input", value: "", maxlength: "12"})%>
+        {"data-name" => "phone", id: "info_phone", class:"popup_input", value: ""})%>
       <br><br>
+        <p class="address_caption">검색 예: 언주로 406, 역삼동 712-3</p>
+
       <%= image_tag("mobile/apply/text_address.png", style:"width: 20%;") %> 
       <%= f.text_field(:address, 
-        {"data-name" => "name", id: "info_address", 
-          class:"popup_input popup_input_address", value: "", maxlength: "12", placeholder: "주소 검색 (예: OO동 OO번지)"})%>
-            
+        {"data-name" => "address", id: "info_address", 
+          class:"popup_input popup_input_address", value: "", placeholder: "예) 역삼동 개나리아파트"})%>
       <%= button_tag("검색", id:"info_address_btn", class:"btn_address") %>      
       <br>
+    
       <select id="addresses" class="address_box">
       </select>
       <%= f.hidden_field(:code6,
-        {"data-name" => "name", id: "info_code6",
-          class:"popup_input", value: "", maxlength: "12"})%>
-      <br>
+        {"data-name" => "code6", id: "info_code6",
+          class:"popup_input"})%>
       <%= image_tag("mobile/apply/text_address_more.png", style:"width: 20%;") %>
       <%= f.text_field(:address_detail,
-        {"data-name" => "name", id: "info_address_detail",
-          class:"popup_input", value: "", maxlength: "12"})%>
+        {"data-name" => "address_detail", id: "info_address_detail",
+          class:"popup_input", value: "", placeholder: "예) 101동 000호"})%>
+          </div>
     </div>
     <div class="agree_box">
-      <!-- <input type="checkbox" name="agree2"> -->
-      <% if @user.errors[:agree2].any? %>
-        <script>alert("개인정보활용 동의를 확인해주세요.");</script>
-        <span class="check_error">*</span>
-      <% end %>
-      <%= f.check_box "agree2", 
-      {"data-name" => "agree2", id:"info_input_radio2", 
-        class: "info_input_radio" }%>
-      <%= image_tag("mobile/apply/text_agree_2.png", style:"width: 30%;") %> <%= link_to(image_tag("mobile/apply/text_agree_more.png", class:"text_agree_more"), "#agree_more") %><br>
-      <!-- <input type="checkbox" name="agree"> -->
       <% if @user.errors[:agree].any? %>
-        <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
         <span class="check_error">*</span>
       <% end %>
       <%= f.check_box "agree", 
       {"data-name" => "agree", id:"info_input_radio1", 
         class: "info_input_radio" }%>
-      <%= image_tag("mobile/apply/text_agree_1.png", style:"width: 50%; margin-right: 12%;") %>
+      <%= image_tag("mobile/apply/text_agree_1.png", style:"width: 25%;") %> 
+			<%= 
+				link_to mobile_agree_path do
+					image_tag("mobile/apply/text_agree_more.png", class:"text_agree_more")
+				end
+			%>	  
+			<br/>
+     
+      <%= f.check_box "agree_option", {
+						"data-name" => "agree_option", id:"info_input_radio2", class: "info_input_radio" 
+					} %>
+      <%= image_tag("mobile/apply/text_agree_2.png", style:"width: 37%;") %>
+			<%= 
+				link_to mobile_agree_brand_path do
+					image_tag("mobile/apply/text_agree_more.png", class:"text_agree_more")
+				end 
+			%>
     </div>
     <%= image_submit_tag("mobile/apply/button.png", class:"apply_btn") %>
     <%= image_tag("mobile/apply/caution.png", class:"caution") %>
   </div>
   <%end%>
 </div>
+      <% content_for :alert do%>
+      <% if @user.errors[:agree].any? %>
+        <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
+      <% end %>
+      <% end %>

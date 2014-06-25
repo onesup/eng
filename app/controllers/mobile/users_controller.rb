@@ -4,18 +4,14 @@ class Mobile::UsersController < ApplicationController
   skip_before_action  :verify_authenticity_token
   
   def create
-    phone = params[:user][:phone]
-    device = "mobile"
     user_agent = UserAgent.parse(request.user_agent)
-    device = "mobile" if user_agent.mobile?
     @user = User.new(user_params)
-    @user.device = device
+    @user.device = "mobile"
     @user.source = session[:source]
-    Rails.logger.info "@@@session@@@"+session[:source].to_s
     
     respond_to do |format|
       if @user.save
-        @log = AccessLog.new(ip: request.remote_ip, device: device)
+        @log = AccessLog.new(ip: request.remote_ip, device: "mobile")
         @log.user = @user
         @log.save
         format.html { redirect_to mobile_thanks_path, notice: 'User was successfully created.' }
@@ -28,7 +24,7 @@ class Mobile::UsersController < ApplicationController
           if flag == "presence"
             render action: 'new' 
           else
-            redirect_to mobile_unique_error_path
+            redirect_to mobile_already_path
           end
         }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -37,7 +33,7 @@ class Mobile::UsersController < ApplicationController
   end
   
   def new
-    @user = User.new
+    @user = User.new(poster_code: params[:code])
   end
     
   private
@@ -51,14 +47,12 @@ class Mobile::UsersController < ApplicationController
       redirect_to mobile_unique_error_path()
     else
       redirect_to action: "new"
-      
     end
   end
 
-
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :phone, :agree, :agree2, :address, :address_detail, :poster_code, :code6)
-  end
-      
+    params.require(:user)
+      .permit(:name, :phone, :agree, :agree_option, :address, :address_detail, :poster_code, :code6)
+  end 
 end
