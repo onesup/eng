@@ -42,7 +42,7 @@
               <th class="name">참여자</th>
               <th>전화번호</th>
               <th>접근건수</th>
-							<th>쿠폰 다시보내기</th>
+							<th>신청한 포스터</th>
               <th>참여일시</th>
             </tr>
           </thead>
@@ -65,7 +65,7 @@
                   <%= user.access_logs_count unless user.access_logs.empty? %>
                 </td>
                 <td>
-                  <%= link_to user.coupon.code, send_message_admin_coupon_path(user.coupon) unless user.coupon.nil? %>
+                  <%= user.poster_code %>
                 </td>
                 <td class="updated_at">
                   <p><%= user.updated_at.strftime("%m.%d %H:%M") %></p>

@@ -324,7 +324,7 @@ function address_success_query(query_results){
     var p_old = "<p class='address_old'>   ("+ value.extra_info_long+ ")</p></li>";
 						
     $("#addresses").append(li+p_new+p_old);
-    $(".address_box").bPopup();		
+    $(".address_box").bPopup({positionStyle: 'fixed'});		
   });
           
   $('.address_list').on("click", function(){
