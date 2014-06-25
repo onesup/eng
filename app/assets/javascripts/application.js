@@ -20,6 +20,7 @@
 //= require jquery.selectric
 //= require jquery.maskedinput.min
 // require jquery.modal
+//= require jquery.mask
 //= require ZeroClipboard
 //= require smooth-scroll.js
 //= require headroom.min.js
