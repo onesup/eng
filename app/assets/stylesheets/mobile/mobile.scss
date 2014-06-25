@@ -139,7 +139,7 @@ body{
 
 
 .owl-theme .owl-controls .owl-buttons .owl-prev{
-  margin-right:80%;
+  margin-right:83%;
 }
 .owl-theme .owl-controls .owl-page span{
   background: none;
@@ -168,7 +168,18 @@ body{
   text-align: center;
   background-color: white;
 }
+.sub_title_inner{
+	width:90%;
+	margin:0 auto;
+	padding:0 0 3%;
+}
+.sub_title{
+	width:100%;
+}
 
+#brand_talk{
+	background:#fff;
+}
 
 .about_top{
 	position:relative;
@@ -180,7 +191,7 @@ body{
   left:25%;
   bottom:5%;
 }
-.about_top .img{
+.about_top .img img{
   width: 100%;
 }
 
