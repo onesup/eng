@@ -115,20 +115,18 @@ function test_out(q){
 				alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지");
 
 			}else {
-
+        
 				$.each(query_results, function( index, value ) {
-
-
           extra_info = "<optgroup label='"+value.address+"'>";
-          address = "<option class='address_list' value='"+value.address+"'>"+value.extra_info_long+"</option></optgroup>";
+          address = "<option class='address_list' value='"+value.address+"' data-code6='"+value.code6+"'>"+value.extra_info_long+"</option></optgroup>";
 
 					$("#addresses").append(extra_info+address);
 					$(".address_box").css("display", "block");
 				});
 
 				$('#addresses').on("change", function(){
-					code6 = $(this).attr("code6");
-					address_data = $(this).val();
+          code6 = $(this).find(':selected').data('code6');
+        	address_data = $(this).val();
 					$("#info_code6").val(code6);
 					$("#info_address").val(address_data);
 					$(".address_box").hide();

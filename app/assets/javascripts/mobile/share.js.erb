@@ -20,7 +20,8 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
         data: {
           'viral_action[platform]': "Facebook",
-          'viral_action[device]': "mobile"
+          'viral_action[device]': "mobile",
+          'viral_action[title]': "movie1"
         },
         success: function (data) {
         }
@@ -38,7 +39,9 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
         data: {
           'viral_action[platform]': "Facebook",
-          'viral_action[device]': "mobile"
+          'viral_action[device]': "mobile",
+          'viral_action[title]': "movie2"
+          
         },
         success: function (data) {
         }
@@ -126,7 +129,9 @@ function fb_share_video_2() {
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: {
         'viral_action[platform]': "Twitter",
-        'viral_action[device]': "mobile"
+        'viral_action[device]': "mobile",
+        'viral_action[title]': "movie1"
+        
       },
       success: function (data) {
       }
@@ -143,7 +148,9 @@ function fb_share_video_2() {
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: {
         'viral_action[platform]': "Twitter",
-        'viral_action[device]': "mobile"
+        'viral_action[device]': "mobile",
+        'viral_action[title]': "movie2"
+        
       },
       success: function (data) {
       }
