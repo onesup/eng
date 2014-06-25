@@ -254,24 +254,15 @@
                 class:"popup_input input_code6", value: ""})%>
             <div class = "agree_wrapper">
             
-              <% if @user.errors[:agree].any? %>
-                <script>alert("개인정보활용 동의를 확인해주세요.");</script>
-                <span class="check_error">*</span>
-              <% end %>
               <div class="agree">
-                <!-- <span class="star">*</span> -->
               <%= f.check_box "agree", 
               {"data-name" => "agree", id:"info_input_radio1", 
                 class: "agree_personal_info" }%>
                 </div>
-        <% if @user.errors[:agree].any? %>
-          <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
-          <!-- <span class="check_error">*</span> -->
-        <% end %>
+     
         <div class="agree2">
-          <!-- <span class="star">*</span> -->
-        <%= f.check_box "agree2", 
-        {"data-name" => "agree2", id:"info_input_radio2", 
+        <%= f.check_box "agree_option", 
+        {"data-name" => "agree_option", id:"info_input_radio2", 
           class: "agree_dealing_personal_info" }%>   </div>
                 <%= image_tag("pc/popup/agree_personal_information.png", class: "image_agree") %>
                 
