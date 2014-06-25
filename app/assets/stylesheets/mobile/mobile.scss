@@ -139,7 +139,7 @@ body{
 
 
 .owl-theme .owl-controls .owl-buttons .owl-prev{
-  margin-right:67%;
+  margin-right:80%;
 }
 .owl-theme .owl-controls .owl-page span{
   background: none;
@@ -158,6 +158,10 @@ body{
   width: 100%;
 }
 
+.poster_text_inner{
+	padding:0 0 5% 0;
+}
+
 .site{
   width: 100%;
   padding-top: -3%;
@@ -168,6 +172,7 @@ body{
 
 .about_top{
 	position:relative;
+	width: 100%;
 }
 .about_top .site_btn{
   width: 48%;
