@@ -48,12 +48,12 @@
       <%= f.check_box "agree", 
       {"data-name" => "agree", id:"info_input_radio1", 
         class: "info_input_radio" }%>
-      <%= image_tag("mobile/apply/text_agree_1.png", style:"width: 47%;") %> 
+      <%= image_tag("mobile/apply/text_agree_1.png", style:"width: 25%;") %> 
 			<%= 
-				link_to mobile_agree_brand_path do
+				link_to mobile_agree_path do
 					image_tag("mobile/apply/text_agree_more.png", class:"text_agree_more")
-				end 
-			%>
+				end
+			%>	  
 			<br/>
       <% if @user.errors[:agree2].any? %>
         <script>alert("개인정보활용 동의를 확인해주세요.");</script>
@@ -62,11 +62,11 @@
       <%= f.check_box "agree2", {
 						"data-name" => "agree2", id:"info_input_radio2", class: "info_input_radio" 
 					} %>
-      <%= image_tag("mobile/apply/text_agree_2.png", style:"width: 28%;") %>
+      <%= image_tag("mobile/apply/text_agree_2.png", style:"width: 58%;") %>
 			<%= 
-				link_to mobile_agree_path do
+				link_to mobile_agree_brand_path do
 					image_tag("mobile/apply/text_agree_more.png", class:"text_agree_more")
-				end
+				end 
 			%>
     </div>
     <%= image_submit_tag("mobile/apply/button.png", class:"apply_btn") %>
