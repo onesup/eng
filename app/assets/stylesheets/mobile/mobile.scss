@@ -160,14 +160,25 @@ body{
 
 .site{
   width: 100%;
-  padding-top: 20%;
+  padding-top: -3%;
   text-align: center;
   background-color: white;
 }
 
-.site .site_btn{
-  width: 48%;
+
+.about_top{
+	position:relative;
 }
+.about_top .site_btn{
+  width: 48%;
+  position:absolute;
+  left:25%;
+  bottom:5%;
+}
+.about_top .img{
+  width: 100%;
+}
+
 
 .site .site_content{
   margin: 12%;
