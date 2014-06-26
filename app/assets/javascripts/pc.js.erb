@@ -9,19 +9,16 @@ $(document).ready(function(){
   $("#link_movie_2").click(function(e){
     e.preventDefault();
     $("#ytplayer").attr("src", "https://www.youtube.com/embed/df2ujJZzKvw?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
-   
   });
   
   $("#link_movie_1").click(function(e){
     e.preventDefault();
     $("#ytplayer").attr("src", "https://www.youtube.com/embed/MqVf1YmXoHs?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
-   });
+  });
   
-    $("#link_movie_3").click(function(e){
-      e.preventDefault();
-      $("#ytplayer").attr("src", "https://www.youtube.com/embed/EjqZXSLlhFI?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
-  
-  
+  $("#link_movie_3").click(function(e){
+    e.preventDefault();
+    $("#ytplayer").attr("src", "https://www.youtube.com/embed/EjqZXSLlhFI?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
   });
   
   $("#new_user").bind("ajax:success", function(evt,data,status,xhr){
