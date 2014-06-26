@@ -14,6 +14,6 @@
  *= require owl.carousel
  *= require owl.theme.css
  *= require mobile/mobile
- 
+ *= require mobile/iCheck/skins/minimal/minimal
  */
 

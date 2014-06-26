@@ -12,9 +12,9 @@
       {"data-name" => "poster_code", id: "info_poster_code",
         class:"popup_input"
       })%>
-      <%= 
-				f.text_field(:name, {"data-name" => "name", id: "info_name", class:"popup_input", value: ""}) 
-			%>      
+      <%=
+				f.text_field(:name, {"data-name" => "name", id: "info_name", class:"popup_input", value: ""})
+			%>
       <br><br>
       <%= image_tag("mobile/apply/text_phone.png", style:"width: 20%;") %>
       <%= f.text_field(:phone,
@@ -22,13 +22,13 @@
       <br><br>
         <p class="address_caption">검색 예: 언주로 406, 역삼동 712-3</p>
 
-      <%= image_tag("mobile/apply/text_address.png", style:"width: 20%;") %> 
-      <%= f.text_field(:address, 
-        {"data-name" => "address", id: "info_address", 
+      <%= image_tag("mobile/apply/text_address.png", style:"width: 20%;") %>
+      <%= f.text_field(:address,
+        {"data-name" => "address", id: "info_address",
           class:"popup_input popup_input_address", value: "", placeholder: "예) 역삼동 개나리아파트"})%>
-      <%= button_tag("검색", id:"info_address_btn", class:"btn_address") %>      
+      <%= button_tag("검색", id:"info_address_btn", class:"btn_address") %>
       <br>
-    
+
       <select id="addresses" class="address_box">
       </select>
       <%= f.hidden_field(:code6,
@@ -44,25 +44,25 @@
       <% if @user.errors[:agree].any? %>
         <span class="check_error">*</span>
       <% end %>
-      <%= f.check_box "agree", 
-      {"data-name" => "agree", id:"info_input_radio1", 
+      <%= f.check_box "agree",
+      {"data-name" => "agree", id:"info_input_radio1",
         class: "info_input_radio" }%>
-      <%= image_tag("mobile/apply/text_agree_1.png", style:"width: 25%;") %> 
-			<%= 
+      <%= image_tag("mobile/apply/text_agree_1.png", style:"width: 25%;") %>
+			<%=
 				link_to mobile_agree_path do
 					image_tag("mobile/apply/text_agree_more.png", class:"text_agree_more")
 				end
-			%>	  
+			%>
 			<br/>
-     
+
       <%= f.check_box "agree_option", {
-						"data-name" => "agree_option", id:"info_input_radio2", class: "info_input_radio" 
+						"data-name" => "agree_option", id:"info_input_radio2", class: "info_input_radio"
 					} %>
       <%= image_tag("mobile/apply/text_agree_2.png", style:"width: 37%;") %>
-			<%= 
+			<%=
 				link_to mobile_agree_brand_path do
 					image_tag("mobile/apply/text_agree_more.png", class:"text_agree_more")
-				end 
+				end
 			%>
     </div>
     <%= image_submit_tag("mobile/apply/button.png", class:"apply_btn") %>
@@ -75,3 +75,32 @@
         <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
       <% end %>
       <% end %>
+
+
+
+<!--
+iCheck Lisence
+
+Copyright (c) 2014 fronteed
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+-->

@@ -4,3 +4,4 @@
 //= require smooth-scroll
 //= require mobile/share
 //= require mobile/mobile
+//= require mobile/icheck.min
