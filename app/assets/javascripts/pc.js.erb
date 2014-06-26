@@ -1,6 +1,9 @@
 $(document).ready(function(){
 //  $('#u_0_3').css('display', 'block !important');
-  
+  $("#user_new_form_close").click(function(e){
+    e.preventDefault();
+    $("#participation_event").bPopup().close();
+  });
 	$("#info_phone").mask("999-9999-9999");
   
   $("#link_movie_2").click(function(e){
@@ -241,13 +244,28 @@ $(document).ready(function(){
 });
 
 function get_poster_code(){
+  console.log("11s");
   $(".poster_select").click(function(e){
     e.preventDefault();
     var code = $(this).attr("code");
+    $("#selected_poster").attr("src", selected_posters(code));
     $("#info_poster_code").val(code);
     $("#poster_facebook_share_link").attr("data-code",code);
     $("#poster_twitter_share_link").attr("data-code",code);
+    
   });
+}
+
+function selected_posters(code){
+  var selected_poster;
+  selected_poster = [
+    '<%= asset_url("pc/popup/selected_poster_01.png") %>',
+    '<%= asset_url("pc/popup/selected_poster_02.png") %>',
+    '<%= asset_url("pc/popup/selected_poster_03.png") %>',
+    '<%= asset_url("pc/popup/selected_poster_04.png") %>',
+    '<%= asset_url("pc/popup/selected_poster_05.png") %>'
+  ];
+  return selected_poster[Number(code)-1];
 }
 
 
