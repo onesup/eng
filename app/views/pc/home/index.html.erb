@@ -228,6 +228,17 @@
          
 <div id = "participation_event" class = "popup">
     <div class = "popup_contents_wrapper participate_event_wrapper">
+		<div class="right">
+			<div class="inner">
+				<div class="poster">
+				<%= image_tag("pc/popup/selected_poster_01.png") %>
+			    </div>
+				<div class="btn">
+					<a href="#"><%= image_tag("pc/popup/btn_others.png") %></a>
+				</div>	
+			</div>
+		</div>
+		<div class="left">
         <%= image_tag("pc/popup/participation_event.png", class: "title_participation_event") %>
        <%= form_for([:pc, @user], remote: true, html: {'data-type'=>'json', class: "input_information_form", id:"new_user"}) do |f| %>
           <%= f.hidden_field(:poster_code,
@@ -277,8 +288,11 @@
             
         <%end%>
         <%= image_tag("pc/popup/more_info.png", class: "more_info") %>
-    </div>
+		</div>
+
+	</div>
     <a href = "#">
     <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
     </a>
+   
 </div>
