@@ -8,4 +8,6 @@ class Pc::HomeController < ApplicationController
   def test
   end
   
+  def leaflet
+  end
 end
