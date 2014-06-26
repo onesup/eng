@@ -34,7 +34,7 @@ body{
   width: 100%;
   position: fixed;
   z-index: 999;
-  
+
 }
 
 .navi .logo{
@@ -144,7 +144,7 @@ body{
   margin-top: -80%;
   margin-left:-9%;
   position: absolute;
-  
+
 }
 
 
@@ -246,13 +246,15 @@ body{
 
 .popup_title{
   width: 85%;
-  margin: 6% 0;
+//  margin: 6% 0;
+//  margin-top: 6%;
+	margin-bottom: 6%;
 }
 
 .input_box{
   width: 100%;
   margin-top: 5%;
-  
+
   background-color: #363636;
   padding: 5% 0% 5% 0%;
   text-align: center;
@@ -272,9 +274,9 @@ body{
   margin-left: 5%;
   display: inline-block;
   -webkit-appearance: none;
-  -webkit-border-radius:0; 
+  -webkit-border-radius:0;
   border-radius:0;
-  
+
 }
 
 .popup_input_address{
@@ -286,10 +288,11 @@ body{
   width: 16%;
   padding:3px 0;
   border: 0;
-  height: 22px;
+  height: 25px;
   font-size: 0.5em;
   background: #bdbdbd;
-  margin-top: -2%;
+  margin-top: -1%;
+	vertical-align: middle;
 }
 
 #poster_inbox .item img{
@@ -309,6 +312,7 @@ body{
 .text_agree_more{
   margin-left: 4%;
   width: 20%;
+	vertical-align: middle;
 }
 
 .apply_btn{
@@ -339,7 +343,11 @@ body{
 .field_with_errors{
   display: inline;
   width: 45%;
-  
+}
+
+.side_text{
+	vertical-align: middle;
+	width: 20%;
 }
 
 .field_with_errors .popup_input{
@@ -359,7 +367,7 @@ body{
   font-size: 10pt;
 }
 .info_input_radio{
-  
+
 }
 
 .user_new_content{
@@ -373,13 +381,12 @@ body{
 
 .link_movie_icon{
   text-decoration: none;
-   
+
 }
 
 .agree_wrapper{
   margin-top: 0;
 }
-
 
 .brand_leaflet{
   width: 100%;

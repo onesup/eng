@@ -1,22 +1,21 @@
 $(document).ready(function(){
 	$("#info_phone").mask("999-9999-9999");
- 
-  
+
   $("#link_movie_2").click(function(e){
     e.preventDefault();
     $("#ytplayer").attr("src", "https://www.youtube.com/embed/df2ujJZzKvw?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
   });
-  
+
   $("#link_movie_1").click(function(e){
     e.preventDefault();
     $("#ytplayer").attr("src", "https://www.youtube.com/embed/MqVf1YmXoHs?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
   });
-  
+
   $("#link_movie_3").click(function(e){
     e.preventDefault();
     $("#ytplayer").attr("src", "https://www.youtube.com/embed/EjqZXSLlhFI?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
   });
-  
+
 	$('#poster_inbox').owlCarousel({
 		navigation : true, // Show next and prev buttons
 		slideSpeed : 300,
@@ -25,33 +24,33 @@ $(document).ready(function(){
     navigationText: ["<",">"]
 	});
 
-  
-	var q;	
+
+	var q;
 
   $('#info_address_btn').click(function(e){
     e.preventDefault();
 		q = $("#info_address").val();
 		test_out(q);
   });
-  
+
   $('#btn_poster_coupon').click(function(e){
     e.preventDefault();
     $('.contain').css("margin-left", "0");
     smoothScroll.animateScroll( null, '#poster_coupon' );
   });
-  
+
   $('#btn_brand_talk').click(function(e){
     e.preventDefault();
     $('.contain').css("margin-left", "0");
     smoothScroll.animateScroll( null, '#brand_talk' );
   });
-  
+
   $('#btn_brand_film').click(function(e){
     e.preventDefault();
     $('.contain').css("margin-left", "0");
     smoothScroll.animateScroll( null, '#brand_film' );
   });
-  
+
 	var handler = function(event){
 			if (event.which == 13) {
 				q = $("#info_address").val();
@@ -73,7 +72,9 @@ $(document).ready(function(){
     }
   });
 
-  var posterPage = 0;
+  $('.info_input_radio').iCheck({
+		checkboxClass: 'icheckbox_minimal'
+	});
 
   // get_poster_code();
 
@@ -108,7 +109,7 @@ function test_out(q){
 
         "success": function(data, textStatus, jqXHR) {
 
-		
+
 			query_results = data.results;
 
 			$("#addresses").empty();
@@ -120,7 +121,7 @@ function test_out(q){
 				alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지");
 
 			}else {
-        
+
 				$.each(query_results, function( index, value ) {
           extra_info = "<optgroup label='"+value.address+"'>";
           address = "<option class='address_list' value='"+value.address+"' data-code6='"+value.code6+"'>"+value.extra_info_long+"</option></optgroup>";
@@ -144,8 +145,6 @@ function test_out(q){
 
         "error": function(jqXHR, textStatus, errorThrown) {
 
-
-			  dd
 		},
 
         // 요청 후에는 이 함수를 호출한다.
