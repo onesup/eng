@@ -81,7 +81,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 				data: {
 					'viral_action[platform]': "Facebook",
 					'viral_action[device]': "mobile",
-          'viral_action[title]': "movie2"
+          'viral_action[title]': "movie3"
           
 				},
 				success: function (data) {
@@ -149,7 +149,7 @@ function fb_share_video_1() {
     method: "feed",
     name: "Frostine",
     link: "<%= Rails.application.secrets.url %>?s=fb",
-    picture: '<%= Rails.application.secrets.url %><%= asset_url("sns/facebook_share.jpg") %>',
+    picture: '<%= Rails.application.secrets.url %><%= asset_url("sns/movie_01.png") %>',
     caption: "세상에서 가장 큰 쿠폰",
     description: text
   };
@@ -171,7 +171,7 @@ function fb_share_video_2() {
     method: "feed",
     name: "Frostine",
     link: "<%= Rails.application.secrets.url %>?s=fb",
-    picture: '<%= Rails.application.secrets.url %><%= asset_url("sns/facebook_share.jpg") %>',
+    picture: '<%= Rails.application.secrets.url %><%= asset_url("sns/movie_02.png") %>',
     caption: "세상에서 가장 큰 쿠폰",
     description: text
   };
@@ -194,7 +194,7 @@ function fb_share_video_3() {
     method: "feed",
     name: "Frostine",
     link: "<%= Rails.application.secrets.url %>?s=fb",
-    picture: '<%= Rails.application.secrets.url %><%= asset_url("sns/facebook_share.jpg") %>',
+    picture: '<%= Rails.application.secrets.url %><%= asset_url("sns/movie_03.png") %>',
     caption: "세상에서 가장 큰 쿠폰",
     description: text
   };
@@ -253,11 +253,22 @@ function twitter_share_video_3(text, url){
     data: {
       'viral_action[platform]': "Twitter",
       'viral_action[device]': "pc",
-      'viral_action[title]': "movie2"
+      'viral_action[title]': "movie3"
     },
     success: function (data) {
     }
   });
+}
+
+function poster_image(poster_code){
+  posters = [
+    '<%= Rails.application.secrets.url %><%= asset_url("sns/poster_01.png") %>',
+    '<%= Rails.application.secrets.url %><%= asset_url("sns/poster_02.png") %>',
+    '<%= Rails.application.secrets.url %><%= asset_url("sns/poster_03.png") %>',
+    '<%= Rails.application.secrets.url %><%= asset_url("sns/poster_04.png") %>',
+    '<%= Rails.application.secrets.url %><%= asset_url("sns/poster_05.png") %>',
+  ]
+  return posters[poster_code - 1];
 }
 
 function fb_share_poster(poster_code) {
@@ -267,7 +278,7 @@ function fb_share_poster(poster_code) {
     method: "feed",
     name: "Frostine",
     link: "<%= Rails.application.secrets.url %>?s=fb",
-    picture: '<%= Rails.application.secrets.url %><%= asset_url("sns/facebook_share.jpg") %>',
+    picture: poster_image(poster_code),
     caption: "세상에서 가장 큰 쿠폰",
     description: text
   };
