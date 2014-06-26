@@ -463,7 +463,38 @@ margin-top:6px;
   width: 400px;
   height: 300px;
   background-color: white;
+  position:relative;
 }
+.popup_contents_wrapper .left{
+	position:absolute;
+	width:470px;
+	height:580px;
+	right:0;
+	background-color:#fff;
+}
+.popup_contents_wrapper .right{
+	position:absolute;
+	width:430px;
+	height:580px;
+	left:0;
+	background-image: asset-url("pc/popup/bg_selected.png");
+}
+
+.popup_contents_wrapper .right .inner{
+	position:relative;
+}
+.popup_contents_wrapper .right .inner .poster{
+	position:absolute;
+	z-index:1;
+	left:50px;
+}
+.popup_contents_wrapper .right .inner .btn{
+	position:absolute;
+	z-index:2;
+	top:508px;
+	left:224px;
+}
+
 .popup_fn_title{
   margin-top: 40px;
   margin-left: 80px;
@@ -475,7 +506,7 @@ margin-top:6px;
 
 #participation_event .popup_contents_wrapper{
   float: left;
-  width: 440px;
+  width: 900px;
   background-color: white;
 }
 
@@ -512,7 +543,7 @@ margin-top:6px;
   width: 380px;
   height: 190px;
   margin-top: 20px;
-  margin-left: 32px;
+  margin-left: 44px;
   padding-top: 30px;
   background-image: asset-url("pc/popup/input_form_background.png");
   background-repeat: no-repeat;
@@ -531,7 +562,7 @@ margin-top:6px;
   margin-bottom: 18px;
 }
 .input_phone{
-  margin-bottom: 27px;
+  margin-bottom: 23px;
 }
 .input_address{
   width: 160px;
@@ -612,8 +643,7 @@ input[type=checkbox]{
 }
 .more_info{
   position: absolute;
-  width: 100%;
-  bottom: 0px;
+  bottom: 10px;
 }
 
 .agree_content{
