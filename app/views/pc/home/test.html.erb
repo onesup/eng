@@ -20,3 +20,10 @@
 		<input type="submit" value="응모완료">
 	</p>
 </form>
+
+
+<%= form_for(@comment) do |f| %>
+<p><span>내용</span><%= f.text_field :content%></p>
+<p><span>전화번호</span><input type="text" name="user_phone"></p>
+<p><%= f.submit%></p>
+<% end %>

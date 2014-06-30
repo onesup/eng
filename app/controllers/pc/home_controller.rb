@@ -6,6 +6,8 @@ class Pc::HomeController < ApplicationController
   end
   
   def test
+    @comment = Comment.new
+    
   end
   
   def leaflet

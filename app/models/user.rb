@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :access_logs
   has_one :coupon
+  has_many :comments
   
   validates :agree, acceptance: true
   # validates :agree2, acceptance: true
@@ -11,7 +12,7 @@ class User < ActiveRecord::Base
   validates :phone, presence: true
   validates :phone, uniqueness: true
   validates :address, presence: true
-  validates :address_detail, presence: true
+  # validates :address_detail, presence: true
 
   attr_accessor :birthday_month, :birthday_day
   attr_accessor :agree, :agree2
