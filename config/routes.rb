@@ -68,6 +68,6 @@ Rails.application.routes.draw do
 
   # resources :users
   devise_for :users
-  resources :coupons, except: [:update, :edit, :show] do
+  resources :comments, except: [:update, :edit, :show] do
   end
 end
