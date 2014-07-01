@@ -33,7 +33,7 @@ class Mobile::UsersController < ApplicationController
   end
   
   def new
-    session[:poster_code]||= params[:code]
+    session[:poster_code] = params[:code]
     @user = User.new(poster_code: session[:poster_code])
 
   end
