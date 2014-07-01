@@ -33,7 +33,10 @@ class Mobile::UsersController < ApplicationController
   end
   
   def new
-    session[:poster_code] = params[:code]
+    unless params[:code].nil?
+      session[:poster_code] = params[:code]
+    end  
+    Rails.logger.info("@@@@@@@@@@@@@@@@@@@@@"+session[:poster_code])
     @user = User.new(poster_code: session[:poster_code])
 
   end
