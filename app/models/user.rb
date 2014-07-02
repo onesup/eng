@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable
   
+  has_many :applied_events
   has_many :messages
   has_many :access_logs
   has_one :coupon

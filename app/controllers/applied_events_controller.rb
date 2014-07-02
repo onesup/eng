@@ -1,0 +1,2 @@
+class AppliedEventsController < ApplicationController
+end
