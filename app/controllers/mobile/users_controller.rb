@@ -14,6 +14,12 @@ class Mobile::UsersController < ApplicationController
         @log = AccessLog.new(ip: request.remote_ip, device: "mobile")
         @log.user = @user
         @log.save
+      
+        applied_event = AppliedEvent.new
+        applied_event.title = "poster_event"
+        applied_event.user = @user
+        applied_event.save
+        
         format.html { redirect_to mobile_thanks_path, notice: 'User was successfully created.' }
         format.json { render json: {status: "success"}, status: :created, location: @user }
       else
