@@ -14,7 +14,8 @@ module Bday
       'X-Frame-Options' => 'ALLOW-FROM https://www.facebook.com'
     }
     config.assets.precompile += [
-      'application.js', 'application.css', 
+      'application.js', 'application.css',
+      'html5.js', 
       'admin.js', 'admin.css', 
       'web.css', 'web.js',
       'mobile.css', 'mobile.js',
