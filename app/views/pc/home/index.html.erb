@@ -1,128 +1,42 @@
-<header id = "nav_bar">
-	<div class = "center">
-		<a href = "#">
-			<%= image_tag("pc/header/logo.png", class: "logo", :alt => "logo") %>
-		</a>
-		<nav class = "navigation">
-			<ul>
-				<a data-scroll href="#brand_flim" class = "bt_paging" id = "bt_brand_flim">
-					<%= image_tag("pc/header/nav_brand_flim.png", class: "navigation_list") %>
-				</a>
-				<div class = "nav_vertical_line"> </div>
-				<a data-scroll 
-        data-options="offset: 70;"
-        href="#poster_coupon" class = "bt_paging", id = "bt_poster_coupon">
-					<%= image_tag("pc/header/nav_poster_coupon.png", class: "navigation_list") %> 
-				</a>
-				<div class = "nav_vertical_line"> </div>
-				<a data-scroll href="#brand_talk" class = "bt_paging" id = "bt_brand_talk">
-					<%= image_tag("pc/header/nav_brand_talk.png", class: "navigation_list") %> 
-				</a>
-			</ul>
-		</nav>
-    <%= link_to(image_tag("pc/header/store.png", class:"store clearfix"), "http://www.frostine.com/", target: "_blank") %>
-	</div>
-</header>
-<article>
-	<section id = "brand_flim">
-		<div class = "contents_wrapper center">
-			<%= image_tag("pc/title.png", class: "title_brand_flim") %>
-			<div class = "movie_wrapper center">
-                <div id = "ytplayer">
-                  
-                  
-                </div>
-                
-                <div id="share_on_movie" class="share_on_movie">
-                  
-                </div>
-                
-                <div class="share_facebook_on_movie" id="share_facebook_on_movie">
-               	  <p>facebook<p>
-                </div>
-                <div class = "share_twitter_on_movie" id="share_twitter_on_movie">
-                  <p>twitter<p>
-                </div>
-            </div>
-            <div class = "other_movies center">
-				<div class = "thumbnail_movie">
-                    <a href = "#" id="link_movie_2">
-    					<%= image_tag("pc/title_thumbnail_movie_01.png", class: "title_thumbnail_movie") %>
-    					<%= image_tag("pc/image_thumbnail_movie_01.png") %>
-                    </a>
-					<div class = "share_sns">
-						<%= link_to(image_tag("pc/share_facebook_icon.png", class:"share_facebook"), "#", id:"facebook_share_link_2") %>	
-						<%= link_to(image_tag("pc/share_twitter_icon.png", class: "share_twitter"), "#", id:"twitter_share_link_2", "data-text" => "프로스틴은 가진 게 없습니다. 방부제도 유해성분도 0%인 스킨케어. 심지어 새싹까지 틔우게 하는 스킨케어. 우리의 무모한 집착을 영상으로 만나보세요.", "data-url" => "http://www.youtube.com/watch?v=yK7pEo4qnN0") %>
-					</div>
-				</div>
-				<div class = "thumbnail_movie_vertical_line"> </div>
-				<div class = "thumbnail_movie">
-                    <a href = "#" id="link_movie_1">
-                        <%= image_tag("pc/title_thumbnail_movie.png", class: "title_thumbnail_movie") %>
-                        <%= image_tag("pc/image_thumbnail_movie.png") %>
-                    </a>
-					<div class = "share_sns">
-            
-             <%= link_to(image_tag("pc/share_facebook_icon.png", class:"share_facebook"), "#", id:"facebook_share_link_1") %>	
-              <%= link_to(image_tag("pc/share_twitter_icon.png", class: "share_twitter"), "#", id:"twitter_share_link_1", "data-text" => "개봉 후 냉장 보관 8주가 스킨케어 브랜드 프로스틴의 유통기한입니다. 이것은 피부에 대한 무모한 집착 또는 철학. 착한 성분만 전달하기 위한 가장 짧은 진심을 영상으로 만나보세요.", "data-url" => "http://www.youtube.com/watch?v=yK7pEo4qnN0") %>
-            
-					</div>
-				</div>
-
-				<div class = "thumbnail_movie_vertical_line"> </div>
-				<div class = "thumbnail_movie">
-                    <a href = "#" id="link_movie_3">
-                        <%= image_tag("pc/title_thumbnail_movie_03.png", class: "title_thumbnail_movie") %>
-                        <%= image_tag("pc/image_thumbnail_movie_03.png") %>
-                    </a>
-					<div class = "share_sns">
-            
-             <%= link_to(image_tag("pc/share_facebook_icon.png", class:"share_facebook"), "#", id:"facebook_share_link_3") %>	
-              <%= link_to(image_tag("pc/share_twitter_icon.png", class: "share_twitter"), "#", id:"twitter_share_link_3", "data-text" => "론칭 2년째 수익룰은 마이너스. 실패가 뻔했던 스킨케어. 뭐하러 돈 들여 만들었지? 프로스틴의 무모하고 용기있는 도전을 영상으로 만나보세요.", "data-url" => "http://www.youtube.com/watch?v=yK7pEo4qnN0") %>
-            
-					</div>
-				</div>
-
-
-			</div>
-		</div>
-	</section>
-	<section id = "poster_coupon">
-		<div class = "center">
-			<div class = "poster_left_column">
+<%= render 'header'%>
+<article class="article">
+	<%= render 'movie'%>
+	<section id="poster_coupon">
+		<div class="center poster_coupon">
+			<div class="poster_left_column">
 				<%= image_tag("pc/poster/poster_title.png", class: "title_poster") %>
 				<ul class = "poster_list">
 					<li class = "poster_item posters_thinking"> </li>
 					<li class = "poster_item">
-                        <a href = "#" id = "bt_poster_item_1" code="1" class="poster_select">
-                        <%= image_tag("pc/poster/small_poster_01.png") %>
-                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-                        </a>
-                    </li>
-                    <li class = "poster_item">
-                        <a href = "#" id = "bt_poster_item_2" code="2" class="poster_select">
-                        <%= image_tag("pc/poster/small_poster_02.png") %>
-                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-                        </a>
-                    </li>
-                   <li class = "poster_item">
-                        <a href = "#" id = "bt_poster_item_3" code="3" class="poster_select">
-                        <%= image_tag("pc/poster/small_poster_03.png") %>
-                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-                        </a>
-                    </li>
-                   <li class = "poster_item">
-                        <a href = "#" id = "bt_poster_item_4" code="4" class="poster_select">
-                        <%= image_tag("pc/poster/small_poster_04.png") %>
-                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-                        </a>
-                    </li>
-                   <li class = "poster_item">
-                        <a href = "#" id = "bt_poster_item_5" code="5" class="poster_select">
-                        <%= image_tag("pc/poster/small_poster_05.png") %>
-                        <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-                        </a>
-                    </li>
+            <a href = "#" id = "bt_poster_item_1" code="1" class="poster_select">
+	            <%= image_tag("pc/poster/small_poster_01.png") %>
+	            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+            </a>
+          </li>
+          <li class = "poster_item">
+            <a href = "#" id = "bt_poster_item_2" code="2" class="poster_select">
+	            <%= image_tag("pc/poster/small_poster_02.png") %>
+	            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+            </a>
+          </li>
+         	<li class = "poster_item">
+            <a href = "#" id = "bt_poster_item_3" code="3" class="poster_select">
+	            <%= image_tag("pc/poster/small_poster_03.png") %>
+	            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+            </a>
+          </li>
+         	<li class = "poster_item">
+              <a href = "#" id = "bt_poster_item_4" code="4" class="poster_select">
+              <%= image_tag("pc/poster/small_poster_04.png") %>
+              <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+              </a>
+          </li>
+         <li class = "poster_item">
+              <a href = "#" id = "bt_poster_item_5" code="5" class="poster_select">
+              <%= image_tag("pc/poster/small_poster_05.png") %>
+              <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+              </a>
+          </li>
 				</ul>
 			</div>
 			<div class = "poster_right_column clearfix">
