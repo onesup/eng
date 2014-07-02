@@ -170,6 +170,9 @@ a{
   display: inline-block;
   margin: 0 18px;
 }
+.thumbnail_movie_image{
+  float: left;
+}
 .title_thumbnail_movie{
   height: 40px;
   vertical-align: top;
@@ -177,7 +180,8 @@ a{
   margin-right: 20px;
 }
 .share_sns{
-  display: inline-block;
+  float: left;
+//  display: inline-block;
   height: 60px;
   margin-left: 6px;
   margin-right: -4px;
