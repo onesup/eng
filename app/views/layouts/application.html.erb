@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <%= stylesheet_link_tag    'application', media: 'all' %>  
+  <%= javascript_include_tag 'application'%>
 	<!--[if lt IE 9]>
 	<%= javascript_include_tag 'html5'%>
 	<![endif]-->
@@ -42,6 +44,5 @@ ga('create', '<%= Rails.application.secrets.ga_tracking_id%>', '<%= Rails.applic
 ga('set', 'referrer', '<%= session[:referer] %>');
 ga('send', 'pageview');
 </script>
-<%= javascript_include_tag 'application'%>
 </body>
 </html>
