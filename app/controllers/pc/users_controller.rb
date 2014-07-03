@@ -16,6 +16,11 @@ class Pc::UsersController < ApplicationController
         coupon.user = @user
         coupon.save
       
+        applied_event = AppliedEvent.new
+        applied_event.title = "poster_event"
+        applied_event.user = @user
+        applied_event.save
+        
         @log = AccessLog.new(ip: request.remote_ip, device: device)
         @log.user = @user
         @log.save

@@ -1,7 +1,5 @@
 $(document).ready(function(){
-//  $('#u_0_3').css('display', 'block !important');
   alert("캠페인 기간이 아닙니다.");
-  
   $("#user_new_form_close").click(function(e){
     e.preventDefault();
     $("#participation_event").bPopup().close();
@@ -10,12 +8,12 @@ $(document).ready(function(){
   
   $("#link_movie_2").click(function(e){
     e.preventDefault();
-    $("#ytplayer").attr("src", "https://www.youtube.com/embed/df2ujJZzKvw?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
+    $("#ytplayer").attr("src", "https://www.youtube.com/embed/AnqiMzHRaQg?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
   });
   
   $("#link_movie_1").click(function(e){
     e.preventDefault();
-    $("#ytplayer").attr("src", "https://www.youtube.com/embed/MqVf1YmXoHs?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
+    $("#ytplayer").attr("src", "https://www.youtube.com/embed/AnqiMzHRaQg?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1&origin=https%3A%2F%2Flocalhost%3A3000");
   });
   
   $("#link_movie_3").click(function(e){
@@ -243,7 +241,6 @@ $(document).ready(function(){
 });
 
 function get_poster_code(){
-  console.log("11s");
   $(".poster_select").click(function(e){
     e.preventDefault();
     var code = $(this).attr("code");
@@ -268,21 +265,19 @@ function selected_posters(code){
 }
 
 
-$(window).scroll(function() {
-    clearTimeout($.data(this, 'scrollTimer'));
-    $.data(this, 'scrollTimer', setTimeout(function() {
-        var poster_coupon_offset = 55;
-        var brand_talk_offset = 38;
-        // console.log(checkRatioOfElementInView("#poster_coupon"));
-        // console.log(checkRatioOfElementInView("#brand_talk"));
-        if( checkRatioOfElementInView("#poster_coupon") >= poster_coupon_offset) {
-          smoothScroll.animateScroll( null, '#poster_coupon' );
-        }
-        if( checkRatioOfElementInView("#brand_talk") >= brand_talk_offset) {
-          smoothScroll.animateScroll( null, '#brand_talk' );
-        }
-    }, 400));
-});
+// $(window).scroll(function() {
+//     clearTimeout($.data(this, 'scrollTimer'));
+//     $.data(this, 'scrollTimer', setTimeout(function() {
+//         var poster_coupon_offset = 55;
+//         var brand_talk_offset = 38;
+//         if( checkRatioOfElementInView("#poster_coupon") >= poster_coupon_offset) {
+//           smoothScroll.animateScroll( null, '#poster_coupon' );
+//         }
+//         if( checkRatioOfElementInView("#brand_talk") >= brand_talk_offset) {
+//           smoothScroll.animateScroll( null, '#brand_talk' );
+//         }
+//     }, 400));
+// });
 
 
 function checkRatioOfElementInView(elem) { 
@@ -300,15 +295,6 @@ function checkRatioOfElementInView(elem) {
   }else {
     return 0;
   }
-
-  // console.log(elem);
-  // //console.log("docViewHeight :" + docViewHeight);
-  // console.log("docViewHeight : " + docViewHeight);
-  // console.log("elemOuterHeight : " + elemOuterHeight);
-  // console.log("docViewTop : " + docViewTop);
-  // console.log("elemTop : " + elemTop);
-  // console.log("docViewBottom : " + docViewBottom);
-  // console.log("elemBottom : " + elemBottom);
   return result;
 }
 

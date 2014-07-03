@@ -1,3 +1,6 @@
+html{
+  width: 100%;
+}
 .clearfix:after {
   clear: both;
   display: block;
@@ -32,6 +35,7 @@ img{
 }
 body{
   background-color: #ffffff;
+  width: 100%;
 }
 a{
   text-decoration: none;
@@ -170,6 +174,9 @@ a{
   display: inline-block;
   margin: 0 18px;
 }
+.thumbnail_movie_image{
+  float: left;
+}
 .title_thumbnail_movie{
   height: 40px;
   vertical-align: top;
@@ -177,7 +184,8 @@ a{
   margin-right: 20px;
 }
 .share_sns{
-  display: inline-block;
+  float: left;
+//  display: inline-block;
   height: 60px;
   margin-left: 6px;
   margin-right: -4px;
@@ -199,12 +207,27 @@ a{
   background-color: #707070;
 }
 
+.article{
+//  border: 1px solid red;
+}
 
 #poster_coupon{
-  width: 100%;
+//  display: block;
+//  border: 1px solid red;
+//  margin-right: -3000px;
+//  padding-right: 3000px;
+//  margin-left: -3000px;
+//  padding-left: 3000px;
+
+//  width: 100%;
   height: 1170px;
   background: asset-url("pc/poster/background.png") no-repeat 0 -100px;
   position:relative;
+//  overflow-x: hidden;
+}
+
+.poster_coupon{
+//  background: asset-url("pc/poster/background.png") no-repeat 0 -100px;
 }
 .poster_left_column{
   float: left;
