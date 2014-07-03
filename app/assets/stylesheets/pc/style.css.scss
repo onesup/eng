@@ -496,6 +496,15 @@ margin-top:6px;
   background-color: white;
   position:relative;
 }
+
+
+.comment_popup_contents_wrapper{
+  float: left;
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  position:relative;
+}
 .popup_contents_wrapper .left{
 	position:absolute;
 	width:470px;
@@ -503,12 +512,21 @@ margin-top:6px;
 	right:0;
 	background-color:#fff;
 }
-.popup_contents_wrapper .right{
+.comment_popup_contents_wrapper .right{
 	position:absolute;
 	width:430px;
 	height:580px;
 	left:0;
 	background-image: asset-url("pc/popup/bg_selected.png");
+}
+
+
+.popup_contents_wrapper .left {
+position: absolute;
+width: 470px;
+height: 490px;
+right: 0;
+background-color: #fff;
 }
 
 .popup_contents_wrapper .right .inner{
@@ -580,6 +598,16 @@ margin-top:6px;
   background-repeat: no-repeat;
 }
 
+.comment_event_input_information_form{
+  display: block;
+  width: 380px;
+  height: 190px;
+  margin-top: 20px;
+  margin-left: 44px;
+  padding-top: 30px;
+  background-image: asset-url("pc/popup/popup_comment_input_background.png");
+  background-repeat: no-repeat;
+}
 //input[type=text]
 .popup_input{
   border: 0px;
@@ -619,6 +647,19 @@ input[type=checkbox]{
   border: solid 1px;
   background-color: white;
 }
+
+.comment_agree_wrapper {
+position: relative;
+width: 200px;
+height: 40px;
+margin-top: 60px;
+margin-left: 100px;
+}
+.comment_event_wrapper {
+position: relative;
+height: 490px;
+}
+
 .agree_wrapper{
   position: relative;
   width: 200px;
@@ -685,4 +726,10 @@ input[type=checkbox]{
 
 .brand_leaflet{
   width: 100%;
+}
+
+.title_comment_event_input{
+  display: block;
+  margin-top: 30px;
+  margin-left: 120px;
 }

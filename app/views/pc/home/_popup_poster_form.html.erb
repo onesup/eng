@@ -1,0 +1,70 @@
+<div id = "participation_event" class = "popup">
+    <div class = "popup_contents_wrapper participate_event_wrapper">
+		<div class="right">
+			<div class="inner">
+				<div class="poster">
+				<%= image_tag("pc/popup/selected_poster_01.png", id:"selected_poster") %>
+			    </div>
+				<div class="btn">
+					<a href="#" id="user_new_form_close"><%= image_tag("pc/popup/btn_others.png") %></a>
+				</div>	
+			</div>
+		</div>
+		<div class="left">
+        <%= image_tag("pc/popup/participation_event.png", class: "title_participation_event") %>
+       <%= form_for([:pc, @user], remote: true, html: {'data-type'=>'json', class: "input_information_form", id:"new_user"}) do |f| %>
+          <%= f.hidden_field(:poster_code,
+          {"data-name" => "poster_code", id: "info_poster_code", 
+            class:"popup_input", value: "1"})%>
+          <%= f.text_field(:name, 
+           {"data-name" => "name", id: "info_name", 
+              class:"popup_input input_name", value: ""})%>
+          <%= f.text_field(:phone, 
+            {"data-name" => "phone", id: "info_phone", 
+              class:"popup_input input_phone", value: ""})%>
+          <%= f.text_field(:address, 
+            {"data-name" => "address", id: "info_address", 
+              class:"popup_input input_address popup_input_address", value: "",  placeholder: "예:역삼동 개나리아파트"})%>
+           <a href = "#" id = "request_address">
+               <%= button_tag("검색", id:"info_address_btn", class:"btn_address") %>
+           </a>    
+          
+            <%= f.text_field(:address_detail, 
+              {"data-name" => "address_detail", id: "info_address_detail", 
+                class:"popup_input input_detail_address", value: "",  placeholder: "예:101동 000호"})%>
+             <%= f.hidden_field(:code6,
+              {"data-name" => "code6", id: "info_code6",
+                class:"popup_input input_code6", value: ""})%>
+            <div class = "agree_wrapper">
+            
+              <div class="agree">
+              <%= f.check_box "agree", 
+              {"data-name" => "agree", id:"info_input_radio1", 
+                class: "agree_personal_info" }%>
+                </div>
+     
+        <div class="agree2">
+        <%= f.check_box "agree_option", 
+        {"data-name" => "agree_option", id:"info_input_radio2", 
+          class: "agree_dealing_personal_info" }%>   </div>
+                <%= image_tag("pc/popup/agree_personal_information.png", class: "image_agree") %>
+                
+                <a href="#" id="about_personal_information" class="view_more_personal_info">
+                  <%= image_tag("pc/popup/popup_input_show_more.png") %>
+                </a>
+                <a href="#" id="about_brand_information" class="view_more_brand_info">
+                  <%= image_tag("pc/popup/popup_input_show_more.png") %>
+                </a>
+            </div>
+            <%= image_submit_tag("pc/popup/popup_input_submit.png", id: "bt_submit") %>
+            
+        <%end%>
+        <%= image_tag("pc/popup/more_info.png", class: "more_info") %>
+		</div>
+
+	</div>
+    <a href = "#">
+    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+   
+</div>
