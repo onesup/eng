@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  
   devise :database_authenticatable
   
   has_many :applied_events
@@ -14,23 +13,13 @@ class User < ActiveRecord::Base
   validates :phone, presence: true
   validates :phone, uniqueness: true
   validates :address, presence: true
-#  validates :apply_event?, parameter1 => "poster"
-
-  validate do |user|
-    user.apply_event? "poster"
-  end
-  
-  # validates :address_detail, presence: true
+  validate :apply_poster_event?
 
   attr_accessor :birthday_month, :birthday_day
   attr_accessor :agree, :agree2
-  
-  
 
-  
-  def apply_event?(title)
+  def apply_event?
     self.applied_events.where(title: title).exists?
-    
   end
 
   def send_survey
