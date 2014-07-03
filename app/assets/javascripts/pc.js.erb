@@ -1,6 +1,7 @@
 $(document).ready(function(){
 //  $('#u_0_3').css('display', 'block !important');
-  
+
+
   $("#user_new_form_close").click(function(e){
     e.preventDefault();
     $("#participation_event").bPopup().close();
@@ -266,19 +267,22 @@ function selected_posters(code){
 }
 
 
-// $(window).scroll(function() {
-//     clearTimeout($.data(this, 'scrollTimer'));
-//     $.data(this, 'scrollTimer', setTimeout(function() {
-//         var poster_coupon_offset = 55;
-//         var brand_talk_offset = 38;
-//         if( checkRatioOfElementInView("#poster_coupon") >= poster_coupon_offset) {
-//           smoothScroll.animateScroll( null, '#poster_coupon' );
-//         }
-//         if( checkRatioOfElementInView("#brand_talk") >= brand_talk_offset) {
-//           smoothScroll.animateScroll( null, '#brand_talk' );
-//         }
-//     }, 400));
-// });
+
+$(window).scroll(function() {
+  if (bowser.msie && bowser.version > 8) {
+    clearTimeout($.data(this, 'scrollTimer'));
+    $.data(this, 'scrollTimer', setTimeout(function() {
+        var poster_coupon_offset = 55;
+        var brand_talk_offset = 38;
+        if( checkRatioOfElementInView("#poster_coupon") >= poster_coupon_offset) {
+          smoothScroll.animateScroll( null, '#poster_coupon' );
+        }
+        if( checkRatioOfElementInView("#brand_talk") >= brand_talk_offset) {
+          smoothScroll.animateScroll( null, '#brand_talk' );
+        }
+    }, 400));
+  }
+});
 
 
 function checkRatioOfElementInView(elem) { 

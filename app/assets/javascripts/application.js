@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bowser
 //= require youtube
 //= require jquery.bpopup.min
 // require jquery.customSelect.min
