@@ -240,6 +240,16 @@ $(document).ready(function(){
 
 });
 
+function apply_user_check(){
+  return false
+}
+
+function popup_comment_user_info(){
+  if(apply_user_check() == false){
+    $("#participation_event").bPopup();
+  }
+}
+
 function get_poster_code(){
   $(".poster_select").click(function(e){
     e.preventDefault();
