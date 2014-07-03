@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     get 'agree' => 'home#agree'
     get 'agree_brand' => 'home#agree_brand'
     get 'leaflet' => 'home#leaflet'
+    get 'comment_thanks' => 'home#comment_thanks'
     resources :users
   end
 

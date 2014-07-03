@@ -37,4 +37,7 @@ class Mobile::HomeController < ApplicationController
   
   def leaflet
   end
+  
+  def comment_thanks
+  end
 end
