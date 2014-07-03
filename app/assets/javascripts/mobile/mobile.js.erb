@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  alert("캠페인 기간이 아닙니다.");
+ // alert("캠페인 기간이 아닙니다.");
 	$("#info_phone").mask("999-9999-9999");
 
   $("#link_movie_2").click(function(e){
@@ -154,4 +154,19 @@ function test_out(q){
 
 		}
     });
+}
+
+
+
+function apply_user_check(){
+  return false;
+}
+
+function popup_comment_user_info(){
+  //console.log(id);
+  var user_param;
+  if(apply_user_check(user_param) == false){
+    window.location.href = "/mobile/users/comment_new";
+  }
+  return true;
 }

@@ -48,7 +48,11 @@ Rails.application.routes.draw do
     get 'agree_brand' => 'home#agree_brand'
     get 'leaflet' => 'home#leaflet'
     get 'comment_thanks' => 'home#comment_thanks'
-    resources :users
+    resources :users do
+      collection do
+        get 'comment_new'
+      end
+    end
   end
 
   resources :viral_actions

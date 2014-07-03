@@ -4,16 +4,12 @@
     <%= link_to(image_tag("mobile/exit.png", id:"exit"), mobile_index_path) %>
   </div>
   <div class="content user_new_content">
-    <%= image_tag("mobile/apply/title.png", class:"popup_title") %>
+    <%= image_tag("mobile/apply/comment_input_title.png", class:"popup_title") %>
     <div class="input_box">
       <div class="fields">
       <%= image_tag("mobile/apply/text_name.png", class:"side_text") %>
-      <%= f.hidden_field(:event_title,{value: "poster"})%>
-      
-      <%= f.hidden_field(:poster_code,
-      {"data-name" => "poster_code", id: "info_poster_code",
-        class:"popup_input"
-      })%>
+     <%= f.hidden_field(:event_title,{value: "comment"})%>
+     
       <%=
 				f.text_field(:name, {"data-name" => "name", id: "info_name", class:"popup_input", value: ""})
 			%>
@@ -22,24 +18,6 @@
       <%= f.text_field(:phone,
         {"data-name" => "phone", id: "info_phone", class:"popup_input", value: ""})%>
       <br><br>
-        <p class="address_caption">검색 예: 언주로 406, 역삼동 712-3</p>
-
-      <%= image_tag("mobile/apply/text_address.png", class:"side_text") %>
-      <%= f.text_field(:address,
-        {"data-name" => "address", id: "info_address",
-          class:"popup_input popup_input_address", value: "", placeholder: "예) 역삼동 개나리아파트"})%>
-      <%= button_tag("검색", id:"info_address_btn", class:"btn_address") %>
-      <br>
-
-      <select id="addresses" class="address_box">
-      </select>
-      <%= f.hidden_field(:code6,
-        {"data-name" => "code6", id: "info_code6",
-          class:"popup_input"})%>
-      <%= image_tag("mobile/apply/text_address_more.png", class:"side_text") %>
-      <%= f.text_field(:address_detail,
-        {"data-name" => "address_detail", id: "info_address_detail",
-          class:"popup_input", value: "", placeholder: "예) 101동 000호"})%>
           </div>
     </div>
     <div class="agree_box">

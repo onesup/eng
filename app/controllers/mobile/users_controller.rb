@@ -5,7 +5,8 @@ class Mobile::UsersController < ApplicationController
   
   def create
     user_agent = UserAgent.parse(request.user_agent)
-    @user = User.new(user_params)
+    @user = User.find_or_initialize_by(phone: user_params[:phone])
+    @user.assign_attributes(user_params)
     @user.device = "mobile"
     @user.source = session[:source]
     
@@ -16,11 +17,16 @@ class Mobile::UsersController < ApplicationController
         @log.save
       
         applied_event = AppliedEvent.new
-        applied_event.title = "poster_event"
+        applied_event.title = @user.event_title
         applied_event.user = @user
+        applied_event.device = "mobile"
         applied_event.save
         
-        format.html { redirect_to mobile_thanks_path, notice: 'User was successfully created.' }
+        if @user.event_title == "poster"
+          format.html { redirect_to mobile_thanks_path, notice: 'User was successfully created.' }  
+        else
+          format.html { redirect_to mobile_comment_thanks_path, notice: 'User was successfully created.' }
+        end
         format.json { render json: {status: "success"}, status: :created, location: @user }
       else
         format.html {
@@ -42,9 +48,12 @@ class Mobile::UsersController < ApplicationController
     unless params[:code].nil?
       session[:poster_code] = params[:code]
     end  
-    Rails.logger.info("@@@@@@@@@@@@@@@@@@@@@"+session[:poster_code])
     @user = User.new(poster_code: session[:poster_code])
 
+  end
+  
+  def comment_new
+    @user = User.new
   end
     
   private
@@ -64,6 +73,6 @@ class Mobile::UsersController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user)
-      .permit(:name, :phone, :agree, :agree_option, :address, :address_detail, :poster_code, :code6)
+      .permit(:event_title, :name, :phone, :agree, :agree_option, :address, :address_detail, :poster_code, :code6)
   end 
 end
