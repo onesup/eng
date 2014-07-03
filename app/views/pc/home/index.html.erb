@@ -71,17 +71,16 @@
       	<%= link_to(image_tag("pc/link_frostine_site.png", class:"link_frostine_site"), pc_leaflet_path, target: "_blank") %>              
       </div>
       <%= image_tag("pc/comment_about_challenge.png", class: "title_comment") %>
-      <div class="comment_list_wrapper" style="display:none;">
-      <!-- 댓글 박스 생기는 곳 -->
+
+      <div class="comment_list_wrapper">
+		    <div>
+		      <div id="ttalk_rating_div"></div>
+		      <div id="ttalk_div"></div> 
+		    </div>
       </div>
     </div>
 	</section>
-</article>
-       <div>
-       <div id="ttalk_rating_div"></div>
-       <div id="ttalk_div"></div> 
-       </div>
-       
+</article>       
 <footer id = "about_event">
   <div class = "contents_wrapper center">
       <%= image_tag("pc/event_information.png") %>
@@ -125,7 +124,7 @@
     </a>
 </div>
 
-  <%= render "popup_personal"%>      
+  <%= render "popup_personal"%>
          
   <%= render "popup_brand"%>        
                          

@@ -87,8 +87,10 @@ a{
 
 .navigation{
   display: inline-block;
-  margin-left: 250px;
-  height: 50px;
+  position:absolute;
+  top:10px;
+  left:380px;
+  height: 52px;
 }
 
 .navigation_list{
@@ -97,12 +99,12 @@ a{
 }
 
 .navi_list{
-  margin-top: 15px;
+  padding-top: 15px;
   float: left;
   list-style-type: none;
 }
 .navi_line{
-  margin-top: 5px;
+  padding-top: 8px;
 }
 .nav_vertical_line{
   display: inline-block;
