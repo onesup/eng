@@ -21,6 +21,28 @@ $(document).ready(function(){
     $("#ytplayer").attr("src", "https://www.youtube.com/embed/ojhOU5RHk8Y?controls=0&showinfo=0&modestbranding=1&wmode=opaque&enablejsapi=1");
   });
   
+  
+  $("#new_comment_user").bind("ajax:success", function(evt,data,status,xhr){
+    response = JSON.parse(xhr.responseText);
+    if(response.status==="success"){
+      $("#comment_popup_thank").bPopup({
+        closeClass: 'b-close',
+        modalColor: 'black',
+        follow: [false, false], //x, y
+        position: ['auto', 'auto'], //x, y
+        onClose: function(){$("#comment_event").bPopup().close();}
+      });
+    }
+    return true;
+  }).bind('ajax:error',function(evt,xhr,status,error){
+    var $form = $(this),errors,errorText;
+    errors = $.parseJSON(xhr.responseText);   
+      validation(errors);
+  });
+  
+  
+  
+  
   $("#new_user").bind("ajax:success", function(evt,data,status,xhr){
     response = JSON.parse(xhr.responseText);
     if(response.status==="success"){
@@ -50,6 +72,8 @@ $(document).ready(function(){
       validation(errors);
     }
   });
+  
+  
   
   
   get_poster_code();
@@ -218,7 +242,7 @@ function apply_user_check(){
 }
 
 function popup_comment_user_info(){
-  console.log(id);
+  //console.log(id);
   var user_param;
   if(apply_user_check(user_param) == false){
     $("#comment_event").bPopup();

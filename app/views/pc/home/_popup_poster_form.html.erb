@@ -13,6 +13,8 @@
 		<div class="left">
         <%= image_tag("pc/popup/participation_event.png", class: "title_participation_event") %>
        <%= form_for([:pc, @user], remote: true, html: {'data-type'=>'json', class: "input_information_form", id:"new_user"}) do |f| %>
+       <%= hidden_field_tag(:event_title, "poster")%>
+       
           <%= f.hidden_field(:poster_code,
           {"data-name" => "poster_code", id: "info_poster_code", 
             class:"popup_input", value: "1"})%>

@@ -2,11 +2,10 @@
     <div class="comment_popup_contents_wrapper comment_event_wrapper">
 			<div class="left">
 	       <%= image_tag("pc/popup/popup_comment_input_title.png", class: "title_comment_event_input") %>
-	       <%= form_for([:pc, @user], remote: true, html: {'data-type'=>'json', class: "comment_event_input_information_form", id:"new_user"}) do |f| %>
-	          <%= f.hidden_field(:poster_code,
-	          {"data-name" => "poster_code", id: "info_poster_code", 
-	            class:"popup_input", value: "1"})%>
-	          <%= f.text_field(:name, 
+	       <%= form_for([:pc, @user], remote: true, html: {'data-type'=>'json', class: "comment_event_input_information_form", id:"new_comment_user"}) do |f| %>
+         <%= hidden_field_tag(:event_title, "comment")%>
+	       
+            <%= f.text_field(:name, 
 	           {"data-name" => "name", id: "info_name", 
 	              class:"popup_input input_name", value: ""})%>
 	          <%= f.text_field(:phone, 

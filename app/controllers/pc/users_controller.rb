@@ -17,7 +17,7 @@ class Pc::UsersController < ApplicationController
         coupon.save
       
         applied_event = AppliedEvent.new
-        applied_event.title = "poster_event"
+        applied_event.title = params[:event_title]
         applied_event.user = @user
         applied_event.save
         
