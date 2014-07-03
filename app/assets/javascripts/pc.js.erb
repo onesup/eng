@@ -75,33 +75,6 @@ $(document).ready(function(){
 
   
   ga('send', 'event', 'button', 'click', '메인 페이지');
-  $('#select_month').change(function(e){
-    e.preventDefault();
-    var month;
-    var days;
-    month = $("#select_month").val();
-    d = new Date();
-    this_day = d.getDate();
-    if(month === '6'){
-      add_days = range(this_day, 30);
-      $("#select_day option").remove();
-      $.each(add_days, function( index, value ){
-        $("#select_day").append($('<option>',{
-          value:value,
-          text:value
-        })).selectric('refresh');
-      });
-    }else if(month === '7'){
-      $("#select_day option").remove();
-      add_days = range(1, 27);
-      $.each(add_days, function( index, value ){
-        $("#select_day").append($('<option>',{
-          value:value,
-          text:value
-        })).selectric('refresh');
-      });
-    }
-  });
   $("#gift_button").click(function(e){
     e.preventDefault();
     if(event_open() == "running"){
