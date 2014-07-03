@@ -33,7 +33,6 @@ $(document).ready(function(){
         onClose: function(){$("#comment_event").bPopup().close();}
       });
     }
-    return true;
   }).bind('ajax:error',function(evt,xhr,status,error){
     var $form = $(this),errors,errorText;
     errors = $.parseJSON(xhr.responseText);   
@@ -245,9 +244,13 @@ function popup_comment_user_info(){
   //console.log(id);
   var user_param;
   if(apply_user_check(user_param) == false){
-    $("#comment_event").bPopup();
+    $("#comment_event").bPopup({
+      positionStyle: 'fixed',
+      closeClass: 'close',
+      modalColor: 'black'
+    });
   }
-  return false;
+  return true;
 }
 
 function get_poster_code(){
