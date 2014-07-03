@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get 'couponused'
+        get 'comment_users'
       end
       member do
         get 'logs'

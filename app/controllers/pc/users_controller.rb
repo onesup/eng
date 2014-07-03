@@ -5,7 +5,8 @@ class Pc::UsersController < ApplicationController
   def create    
     device = "pc"
     user_agent = UserAgent.parse(request.user_agent)
-    @user = User.new(user_params)
+    @user = User.find_or_initialize_by(phone: user_params[:phone])
+    @user.assign_attributes(user_params)
     @user.device = device
     @user.source = session[:source]
     Rails.logger.info "@@@session@@@"+session[:source].to_s
@@ -17,8 +18,9 @@ class Pc::UsersController < ApplicationController
         coupon.save
       
         applied_event = AppliedEvent.new
-        applied_event.title = params[:event_title]
+        applied_event.title = @user.event_title
         applied_event.user = @user
+        applied_event.device = device
         applied_event.save
         
         @log = AccessLog.new(ip: request.remote_ip, device: device)
@@ -55,6 +57,6 @@ class Pc::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :phone, :agree, :agree_option, :address, :code6, :address_detail, :poster_code)
+      params.require(:user).permit(:event_title, :name, :phone, :agree, :agree_option, :address, :code6, :address_detail, :poster_code)
     end
 end

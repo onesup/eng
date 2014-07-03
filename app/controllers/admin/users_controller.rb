@@ -2,8 +2,15 @@ class Admin::UsersController < ApplicationController
   layout 'admin'
   before_action :authenticate_user!
   def index
-    @users = User.includes(:access_logs, :coupon).order("id desc").page(params[:page]).per(200)
-    @user_counts = User.count_by_device_type
+    @users = User.includes(:access_logs, :applied_events)
+    @users = @users.where('applied_events.title' => "poster").order("users.id desc").page(params[:page]).per(200)
+    @user_counts = AppliedEvent.count_by_device_type("poster")
+  end
+  
+  def comment_users
+    @users = User.includes(:access_logs, :applied_events)
+    @users = @users.where('applied_events.title' => "comment").order("users.id desc").page(params[:page]).per(200)
+    @user_counts = AppliedEvent.count_by_device_type("comment")
   end
   
   def couponused

@@ -7,19 +7,26 @@ class User < ActiveRecord::Base
   has_one :coupon
   has_many :comments
   
+  before_validation :apply_poster_event?
   validates :agree, acceptance: true
   # validates :agree2, acceptance: true
   validates :name, presence: true
   validates :phone, presence: true
 #  validates :phone, uniqueness: true
  # validates :address, presence: true
-  validate :apply_poster_event?
 
-  attr_accessor :birthday_month, :birthday_day
   attr_accessor :agree, :agree2
+  attr_accessor :event_title
 
-  def apply_poster_event?
-    # self.applied_events.where(title: title).exists?
+  def apply_poster_event? 
+    Rails.logger.info("@@@@@@@@@@@@@aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    user = User.find_by_phone(self.phone)
+    user = User.new if user.nil?
+    result = true
+    if self.event_title == "poster"
+      result = false if user.applied_events.where(title: "poster").exists?
+    end
+    return result
   end
 
   def send_survey
@@ -62,8 +69,9 @@ class User < ActiveRecord::Base
       .order("coupons.updated_at DESC")
   end
   
-  def self.count_by_device_type
+  def self.count_by_device_type(event_title)
     result = self.select(
+      
       "sum(case when users.device = 'pc' then 1 else 0 end) as pc_count, 
       sum(case when users.device = 'mobile' then 1 else 0 end) as mobile_count, 
       count(*) as total_count")
