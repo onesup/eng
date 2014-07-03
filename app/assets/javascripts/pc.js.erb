@@ -267,7 +267,7 @@ function selected_posters(code){
 
 
 $(window).scroll(function() {
-  if (bowser.msie && bowser.version > 8) {
+  if ((bowser.msie && bowser.version > 8) || (bowser.webkit) || (bowser.gecko)){
     clearTimeout($.data(this, 'scrollTimer'));
     $.data(this, 'scrollTimer', setTimeout(function() {
         var poster_coupon_offset = 55;
