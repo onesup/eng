@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
   attr_accessor :birthday_month, :birthday_day
   attr_accessor :agree, :agree2
 
-  def apply_event?
-    self.applied_events.where(title: title).exists?
+  def apply_poster_event?
+    # self.applied_events.where(title: title).exists?
   end
 
   def send_survey

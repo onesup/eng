@@ -72,7 +72,7 @@
       </div>
       <%= image_tag("pc/comment_about_challenge.png", class: "title_comment") %>
       <div class="comment_list_wrapper" style="display:none;">
-      <!--> 댓글 박스 생기는 곳 <-->
+      <!-- 댓글 박스 생기는 곳 -->
       </div>
     </div>
 	</section>
@@ -140,3 +140,18 @@
      <%= render "popup_poster_form"%>
     <%= render "popup_comment_form"%>
     <div>
+
+
+<div class = "popup" id = "comment_popup_thank">
+    <div class = "popup_contents_wrapper">
+        <%= image_tag("pc/popup/popup_comment_thanks.png", class: "popup_fn_title") %>
+
+        <a href = "#">
+            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
+        </a>
+    </div>
+    <a href = "#">
+        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+    </a>
+</div>
+
