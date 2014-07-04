@@ -2,55 +2,56 @@
 <article class="article">
 	<%= render 'movie'%>
 	<div id="poster_coupon">
-		<div class="center poster_coupon">
+		<div class="center poster_coupon clearfix">
 			<div class="poster_left_column">
 				<%= image_tag("pc/poster/poster_title.png", class: "title_poster") %>
-				<ul class = "poster_list">
+				<ul class = "poster_list clearfix">
 					<li class = "poster_item posters_thinking"> </li>
 					<li class = "poster_item">
-            <a href = "#" id = "bt_poster_item_1" code="1" class="poster_select">
-	            <%= image_tag("pc/poster/small_poster_01.png") %>
-	            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-            </a>
-          </li>
-          <li class = "poster_item">
-            <a href = "#" id = "bt_poster_item_2" code="2" class="poster_select">
-	            <%= image_tag("pc/poster/small_poster_02.png") %>
-	            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-            </a>
-          </li>
-         	<li class = "poster_item">
-            <a href = "#" id = "bt_poster_item_3" code="3" class="poster_select">
-	            <%= image_tag("pc/poster/small_poster_03.png") %>
-	            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-            </a>
-          </li>
-         	<li class = "poster_item">
-              <a href = "#" id = "bt_poster_item_4" code="4" class="poster_select">
-              <%= image_tag("pc/poster/small_poster_04.png") %>
-              <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-              </a>
-          </li>
-         <li class = "poster_item">
-              <a href = "#" id = "bt_poster_item_5" code="5" class="poster_select">
-              <%= image_tag("pc/poster/small_poster_05.png") %>
-              <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-              </a>
-          </li>
+			            <a href = "#" id = "bt_poster_item_1" code="1" class="poster_select">
+				            <%= image_tag("pc/poster/small_poster_01.png") %>
+				            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+			            </a>
+          		  	</li>
+			          <li class = "poster_item">
+			            <a href = "#" id = "bt_poster_item_2" code="2" class="poster_select">
+				            <%= image_tag("pc/poster/small_poster_02.png") %>
+				            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+			            </a>
+			          </li>
+			         	<li class = "poster_item">
+			            <a href = "#" id = "bt_poster_item_3" code="3" class="poster_select">
+				            <%= image_tag("pc/poster/small_poster_03.png") %>
+				            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+			            </a>
+			          </li>
+			         	<li class = "poster_item">
+			              <a href = "#" id = "bt_poster_item_4" code="4" class="poster_select">
+			              <%= image_tag("pc/poster/small_poster_04.png") %>
+			              <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+			              </a>
+			          </li>
+			         <li class = "poster_item">
+			              <a href = "#" id = "bt_poster_item_5" code="5" class="poster_select">
+			              <%= image_tag("pc/poster/small_poster_05.png") %>
+			              <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
+			              </a>
+			          </li>
 				</ul>
 			</div>
-			<div class = "poster_right_column clearfix">
-				 <div class = "poster_request_wrapper center">
-           <div class="inner">
-				     <a href = "#" id = "request_poster" data-href = "#">
-				         <%= image_tag("pc/btn_posters.png") %>
-				     </a>
-				     <div class = "share_sns">
-								<%= link_to(image_tag("pc/share_facebook_icon.png", class:"share_facebook"), "#", id:"poster_facebook_share_link", "data-code" => "1") %>	
-								<%= link_to(image_tag("pc/share_twitter_icon.png", class: "share_twitter"), "#", id:"poster_twitter_share_link", "data-code" => "1", "data-text" => "당신과 가장 닮은 포스터를 선택하세요. 무모할만큼 실속있는 시크릿 선물을 담아 포스터와 함께 보내드립니다. 5천명 모두에게", "data-url" => "http://stayfoolish.co.kr/?s=tw") %>
-				     </div>
+			<div class = "poster_right_column">
+				<div class = "poster_request_wrapper">
+           	 		 <div class="inner">
+						 
+					     <a href = "#" id = "request_poster" data-href = "#">
+					         <%= image_tag("pc/btn_posters.png") %>
+					     </a>
+					     <div class = "share_sns">
+									<%= link_to(image_tag("pc/share_facebook_icon.png", class:"share_facebook"), "#", id:"poster_facebook_share_link", "data-code" => "1") %>	
+									<%= link_to(image_tag("pc/share_twitter_icon.png", class: "share_twitter"), "#", id:"poster_twitter_share_link", "data-code" => "1", "data-text" => "당신과 가장 닮은 포스터를 선택하세요. 무모할만큼 실속있는 시크릿 선물을 담아 포스터와 함께 보내드립니다. 5천명 모두에게", "data-url" => "http://stayfoolish.co.kr/?s=tw") %>
+					     </div>
 				   </div>
-				</div>
+			   </div>
         <div class = "poster_wrapper">
           <%= image_tag("pc/poster/contents_large_poster_1.png", id: "poster_item_1", class: "poster_display") %>
           <%= image_tag("pc/poster/contents_large_poster_2.png", id: "poster_item_2", class: "poster_hidden") %>
@@ -100,7 +101,7 @@
 </div>
 
 <div class = "popup" id = "popup_thank">
-    <div class = "popup_contents_wrapper">
+    <div class = "popup_contents_wrapper2">
         <%= image_tag("pc/popup/thank_event.png", class: "popup_fn_title") %>
 
         <a href = "#">
