@@ -19,12 +19,13 @@ class User < ActiveRecord::Base
   attr_accessor :event_title
 
   def apply_poster_event? 
-    Rails.logger.info("@@@@@@@@@@@@@aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     user = User.find_by_phone(self.phone)
     user = User.new if user.nil?
     result = true
     if self.event_title == "poster"
       result = false if user.applied_events.where(title: "poster").exists?
+    elsif self.event_title == "comment"
+      result = false if user.applied_events.where(title: "comment").exists?
     end
     return result
   end
