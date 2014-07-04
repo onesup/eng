@@ -9,7 +9,6 @@
       <div class="fields">
       <%= image_tag("mobile/apply/text_name.png", class:"side_text") %>
       <%= f.hidden_field(:event_title,{value: "poster"})%>
-      
       <%= f.hidden_field(:poster_code,
       {"data-name" => "poster_code", id: "info_poster_code",
         class:"popup_input"
@@ -72,11 +71,11 @@
   </div>
   <%end%>
 </div>
-      <% content_for :alert do%>
-      <% if @user.errors[:agree].any? %>
-        <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
-      <% end %>
-      <% end %>
+<% content_for :alert do%>
+	<% if @user.errors[:agree].any? %>
+	  <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
+	<% end %>
+<% end %>
 
 
 

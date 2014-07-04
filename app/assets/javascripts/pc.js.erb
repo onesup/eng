@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  // alert("캠페인 기간이 아닙니다.");
-  
 	$('#leaflet_inbox').owlCarousel({
 		navigation : true, // Show next and prev buttons
 		slideSpeed : 300,
@@ -14,7 +12,7 @@ $(document).ready(function(){
     e.preventDefault();
     $("#participation_event").bPopup().close();
   });
-	$("#info_phone").mask("999-9999-9999");
+	$(".input_phone").mask("999-9999-9999");
   
   $("#link_movie_2").click(function(e){
     e.preventDefault();
