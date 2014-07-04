@@ -8,18 +8,26 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('ytplayer', {
     videoId: "aFTQ8gnKnFw",
     width: 960,
-    height: 500,
+    height: 540,
     playerVars: {
       controls: 0,
-      showinfo: 0 ,
+      showinfo: 0,
       modestbranding: 1,
       wmode: "opaque"
-    }// ,
-//     events: {
-//       'onReady': ytHover,
-//       'onStateChange': onPlayerStateChange
-//     }
+      
+    },
+    events: {
+      // 'onReady': ytHover,
+      'onStateChange': onPlayerStateChange
+    }
   });
+}
+
+function onPlayerStateChange(event){
+  if(event.data == YT.PlayerState.PLAYING)
+  {
+    event.target.setPlaybackQuality('hd1080');
+  }
 }
 
 function ytHover(event){
