@@ -761,3 +761,42 @@ height: 490px;
   margin-top: 30px;
   margin-left: 120px;
 }
+
+
+
+.leaflet_inbox{
+  max-width: 640px;
+  margin: 0 auto;
+}
+.owl-theme .owl-controls{
+  width: 100%;
+}
+
+.owl-theme .owl-controls {
+  width: 83%;
+  margin-bottom: 15px;
+}
+.owl-theme .owl-controls .owl-buttons{
+  width: 100%;
+  margin-top: -100%;
+  margin-left: 0%;
+  position: absolute;
+
+}
+
+
+.owl-theme .owl-controls .owl-buttons .owl-prev{
+  float:left;
+}
+.owl-theme .owl-controls .owl-buttons .owl-next{
+  float:right;
+}
+
+.owl-theme .owl-controls .owl-page span{
+  background: none;
+  border: 3px solid #343434;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  margin-right: 14px;
+}
