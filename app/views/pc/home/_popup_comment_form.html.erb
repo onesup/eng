@@ -1,45 +1,37 @@
 <div id="comment_event" class="popup">
-    <div class="comment_popup_contents_wrapper comment_event_wrapper">
-			<div class="left">
-	       <%= image_tag("pc/popup/popup_comment_input_title.png", class: "title_comment_event_input") %>
-	       <%= form_for([:pc, @user], remote: true, html: {'data-type'=>'json', class: "comment_event_input_information_form", id:"new_comment_user"}) do |f| %>
-         <%= f.hidden_field(:event_title,{value: "comment"})%>
-	       
-            <%= f.text_field(:name, 
-	           {"data-name" => "name", id: "info_name", 
-	              class:"popup_input input_name", value: ""})%>
-	          <%= f.text_field(:phone, 
-	            {"data-name" => "phone", id: "info_phone", 
-	              class:"popup_input input_phone", value: ""})%>
-	            <div class = "comment_agree_wrapper">
-	              <div class="agree">
-	              <%= f.check_box "agree", 
-	              {"data-name" => "agree", id:"info_input_radio1", 
-	                class: "agree_personal_info" }%>
-	                </div>
-     
-	        <div class="agree2">
-	        <%= f.check_box "agree_option", 
-	        {"data-name" => "agree_option", id:"info_input_radio2", 
-	          class: "agree_dealing_personal_info" }%>   </div>
-	                <%= image_tag("pc/popup/agree_personal_information.png", class: "image_agree") %>
-                
-	                <a href="#" id="about_personal_information" class="view_more_personal_info">
-	                  <%= image_tag("pc/popup/popup_input_show_more.png") %>
-	                </a>
-	                <a href="#" id="about_brand_information" class="view_more_brand_info">
-	                  <%= image_tag("pc/popup/popup_input_show_more.png") %>
-	                </a>
-	            </div>
-	            <%= image_submit_tag("pc/popup/popup_input_submit.png", id: "bt_submit") %>
-            
-	        <%end%>
-	        <%= image_tag("pc/popup/more_info.png", class: "more_info") %>
-			</div>
-
+	<div class="comment_popup_contents_wrapper comment_event_wrapper">
+		<div class="left">
+			<%= image_tag("pc/popup/popup_comment_input_title.png", class: "title_comment_event_input") %>
+			<%= form_for([:pc, @user], remote: true, 
+				html: {'data-type'=>'json', class: "comment_event_input_information_form", id:"new_comment_user"}) do |f| %>
+				<%= f.hidden_field(:event_title,{value: "comment"})%>
+				<%= f.text_field(:name, 
+					{"data-name" => "name", id: "info_name", class:"popup_input input_name", value: ""}) %>
+				<%= f.text_field(:phone, 
+				  {"data-name" => "phone", id: "info_phone", class:"popup_input input_phone", value: ""})%>
+				<div class = "comment_agree_wrapper">
+					<div class="agree">
+						<%= f.check_box "agree", 
+							{"data-name" => "agree", id:"info_input_radio1", class: "agree_personal_info" }%>
+					</div>
+					<div class="agree2">
+						<%= f.check_box "agree_option", 
+							{"data-name" => "agree_option", id:"info_input_radio2", class: "agree_dealing_personal_info" }%>
+					</div>
+		      <%= image_tag("pc/popup/agree_personal_information.png", class: "image_agree") %>    
+		      <a href="#" id="about_personal_information" class="view_more_personal_info">
+		        <%= image_tag("pc/popup/popup_input_show_more.png") %>
+		      </a>
+		      <a href="#" id="about_brand_information" class="view_more_brand_info">
+		        <%= image_tag("pc/popup/popup_input_show_more.png") %>
+		      </a>
+				</div>
+		  	<%= image_submit_tag("pc/popup/popup_input_submit.png", id: "bt_submit") %>      
+	  	<%end%>
+	  	<%= image_tag("pc/popup/more_info.png", class: "more_info") %>
 		</div>
-	    <a href="#" class="close">
-	    <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-	    </a>
-   
+	</div>
+	<a href="#" class="close">
+		<%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
+	</a>
 </div>
