@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     get 'agree_brand' => 'home#agree_brand'
     get 'leaflet' => 'home#leaflet'
     get 'comment_thanks' => 'home#comment_thanks'
+    get 'out_of_stock' => 'home#out_of_stock'
     resources :users do
       collection do
         get 'comment_new'

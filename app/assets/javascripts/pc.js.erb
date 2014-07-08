@@ -154,7 +154,6 @@ $(document).ready(function(){
       success: function (data) {
       }
     });
-    console.log(result.responseJSON.stock);
     if(result.responseJSON.stock <= 0){
       alert("선택하신 포스터는 신청이 마감되었습니다.");
     }else{
