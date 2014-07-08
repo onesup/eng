@@ -71,7 +71,11 @@
   </div>
   <%end%>
 </div>
+<% binding.pry %>
 <% content_for :alert do%>
+	<% if @user.errors[:agree].any? %>
+	  <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
+	<% end %>
 	<% if @user.errors[:agree].any? %>
 	  <script>alert("개인정보취급위탁 동의를 확인해주세요.");</script>
 	<% end %>
