@@ -371,11 +371,15 @@ function validation(errors){
 	var flag;
 	flag = "uniqueness";
 	$.each(errors,function(key, value){
-		if(value == "must be accepted" || value == "can't be blank" ){
-			flag = "presence";
-		}
-	});
-	if(flag == "presence"){
+  	if(value == "must be accepted" || value == "can't be blank" ){
+  		flag = "presence";
+  	}
+    if(key == "code6"){
+      alert("빠른 배송을 위해 주소 옆의 '검색'을 눌러주세요. 우편번호가 자동 입력됩니다.");
+    }
+  });
+  
+  if(flag == "presence"){
 		$(".star").empty();
     $('.popup_input').css('background','white');
 

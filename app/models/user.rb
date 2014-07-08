@@ -8,12 +8,13 @@ class User < ActiveRecord::Base
   has_many :comments
   
   before_validation :apply_poster_event?
+  validates :code6, presence: true, if: :poster_event?
+  validates :address, presence: true, if: :poster_event?
   validates :agree, acceptance: true
   # validates :agree2, acceptance: true
   validates :name, presence: true
   validates :phone, presence: true
 #  validates :phone, uniqueness: true
- # validates :address, presence: true
 
   attr_accessor :agree, :agree2
   attr_accessor :event_title
@@ -28,6 +29,10 @@ class User < ActiveRecord::Base
       result = false if user.applied_events.where(title: "comment").exists?
     end
     return result
+  end
+  
+  def poster_event?
+    self.event_title == "poster"
   end
 
   def send_survey
