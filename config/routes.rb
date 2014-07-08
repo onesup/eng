@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   get 'web_switch' => 'web_switch#index'
   get 'fb_switch' => 'fb_switch#index'
   get 'current_time' => 'web_switch#current_time'
-  get 'coupon_finish' => 'web_switch#coupon_finish'
+  get 'poster_stock' => 'web_switch#poster_stock'
   get 'survey' => 'web_switch#survey'
 
   root 'web_switch#index'

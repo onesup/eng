@@ -9,7 +9,6 @@ class Pc::UsersController < ApplicationController
     @user.assign_attributes(user_params)
     @user.device = device
     @user.source = session[:source]
-    Rails.logger.info "@@@session@@@"+session[:source].to_s
     respond_to do |format|
       if @user.save
         coupon = Coupon.new
@@ -35,20 +34,7 @@ class Pc::UsersController < ApplicationController
       end
     end
   end
-  
-  def delete
-    test_users = [
-      "010-6418-4332", "010-2515-4373", "010-9911-1804", 
-      "010-2740-7375", "010-7599-0897", "010-4727-1051"
-    ]
-    @users = User.where(test_users)
-    @users.destroy_all
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
-    end
-  end
-    
+      
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

@@ -14,11 +14,28 @@ class User < ActiveRecord::Base
   # validates :agree2, acceptance: true
   validates :name, presence: true
   validates :phone, presence: true
-#  validates :phone, uniqueness: true
+  #validates :phone, uniqueness: true
 
   attr_accessor :agree, :agree2
   attr_accessor :event_title
-
+  
+  def self.poster_stock(poster_code)
+    days_of_week = if DateTime.parse("2014-07-04").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-13").end_of_day
+      DateTime.parse("2014-07-04").beginning_of_day..DateTime.parse("2014-07-13").end_of_day
+    elsif DateTime.parse("2014-07-14").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-20").end_of_day
+      DateTime.parse("2014-07-14").beginning_of_day..DateTime.parse("2014-07-20").end_of_day
+    elsif DateTime.parse("2014-07-21").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-27").end_of_day
+      DateTime.parse("2014-07-21").beginning_of_day..DateTime.parse("2014-07-27").end_of_day
+    elsif DateTime.parse("2014-07-28").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-08-03").end_of_day
+      DateTime.parse("2014-07-28").beginning_of_day..DateTime.parse("2014-08-03").end_of_day
+    elsif DateTime.parse("2014-08-04").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-08-10").end_of_day
+      DateTime.parse("2014-08-04").beginning_of_day..DateTime.parse("2014-08-10").end_of_day
+    else
+      DateTime.parse("2013-07-04")..DateTime.parse("2013-07-13")
+    end
+    puts days_of_week
+    return 200 - self.where(poster_code: poster_code, created_at:(days_of_week)).count
+  end
   def apply_poster_event? 
     user = User.find_by_phone(self.phone)
     user = User.new if user.nil?
