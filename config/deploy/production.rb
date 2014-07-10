@@ -1,4 +1,4 @@
-server 'stayfoolish.co.kr', user: 'onesup', roles: %w{web app db}# , my_property: :my_value
+server 'm11.mnv.kr', user: 'onesup', roles: %w{web app db}# , my_property: :my_value
 set :ssh_options, {
   keys: %w(/Users/daul/.ssh/ids/stayfoolish.co.kr/onesup/id_rsa),
   forward_agent: false
