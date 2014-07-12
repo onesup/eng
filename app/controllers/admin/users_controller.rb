@@ -7,6 +7,10 @@ class Admin::UsersController < ApplicationController
     @user_counts = AppliedEvent.count_by_device_type("poster")
   end
   
+  def before_users
+    @users = User.where(created_at: [Date.parse('2014-06-30').beginning_of_day..Date.parse('2014-06-30').end_of_day]).page(params[:page]).per(200)
+  end
+  
   def comment_users
     @users = User.includes(:access_logs, :applied_events)
     @users = @users.where('applied_events.title' => "comment").order("users.id desc").page(params[:page]).per(200)
