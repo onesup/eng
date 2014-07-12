@@ -21,12 +21,12 @@
       <%= f.text_field(:phone,
         {"data-name" => "phone", id: "info_phone", class:"popup_input", value: ""})%>
       <br><br>
-        <p class="address_caption">검색 예: 언주로 406, 역삼동 712-3</p>
+        <p class="address_caption">검색 예: OO동(읍/면/리)</p>
 
       <%= image_tag("mobile/apply/text_address.png", class:"side_text") %>
       <%= f.text_field(:address,
         {"data-name" => "address", id: "info_address",
-          class:"popup_input popup_input_address", value: "", placeholder: "예) 역삼동 개나리아파트"})%>
+          class:"popup_input popup_input_address", value: "", placeholder: "예) OO동(읍/면/리)"})%>
       <%= button_tag("검색", id:"info_address_btn", class:"btn_address") %>
       <br>
 

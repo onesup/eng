@@ -120,20 +120,19 @@ function test_out(q){
 
   				$.each(query_results, function( index, value ) {
             extra_info = "<optgroup label='"+ value.zip +"'>";
-            address = "<option class='address_list' value='"+value.addr3+"' data-code6='"+value.zip+"'>"+value.addr1+" "+value.addr2+" "+value.addr3+" "+value.addr4+"</option></optgroup>";
+            address = "<option class='address_list' value='"+value.addr1+" "+value.addr2+" "+value.addr3+" "+value.addr4+"' data-code6='"+value.zip+"'>"+value.addr1+" "+value.addr2+" "+value.addr3+" "+value.addr4+"</option></optgroup>";
 
   					$("#addresses").append(extra_info+address);
   					$(".address_box").css("display", "block");
   				});
 
-          // $('#addresses').on("change", function(){
-          //             code6 = $(this).find(':selected').data('code6');
-          //             address_data = $(this).val();
-          //   $("#info_code6").val(code6);
-          //   $("#info_address").val(address_data);
-          //   $(".address_box").hide();
-          //
-          // });
+          $('#addresses').on("change", function(){
+                      code6 = $(this).find(':selected').data('code6');
+                      address_data = $(this).val();
+            $("#info_code6").val(code6);
+            $("#info_address").val(address_data);
+            $(".address_box").hide();
+          });
         },
 
         // 요청이 실패한 경우 이 함수를 호출한다.
