@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       collection do
         get 'couponused'
         get 'comment_users'
+        get 'before_users'
       end
       member do
         get 'logs'
