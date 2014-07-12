@@ -57,6 +57,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :addresses, only: [:index] 
+
   resources :viral_actions
 
   get 'web_switch' => 'web_switch#index'
@@ -78,4 +80,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :comments, except: [:update, :edit, :show] do
   end
+  
 end

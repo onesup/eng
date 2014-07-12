@@ -108,9 +108,9 @@ function get_poster_btn_href(code){
 function test_out(q){
 
     $.ajax({
-        "url": "//api.poesis.kr/post/search.php",
+        "url": "/addresses.json",
         "type": "get",
-        "data": { "v": "1.1", "q": q, "ref": window.location.hostname },
+        "data": { "q": q },
         "dataType": "jsonp",
         "processData": true,
         "cache": false,
