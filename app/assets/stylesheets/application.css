@@ -11,12 +11,12 @@
  * file per style scope.
  *
  *= require_self
- *= require pc/style
  *= require pc/icheck/skins/all
  *= require pc/icheck/skins/minimal/_all
  *= require pc/icheck/skins/minimal/minimal
  *= require pc/jquery.selectBox
  *= require pc/selectric
- * require 2907215400-formview_ltr
- * require 212514800-mobile_formview_ltr.css
+ *= require owl.carousel
+ *= require owl.theme.css
+ *= require pc/style
  */

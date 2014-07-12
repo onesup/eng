@@ -15,13 +15,10 @@
 //= require bowser
 //= require youtube
 //= require jquery.bpopup.min
-// require jquery.customSelect.min
-// require icheck
-// require jquery.selectBox
 //= require jquery.selectric
 //= require jquery.maskedinput.min
-// require jquery.modal
 //= require jquery.mask
+//= require owl.carousel
 //= require ZeroClipboard
 //= require smooth-scroll.js
 //= require headroom.min.js

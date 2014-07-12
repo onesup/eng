@@ -5,7 +5,9 @@
 
 body{
   margin: 0;
+  background-color: #424242;
 }
+
 
 // index.html.erb
 
@@ -53,7 +55,7 @@ body{
   background-color: #424242;
   color: white;
   width: 92.5%;
-  padding: 4%;
+  padding: 8% 4%;
   margin-top: 15%;
 }
 
@@ -163,6 +165,41 @@ body{
   border-radius: 16px;
   margin-right: 14px;
 }
+
+
+
+
+
+.owl-theme-leaflet .owl-controls {
+  width: 83%;
+  margin-bottom: 15px;
+}
+.owl-theme-leaflet .owl-controls .owl-buttons{
+  width: 100%;
+  margin-top: -100%;
+  margin-left: 0%;
+  position: absolute;
+
+}
+
+
+.owl-theme-leaflet .owl-controls .owl-buttons .owl-prev{
+  float:left;
+}
+.owl-theme-leaflet .owl-controls .owl-buttons .owl-next{
+  float:right;
+}
+
+.owl-theme-leaflet .owl-controls .owl-page span{
+  background: none;
+  border: 3px solid #343434;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  margin-right: 14px;
+}
+
+
 .poster .poster_scroll{
   width: 6%;
   margin: 0 2% 8% 2%;
@@ -250,6 +287,12 @@ body{
 //  margin-top: 6%;
 	margin-bottom: 6%;
 }
+.popup_title2{
+  width: 85%;
+//  margin: 6% 0;
+  margin-top: 6%;
+	margin-bottom: 6%;
+}
 
 .input_box{
   width: 100%;
@@ -316,12 +359,12 @@ body{
 }
 
 .apply_btn{
-  width: 60%;
+  width: 50%;
   margin-bottom: 10%;
 }
 
 .ok_btn{
-  width: 60%;
+  width: 50%;
   margin-top: 6%;
 }
 

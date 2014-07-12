@@ -40,6 +40,13 @@ class WebSwitchController < ApplicationController
     end
   end
   
+  def poster_stock
+    stock = User.poster_stock(params[:poster_code])
+    respond_to do |format|
+      format.json { render json: {stock: stock}, status: :ok}
+    end
+  end
+  
   def survey
     @user = User.find_by_phone params[:p]
     render layout: false

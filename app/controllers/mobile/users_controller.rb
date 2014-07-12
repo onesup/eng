@@ -47,9 +47,13 @@ class Mobile::UsersController < ApplicationController
   def new
     unless params[:code].nil?
       session[:poster_code] = params[:code]
-    end  
-    @user = User.new(poster_code: session[:poster_code])
-
+    end
+    stock = User.poster_stock(params[:code])
+    # if stock <= 0
+  #     redirect_to mobile_out_of_stock_path
+  #   else
+      @user = User.new(poster_code: session[:poster_code])
+      # end
   end
   
   def comment_new

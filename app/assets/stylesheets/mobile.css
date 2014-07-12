@@ -13,6 +13,7 @@
  *= require_self
  *= require owl.carousel
  *= require owl.theme.css
+ *= require owl.theme.leaflet.css
  *= require mobile/mobile
  * require mobile/iCheck/all
  *= require mobile/iCheck/skins/minimal/_all

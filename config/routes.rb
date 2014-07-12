@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     get 'agree_brand' => 'home#agree_brand'
     get 'leaflet' => 'home#leaflet'
     get 'comment_thanks' => 'home#comment_thanks'
+    get 'out_of_stock' => 'home#out_of_stock'
     resources :users do
       collection do
         get 'comment_new'
@@ -62,7 +63,7 @@ Rails.application.routes.draw do
   get 'web_switch' => 'web_switch#index'
   get 'fb_switch' => 'fb_switch#index'
   get 'current_time' => 'web_switch#current_time'
-  get 'coupon_finish' => 'web_switch#coupon_finish'
+  get 'poster_stock' => 'web_switch#poster_stock'
   get 'survey' => 'web_switch#survey'
 
   root 'web_switch#index'
