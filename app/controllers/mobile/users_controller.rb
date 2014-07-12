@@ -49,8 +49,7 @@ class Mobile::UsersController < ApplicationController
       session[:poster_code] = params[:code]
     end
     stock = User.poster_stock(params[:code])
-  #  if stock <= 0
-    if stock > 0
+    if stock <= 0
       redirect_to mobile_out_of_stock_path
     else
       @user = User.new(poster_code: session[:poster_code])

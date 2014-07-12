@@ -93,8 +93,8 @@ $(document).ready(function(){
   
   $('#info_address_btn').click(function(e){
     e.preventDefault();
-		q = $("#info_address").val();
-		test_out(q);
+    q = $("#info_address").val();
+    test_out(q);
   });
   
   
@@ -257,7 +257,6 @@ function apply_user_check(){
 }
 
 function popup_comment_user_info(){
-  //console.log(id);
   var user_param;
   if(apply_user_check(user_param) == false){
     $("#comment_event").bPopup({
@@ -332,42 +331,33 @@ function checkRatioOfElementInView(elem) {
 
 function test_out(q){
   $.ajax({
-    "url": "//api.poesis.kr/post/search.php",
-    "type": "get",
-    "data": { "v": "1.1", "q": q, "ref": window.location.hostname },
-    "dataType": "jsonp",
-    "processData": true,
-    "cache": false,
-    // 요청이 성공한 경우 이 함수를 호출한다.
-    "success": function(data, textStatus, jqXHR) {
-			query_results = data.results;
-			$("#addresses").empty();
-			if(query_results.length > 20 || query_results.length === 0){
-				$(".address_box").hide();
-				alert("주소를 자세히 입력해 주세요. (예: 종로구 새문안로 58 또는 종로구 신문로2가 92번지)");
-			}else {
-				address_success_query(query_results);
-			}
+    url: "/addresses.json",
+    type: "get",
+    data: { "q": q },
+    success: function(data, textStatus, jqXHR) {
+      query_results = data;
+      $("#addresses").empty();
+      address_success_query(query_results);
     },
-    "error": function(jqXHR, textStatus, errorThrown) {
-		},
-    "complete": function(jqXHR, textStatus) {
-  	}
+    error: function(jqXHR, textStatus, errorThrown) {
+    },
+    complete: function(jqXHR, textStatus) {
+    }
   });
 }
 
 
 function address_success_query(query_results){
-
   $.each(query_results, function( index, value ) {
-    var li = "<li class='address_list' address-data='"+value.address+"' code6='"+value.code6+"'>";
-    var p_new = "<p class='address_new'>"+value.address+"  "+value.code6+"</p>";
-    var p_old = "<p class='address_old'>   ("+ value.extra_info_long+ ")</p></li>";
-						
-    $("#addresses").append(li+p_new+p_old);
-    $(".address_box").bPopup({positionStyle: 'fixed'});		
+
+    var address = value.addr1+" "+value.addr2+" "+value.addr3+" "+value.addr4;
+    var li = "<li class='address_list' address-data='"+address+"' code6='"+value.zip+"'>";
+    var p_new = "<p class='address_new'>"+"["+value.zip+"] "+address+"</p>";
+
+    $("#addresses").append(li+p_new);
+    $(".address_box").bPopup({positionStyle: 'fixed'});
   });
-          
+
   $('.address_list').on("click", function(){
     var code6 = $(this).attr("code6");
     var address_data = $(this).attr("address-data");
