@@ -20,16 +20,16 @@ class User < ActiveRecord::Base
   attr_accessor :event_title
   
   def self.poster_stock(poster_code)
-    days_of_week = if DateTime.parse("2014-07-04").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-13").end_of_day
-      DateTime.parse("2014-07-04").beginning_of_day..DateTime.parse("2014-07-13").end_of_day
-    elsif DateTime.parse("2014-07-14 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-20").end_of_day
-      DateTime.parse("2014-07-14 00:00:00 +0900")..DateTime.parse("2014-07-20").end_of_day
-    elsif DateTime.parse("2014-07-21 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-27").end_of_day
-      DateTime.parse("2014-07-21").beginning_of_day..DateTime.parse("2014-07-27").end_of_day
-    elsif DateTime.parse("2014-07-28 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-03").end_of_day
-      DateTime.parse("2014-07-28").beginning_of_day..DateTime.parse("2014-08-03").end_of_day
-    elsif DateTime.parse("2014-08-04 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-10").end_of_day
-      DateTime.parse("2014-08-04").beginning_of_day..DateTime.parse("2014-08-10").end_of_day
+    days_of_week = if DateTime.parse("2014-07-04").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-13 23:59:59 +0900")
+      DateTime.parse("2014-07-04 00:00:00 +0900")..DateTime.parse("2014-07-13 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-14 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-20 23:59:59 +0900")
+      DateTime.parse("2014-07-14 00:00:00 +0900")..DateTime.parse("2014-07-20 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-21 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-27 23:59:59 +0900")
+      DateTime.parse("2014-07-21 00:00:00 +0900")..DateTime.parse("2014-07-27 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-28 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-03 23:59:59 +0900")
+      DateTime.parse("2014-07-28 00:00:00 +0900")..DateTime.parse("2014-08-03 23:59:59 +0900")
+    elsif DateTime.parse("2014-08-04 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-10 23:59:59 +0900")
+      DateTime.parse("2014-08-04 00:00:00 +0900")..DateTime.parse("2014-08-10 23:59:59 +0900")
     else
       DateTime.parse("2013-07-04")..DateTime.parse("2013-07-13")
     end
