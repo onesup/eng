@@ -33,9 +33,6 @@ class User < ActiveRecord::Base
     else
       DateTime.parse("2013-07-04")..DateTime.parse("2013-07-13")
     end
-    puts "@@@@@"
-    puts days_of_week
-    puts "@@@@@@"
     return 200 - self.where(poster_code: poster_code, created_at:(days_of_week)).count
   end
   def apply_poster_event? 
