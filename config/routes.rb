@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   get 'current_time' => 'web_switch#current_time'
   get 'poster_stock' => 'web_switch#poster_stock'
   get 'survey' => 'web_switch#survey'
+  get 'poster_user_list' => 'web_switch#poster_user_list'
 
   root 'web_switch#index'
 

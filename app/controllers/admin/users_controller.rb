@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
   def index
     @users = User.includes(:access_logs, :applied_events)
-    @users = @users.where('applied_events.title' => "poster").order("users.poster_code asc, users.code6 asc").page(params[:page]).per(200)
+    @users = @users.where('applied_events.title' => "poster").order("users.id desc").page(params[:page]).per(200)
     @user_counts = AppliedEvent.count_by_device_type("poster")
   end
   

@@ -1,3 +1,5 @@
+require 'writeexcel'
+
 class User < ActiveRecord::Base
   devise :database_authenticatable
   
@@ -19,6 +21,38 @@ class User < ActiveRecord::Base
   attr_accessor :agree, :agree2
   attr_accessor :event_title
   
+  def self.write_excel
+    days_of_week = if DateTime.parse("2014-07-04").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-13 23:59:59 +0900")
+      DateTime.parse("2014-07-04 00:00:00 +0900")..DateTime.parse("2014-07-13 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-14 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-20 23:59:59 +0900")
+      DateTime.parse("2014-07-14 00:00:00 +0900")..DateTime.parse("2014-07-20 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-21 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-27 23:59:59 +0900")
+      DateTime.parse("2014-07-21 00:00:00 +0900")..DateTime.parse("2014-07-27 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-28 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-03 23:59:59 +0900")
+      DateTime.parse("2014-07-28 00:00:00 +0900")..DateTime.parse("2014-08-03 23:59:59 +0900")
+    elsif DateTime.parse("2014-08-04 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-10 23:59:59 +0900")
+      DateTime.parse("2014-08-04 00:00:00 +0900")..DateTime.parse("2014-08-10 23:59:59 +0900")
+    else
+      DateTime.parse("2013-07-04")..DateTime.parse("2013-07-13")
+    end
+    
+    users = self.joins(:applied_events).where(users:{created_at:(days_of_week)}).where(applied_events:{title:"poster"})
+    
+    workbook = WriteExcel.new('user_list.xls')
+    worksheet  = workbook.add_worksheet
+    users.each_with_index do |user, i|
+      worksheet.write(i, 0, i+1)
+      worksheet.write(i, 1 , user.id)
+      worksheet.write(i, 2 , user.name)
+      worksheet.write(i, 3 , user.address)
+      worksheet.write(i, 4 , user.address_detail)
+      worksheet.write(i, 5 , user.code6)
+      worksheet.write(i, 6 , user.poster_code)
+      worksheet.write(i, 7 , user.phone)
+    end
+    workbook.close
+  end
+  
   def self.poster_stock(poster_code)
     days_of_week = if DateTime.parse("2014-07-04").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-13 23:59:59 +0900")
       DateTime.parse("2014-07-04 00:00:00 +0900")..DateTime.parse("2014-07-13 23:59:59 +0900")
@@ -35,6 +69,43 @@ class User < ActiveRecord::Base
     end
     return 300 - self.where(poster_code: poster_code, created_at:(days_of_week)).count
   end
+  
+  def self.weekly_poster_count(poster_code)
+    days_of_week = if DateTime.parse("2014-07-04").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-13 23:59:59 +0900")
+      DateTime.parse("2014-07-04 00:00:00 +0900")..DateTime.parse("2014-07-13 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-14 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-20 23:59:59 +0900")
+      DateTime.parse("2014-07-14 00:00:00 +0900")..DateTime.parse("2014-07-20 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-21 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-27 23:59:59 +0900")
+      DateTime.parse("2014-07-21 00:00:00 +0900")..DateTime.parse("2014-07-27 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-28 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-03 23:59:59 +0900")
+      DateTime.parse("2014-07-28 00:00:00 +0900")..DateTime.parse("2014-08-03 23:59:59 +0900")
+    elsif DateTime.parse("2014-08-04 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-10 23:59:59 +0900")
+      DateTime.parse("2014-08-04 00:00:00 +0900")..DateTime.parse("2014-08-10 23:59:59 +0900")
+    else
+      DateTime.parse("2013-07-04")..DateTime.parse("2013-07-13")
+    end
+    return self.where(poster_code: poster_code, created_at:(days_of_week)).count
+  end
+  
+  def self.weekly_poster_count_total
+    days_of_week = if DateTime.parse("2014-07-04").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-13 23:59:59 +0900")
+      DateTime.parse("2014-07-04 00:00:00 +0900")..DateTime.parse("2014-07-13 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-14 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-20 23:59:59 +0900")
+      DateTime.parse("2014-07-14 00:00:00 +0900")..DateTime.parse("2014-07-20 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-21 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-27 23:59:59 +0900")
+      DateTime.parse("2014-07-21 00:00:00 +0900")..DateTime.parse("2014-07-27 23:59:59 +0900")
+    elsif DateTime.parse("2014-07-28 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-03 23:59:59 +0900")
+      DateTime.parse("2014-07-28 00:00:00 +0900")..DateTime.parse("2014-08-03 23:59:59 +0900")
+    elsif DateTime.parse("2014-08-04 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-10 23:59:59 +0900")
+      DateTime.parse("2014-08-04 00:00:00 +0900")..DateTime.parse("2014-08-10 23:59:59 +0900")
+    else
+      DateTime.parse("2013-07-04")..DateTime.parse("2013-07-13")
+    end
+    return self.where(created_at:(days_of_week)).count
+  end
+  
+  
+  
   def apply_poster_event? 
     user = User.find_by_phone(self.phone)
     user = User.new if user.nil?

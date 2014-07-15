@@ -51,4 +51,13 @@ class WebSwitchController < ApplicationController
     @user = User.find_by_phone params[:p]
     render layout: false
   end
+  
+  def poster_user_list
+    render nothing: true
+    User.write_excel
+    send_file("#{Rails.root}/user_list.xls",
+              filename: "#user_list.xls",
+              type: "application/xls")
+  end
+  
 end
