@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     puts "@@@@@"
     puts days_of_week
     puts "@@@@@@"
-    return 200 - self.where(poster_code: poster_code, created_at:(days_of_week)).count
+    return 300 - self.where(poster_code: poster_code, created_at:(days_of_week)).count
   end
   def apply_poster_event? 
     user = User.find_by_phone(self.phone)
