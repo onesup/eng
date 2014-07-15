@@ -1,8 +1,8 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 set :application, 'big_coupon'
-set :repo_url, 'git@github.com:onesup/big_coupon.git'
-set :scm_user, "onesup"
+set :repo_url, 'git@github.com:onsaemiro8318/big_coupon.git'
+set :scm_user, "onsaemiro8318"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
