@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :comments
   
   before_validation :apply_poster_event?
+  validates :poster_code, presence:true, if: :poster_event?
   validates :code6, presence: true, if: :poster_event?
   validates :address, presence: true, if: :poster_event?
   validates :agree, acceptance: true

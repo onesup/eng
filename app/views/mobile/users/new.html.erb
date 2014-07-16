@@ -78,6 +78,9 @@
 	<% if @user.errors[:code6].any? %>
 	  <script>alert("빠른 배송을 위해 주소 옆의 '검색'을 눌러주세요. 우편번호가 자동 입력됩니다.");</script>
 	<% end %>
+	<% if @user.errors[:poster_code].any? %>
+	  <script>alert("포스터를 다시 선택해주세요.");</script>
+	<% end %>
 <% end %>
 
 
