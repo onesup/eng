@@ -1,6 +1,6 @@
 server 'm11.mnv.kr', user: 'onesup', roles: %w{web app db}# , my_property: :my_value
 set :ssh_options, {
-  keys: %w(/Users/minivertising/.ssh/ids/m11.mnv.kr/onesup/id_rsa),
+  keys: %w(/Users/daul/.ssh/ids/m11.mnv.kr/onesup/id_rsa),
   forward_agent: false
   # use_agent: false
   # auth_methods: %w(password)
