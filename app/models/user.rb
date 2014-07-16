@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
       worksheet.write(i, 5 , user.code6)
       worksheet.write(i, 6 , user.poster_code)
       worksheet.write(i, 7 , user.phone)
+      worksheet.write(i, 8 , user.updated_at.strftime("%m.%d %H:%M"))
     end
     workbook.close
   end
