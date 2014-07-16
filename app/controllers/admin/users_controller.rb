@@ -5,6 +5,7 @@ class Admin::UsersController < ApplicationController
     @users = User.includes(:access_logs, :applied_events)
     @users = @users.where('applied_events.title' => "poster").order("users.id desc").page(params[:page]).per(200)
     @user_counts = AppliedEvent.count_by_device_type("poster")
+    @daily_poster_counts = User.daily_poster_count
   end
   
   def before_users
