@@ -6,7 +6,7 @@
 			<div class="poster_left_column">
 				<div class="title_poster">
 					<%= image_tag("pc/poster/poster_title.png", class: "title_poster_img") %>
-					<a href="#"><%= image_tag("pc/btn_winner.png", class: "title_poster_btn") %></a>
+					<a href="#"><%= image_tag("pc/btn_winner.png", class: "title_poster_btn", id:"comment_winner_btn") %></a>
 			    </div>
 				<ul class = "poster_list clearfix">
 					<li class = "poster_item posters_thinking"> </li>
@@ -166,141 +166,19 @@
        </div>
 	   <div class="list_wrap">
 		   <ul class="w_nav clearfix">
-		   		<li><a href="#">1주차</a></li>
-				<li><a href="#">2주차</a></li>
-				<li><a href="#">3주차</a></li>
-				<li><a href="#">4주차</a></li>
-				<li><a href="#">5주차</a></li>
+        <li><%= link_to("1주차", "#", id:"1st_week") %></li>
+        <li><%= link_to("2주차", "#", id:"2nd_week") %></li>
+        <li><%= link_to("3주차", "#", id:"3rd_week") %></li>
+        <li><%= link_to("4주차", "#", id:"4th_week") %></li>
+        <li><%= link_to("5주차", "#", id:"5th_week") %></li>
 		   </ul>
 		   <div class="winner_list clearfix">
-			   <div>
-			   <ul>
-					<li class="clearfix"><span class="name">김지*</span><span>641*</span></li>
-					<li class="clearfix"><span class="name">임혜*</span><span>602*</span></li>
-					<li class="clearfix"><span class="name">이지*</span><span>027*</span></li>
-					<li class="clearfix"><span class="name">김재*</span><span>204*</span></li>
-					<li class="clearfix"><span class="name">윤혜*</span><span>172*</span></li>
-					<li class="clearfix"><span class="name">조아*</span><span>016*</span></li>
-					<li class="clearfix"><span class="name">유민*</span><span>053*</span></li>
-					<li class="clearfix"><span class="name">신경*</span><span>151*</span></li>
-					<li class="clearfix"><span class="name">김은*</span><span>607*</span></li>
-					<li class="clearfix"><span class="name">안혜*</span><span>574*</span></li>
-					
-					<li class="clearfix"><span class="name">조예*</span><span>567*</span></li>
-					<li class="clearfix"><span class="name">이효*</span><span>930*</span></li>
-					<li class="clearfix"><span class="name">김향*</span><span>410*</span></li>
-					<li class="clearfix"><span class="name">최형*</span><span>774*</span></li>
-					<li class="clearfix"><span class="name">임정*</span><span>081*</span></li>
-					<li class="clearfix"><span class="name">김보*</span><span>276*</span></li>
-					<li class="clearfix"><span class="name">류형*</span><span>081*</span></li>
-					<li class="clearfix"><span class="name">탁지*</span><span>200*</span></li>
-					<li class="clearfix"><span class="name">이창*</span><span>314*</span></li>
-					<li class="clearfix"><span class="name">이지*</span><span>878*</span></li>
-					
-					<li class="clearfix"><span class="name">김성*</span><span>075*</span></li>
-					<li class="clearfix"><span class="name">고호*</span><span>562*</span></li>
-					<li class="clearfix"><span class="name">유민*</span><span>129*</span></li>
-					<li class="clearfix"><span class="name">이현*</span><span>430*</span></li>
-					<li class="clearfix"><span class="name">박시*</span><span>996*</span></li>
-				
-				</ul>
-				<ul>
-				
-					
-					<li class="clearfix"><span class="name">김노*</span><span>023*</span></li>
-					<li class="clearfix"><span class="name">이주*</span><span>740*</span></li>
-					<li class="clearfix"><span class="name">심민*</span><span>328*</span></li>
-					<li class="clearfix"><span class="name">김진*</span><span>988*</span></li>
-					<li class="clearfix"><span class="name">정소*</span><span>532*</span></li>
-					
-
-					<li class="clearfix"><span class="name">이상*</span><span>023*</span></li>
-					<li class="clearfix"><span class="name">김슬*</span><span>936*</span></li>
-					<li class="clearfix"><span class="name">이희*</span><span>187*</span></li>
-					<li class="clearfix"><span class="name">배은*</span><span>342*</span></li>
-					<li class="clearfix"><span class="name">박주*</span><span>723*</span></li>
-					<li class="clearfix"><span class="name">이하*</span><span>979*</span></li>
-					<li class="clearfix"><span class="name">손선*</span><span>779*</span></li>
-					<li class="clearfix"><span class="name">김미*</span><span>181*</span></li>
-					<li class="clearfix"><span class="name">이윤*</span><span>341*</span></li>
-					<li class="clearfix"><span class="name">차선*</span><span>496*</span></li>
-					
-
-					<li class="clearfix"><span class="name">천미*</span><span>819*</span></li>
-					<li class="clearfix"><span class="name">임지*</span><span>452*</span></li>
-					<li class="clearfix"><span class="name">임소*</span><span>306*</span></li>
-					<li class="clearfix"><span class="name">신연*</span><span>848*</span></li>
-					<li class="clearfix"><span class="name">박은*</span><span>654*</span></li>
-					<li class="clearfix"><span class="name">정혜*</span><span>386*</span></li>
-					<li class="clearfix"><span class="name">오은*</span><span>966*</span></li>
-					<li class="clearfix"><span class="name">이은*</span><span>969*</span></li>
-					<li class="clearfix"><span class="name">김경*</span><span>353*</span></li>
-					<li class="clearfix"><span class="name">오지*</span><span>388*</span></li>        		   	
-			   </ul>	
-			   <ul>
-					<li class="clearfix"><span class="name">김희*</span><span>611*</span></li>
-					<li class="clearfix"><span class="name">최*</span><span>813*</span></li>
-					<li class="clearfix"><span class="name">김동*</span><span>947*</span></li>
-					<li class="clearfix"><span class="name">임진*</span><span>200*</span></li>
-					<li class="clearfix"><span class="name">윤선*</span><span>212*</span></li>
-					<li class="clearfix"><span class="name">김현*</span><span>025*</span></li>
-					<li class="clearfix"><span class="name">박민*</span><span>702*</span></li>
-					<li class="clearfix"><span class="name">이준*</span><span>697*</span></li>
-					<li class="clearfix"><span class="name">권재*</span><span>061*</span></li>
-					<li class="clearfix"><span class="name">심정*</span><span>643*</span></li>
-					
-					<li class="clearfix"><span class="name">이민*</span><span>105*</span></li>
-					<li class="clearfix"><span class="name">탁근*</span><span>170*</span></li>
-					<li class="clearfix"><span class="name">권명*</span><span>224*</span></li>
-					<li class="clearfix"><span class="name">조은*</span><span>670*</span></li>
-					<li class="clearfix"><span class="name">차영*</span><span>151*</span></li>
-					<li class="clearfix"><span class="name">김홍*</span><span>494*</span></li>
-					<li class="clearfix"><span class="name">Danie*</span><span>352*</span></li>
-					<li class="clearfix"><span class="name">정*</span><span>199*</span></li>
-					<li class="clearfix"><span class="name">정경*</span><span>762*</span></li>
-					<li class="clearfix"><span class="name">정배*</span><span>392*</span></li>
-					
-					<li class="clearfix"><span class="name">김혜*</span><span>324*</span></li>
-					<li class="clearfix"><span class="name">장재*</span><span>038*</span></li>
-					<li class="clearfix"><span class="name">유희*</span><span>280*</span></li>
-					<li class="clearfix"><span class="name">장유*</span><span>923*</span></li>
-					<li class="clearfix"><span class="name">서은*</span><span>251*</span></li>
-
-
-			   </ul>   
-			   <ul>
-					
-					<li class="clearfix"><span class="name">장미*</span><span>366*</span></li>
-					<li class="clearfix"><span class="name">오유*</span><span>719*</span></li>
-					<li class="clearfix"><span class="name">박준*</span><span>283*</span></li>
-					<li class="clearfix"><span class="name">박예*</span><span>697*</span></li>
-					<li class="clearfix"><span class="name">성예*</span><span>392*</span></li>
-					
-					<li class="clearfix"><span class="name">박수*</span><span>719*</span></li>
-					<li class="clearfix"><span class="name">이애*</span><span>980*</span></li>
-					<li class="clearfix"><span class="name">박제*</span><span>111*</span></li>
-					<li class="clearfix"><span class="name">최장*</span><span>051*</span></li>
-					<li class="clearfix"><span class="name">신아*</span><span>240*</span></li>
-					<li class="clearfix"><span class="name">황예*</span><span>850*</span></li>
-					<li class="clearfix"><span class="name">조윤*</span><span>147*</span></li>
-					<li class="clearfix"><span class="name">장수*</span><span>549*</span></li>
-					<li class="clearfix"><span class="name">김정*</span><span>398*</span></li>
-					<li class="clearfix"><span class="name">서수*</span><span>105*</span></li>
-					
-
-					<li class="clearfix"><span class="name">박미*</span><span>797*</span></li>
-					<li class="clearfix"><span class="name">백지*</span><span>584*</span></li>
-					<li class="clearfix"><span class="name">김민*</span><span>556*</span></li>
-					<li class="clearfix"><span class="name">강고*</span><span>393*</span></li>
-					<li class="clearfix"><span class="name">오유*</span><span>325*</span></li>
-					<li class="clearfix"><span class="name">김혜*</span><span>812*</span></li>
-					<li class="clearfix"><span class="name">최민*</span><span>921*</span></li>
-					<li class="clearfix"><span class="name">최승*</span><span>963*</span></li>
-					<li class="clearfix"><span class="name">손연*</span><span>328*</span></li>
-					<li class="clearfix"><span class="name">이경*</span><span>114*</span></li>
-			   </ul>
-		   	   </div>
-		   </div>
+			 <%= render "first_week_winner"%>
+    	 <%= render "second_week_winner"%>	
+       <%= render "third_week_winner"%>	 
+       <%= render "fourth_week_winner"%>	 
+       <%= render "fifth_week_winner"%>    
+           </div>
 	   </div>
     </div>
     <a href = "#">
