@@ -9,6 +9,27 @@ body{
 }
 
 
+.clearfix:after {
+  clear: both;
+  display: block;
+  content: " ";
+  height: 0px;
+  visibility: hidden;
+}
+// .clearfix {
+//   display: inline-block;
+// }
+/* Hide these rules from IE-mac \*/
+* html .clearfix {
+  height: 1%;
+}
+.clearfix {
+  display: block;
+}
+li.clearfix {
+  display: list-item;
+}
+
 // index.html.erb
 
 .menu_form{
@@ -128,20 +149,22 @@ body{
 .weekly_winner_list{
   display: none;
 }
+.weekly_winner_list .before{
+	padding-top:10%;
+	color:#666;
+	font-size:14px;
+}
 
 
 
 #comment_popup_winner .popup_contents_wrapper .list_wrap .winner_list{
 	padding:2% 10%;
-	overflow:scroll;
-	
 }
 .winner_list ul{
-	float:left;
-	width:25%;
 }
 .winner_list ul li span{
 	float:left;
+	display:block;
 }
 .winner_list ul li span.name{
 	width:50px;
@@ -152,6 +175,7 @@ body{
 	list-style:none;
 	color:#999;
 	font-size:11px;
+	display:block;
 }
 
 .poster #poster_box{
@@ -483,6 +507,7 @@ body{
 }
 .winner_nav{
 	background:#222;
+	padding:3%;
 }
 .winner_nav ul li{
 	float:left;
@@ -490,18 +515,30 @@ body{
 	text-align:center;
 	font-size:13px;
 	width:19%;
+	color:#666;
 }
 .winner_nav ul li.bar{
 	width:1%;
+	color:#666;
 }
 .winner_nav ul li,
 .winner_nav ul li a{
-	font-size:12px;
+	font-size:13px;
 	color:#eee;
+	text-decoration:none;
 }	
 
 .winner_list{
 	background:#3e3e3e;
+	padding:3%;
+}
+.winner_list ul{
+	float:left;
+	width:50%;
+}
+.winner_list ul li{
+	font-size:13px;
+	padding:1% 0;
 }
 	
 

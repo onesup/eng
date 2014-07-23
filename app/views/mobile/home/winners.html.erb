@@ -2,7 +2,7 @@
   <div class="navi2">
     <%= link_to(image_tag("mobile/exit.png", id:"exit"), mobile_index_path) %>
   </div>
-  <div class="content user_new_content">
+  <div class="user_new_content">
      <%= image_tag("mobile/winner_top.png", class:"popup_title_winner") %>
   </div>
   <div class="winner_nav">
@@ -19,8 +19,8 @@
 	  </ul>
   </div>
   <div class="winner_list clearfix">
- 			 <%= render "first_week_winner"%>
-     	 <%= render "second_week_winner"%>	
+ 	    <%= render "first_week_winner"%>
+     	<%= render "second_week_winner"%>	
         <%= render "third_week_winner"%>	 
         <%= render "fourth_week_winner"%>	 
         <%= render "fifth_week_winner"%>

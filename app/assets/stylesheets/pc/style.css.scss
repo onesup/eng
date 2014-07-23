@@ -821,22 +821,26 @@ height: 490px;
 
 #comment_popup_winner .popup_contents_wrapper{
 	width:700px;
-	height:700px;
+	height:750px;
 }
 
 #comment_popup_winner .popup_contents_wrapper .list_wrap{
 	background:#393939;
-	height:394px;
+	height:440px;
 }
 #comment_popup_winner .popup_contents_wrapper .list_wrap .w_nav{
-	padding:15px 0;
+	padding:15px;
 	background:#454545;
 }
 #comment_popup_winner .popup_contents_wrapper .list_wrap .w_nav li{
 	float:left;
 	display:block;
-	width:20%;
+	width:19%;
 	text-align:center;
+}
+#comment_popup_winner .popup_contents_wrapper .list_wrap .w_nav li.bar{
+	width:2px;
+	color:#666;
 }
 
 #comment_popup_winner .popup_contents_wrapper .list_wrap .w_nav li a{
@@ -845,9 +849,8 @@ height: 490px;
 }
 
 #comment_popup_winner .popup_contents_wrapper .list_wrap .winner_list{
-	padding:2% 10%;
+	padding:4% 10%;
 	height:310px;
-	overflow:scroll;
 	
 }
 #comment_popup_winner .popup_contents_wrapper .list_wrap .winner_list ul{
@@ -870,3 +873,10 @@ height: 490px;
 .weekly_winner_list{
   display: none;
 }
+
+.weekly_winner_list .before{
+  text-align:center;
+  padding:40px 0;
+  color:#ccc;
+}
+
