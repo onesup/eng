@@ -1,0 +1,29 @@
+<div class="popup">
+  <div class="navi2">
+    <%= link_to(image_tag("mobile/exit.png", id:"exit"), mobile_index_path) %>
+  </div>
+  <div class="content user_new_content">
+     <%= image_tag("mobile/winner_top.png", class:"popup_title_winner") %>
+  </div>
+  <div class="winner_nav">
+	  <ul class="clearfix">
+		  <li><%= link_to("1주차", "#", id:"1st_week") %></li>
+		  <li class="bar">|</li>
+		  <li><%= link_to("2주차", "#", id:"2nd_week") %></li>
+		  <li class="bar">|</li>
+		  <li><%= link_to("3주차", "#", id:"3rd_week") %></li>
+		  <li class="bar">|</li>
+		  <li><%= link_to("4주차", "#", id:"4th_week") %></li>
+		  <li class="bar">|</li>
+		  <li><%= link_to("5주차", "#", id:"5th_week") %></li>
+	  </ul>
+  </div>
+  <div class="winner_list clearfix">
+ 			 <%= render "first_week_winner"%>
+     	 <%= render "second_week_winner"%>	
+        <%= render "third_week_winner"%>	 
+        <%= render "fourth_week_winner"%>	 
+        <%= render "fifth_week_winner"%>
+			     
+  </div>
+</div>
