@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     get 'leaflet' => 'home#leaflet'
     get 'comment_thanks' => 'home#comment_thanks'
     get 'out_of_stock' => 'home#out_of_stock'
+    get 'winners' => 'home#winners'
     resources :users do
       collection do
         get 'comment_new'

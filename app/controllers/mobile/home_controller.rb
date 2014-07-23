@@ -40,4 +40,7 @@ class Mobile::HomeController < ApplicationController
   
   def comment_thanks
   end
+  
+  def winners
+  end
 end

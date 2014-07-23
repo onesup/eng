@@ -35,6 +35,7 @@ $(document).ready(function(){
   
 
 
+  change_winner();
 	var q;
 
   $('#info_address_btn').click(function(e){
@@ -161,4 +162,51 @@ function popup_comment_user_info(){
     window.location.href = "/mobile/users/comment_new";
   }
   return true;
+}
+
+
+function change_winner(){
+  $("#1st_week").click(function(e){
+    e.preventDefault();
+    $("#second_week_winner").hide();
+    $("#third_week_winner").hide();
+    $("#fourth_week_winner").hide();
+    $("#fifth_week_winner").hide();
+    $("#first_week_winner").show();
+  });
+  $("#2nd_week").click(function(e){
+    e.preventDefault();
+    $("#first_week_winner").hide();
+    $("#third_week_winner").hide();
+    $("#fourth_week_winner").hide();
+    $("#fifth_week_winner").hide();
+    $("#second_week_winner").show();
+  });
+  $("#3rd_week").click(function(e){
+    e.preventDefault();
+    $("#first_week_winner").hide();
+    $("#second_week_winner").hide();
+    $("#fourth_week_winner").hide();
+    $("#fifth_week_winner").hide();
+    $("#third_week_winner").show();
+    
+  });
+  $("#4th_week").click(function(e){
+    e.preventDefault();
+    $("#first_week_winner").hide();
+    $("#second_week_winner").hide();
+    $("#third_week_winner").hide();
+    $("#fifth_week_winner").hide();
+    $("#fourth_week_winner").show();
+    
+  });
+  $("#5th_week").click(function(e){
+    e.preventDefault();
+    $("#first_week_winner").hide();
+    $("#second_week_winner").hide();
+    $("#third_week_winner").hide();
+    $("#fourth_week_winner").hide();
+    $("#fifth_week_winner").show();
+    
+  });
 }

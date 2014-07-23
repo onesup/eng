@@ -119,8 +119,39 @@ body{
 
 .poster .poster_title .poster_title_btn{
 	position:absolute;
-	bottom:6%;
-	right:27%;
+	bottom:7%;
+	right:28%;
+  width: 25%;
+}
+
+
+.weekly_winner_list{
+  display: none;
+}
+
+
+
+#comment_popup_winner .popup_contents_wrapper .list_wrap .winner_list{
+	padding:2% 10%;
+	overflow:scroll;
+	
+}
+.winner_list ul{
+	float:left;
+	width:25%;
+}
+.winner_list ul li span{
+	float:left;
+}
+.winner_list ul li span.name{
+	width:50px;
+}
+
+.winner_list ul li{
+	//list-style:decimal;
+	list-style:none;
+	color:#999;
+	font-size:11px;
 }
 
 .poster #poster_box{
@@ -470,7 +501,6 @@ body{
 }	
 
 .winner_list{
-	padding:5%;
 	background:#3e3e3e;
 }
 	
