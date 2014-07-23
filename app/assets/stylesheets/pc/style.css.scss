@@ -259,10 +259,21 @@ a{
 .poster_left_column{
   float: left;
   width: 440px;
+  position:relative;
 }
 .title_poster{
   margin-top: 80px;
   margin-bottom:50px;
+  height:300px;
+  position:relative;
+}
+.title_poster_img,
+.title_poster_btn{
+	position:absolute;
+}
+.title_poster_btn{
+	bottom:23px;
+	right:100px;
 }
 .poster_list{
   list-style-type: none;
@@ -802,3 +813,57 @@ height: 490px;
   border-radius: 16px;
   margin-right: 14px;
 }
+
+
+
+#comment_popup_winner{
+}
+
+#comment_popup_winner .popup_contents_wrapper{
+	width:700px;
+	height:700px;
+}
+
+#comment_popup_winner .popup_contents_wrapper .list_wrap{
+	background:#393939;
+	height:394px;
+}
+#comment_popup_winner .popup_contents_wrapper .list_wrap .w_nav{
+	padding:15px 0;
+	background:#454545;
+}
+#comment_popup_winner .popup_contents_wrapper .list_wrap .w_nav li{
+	float:left;
+	display:block;
+	width:20%;
+	text-align:center;
+}
+
+#comment_popup_winner .popup_contents_wrapper .list_wrap .w_nav li a{
+	display:block;
+	color:#fff;
+}
+
+#comment_popup_winner .popup_contents_wrapper .list_wrap .winner_list{
+	padding:2% 10%;
+	height:310px;
+	overflow:scroll;
+	
+}
+#comment_popup_winner .popup_contents_wrapper .list_wrap .winner_list ul{
+	float:left;
+	width:25%;
+}
+#comment_popup_winner .popup_contents_wrapper .list_wrap .winner_list ul li{
+	//list-style:decimal;
+	list-style:none;
+	color:#999;
+	font-size:11px;
+}
+#comment_popup_winner .popup_contents_wrapper .list_wrap .winner_list ul li span{
+	float:left;
+}
+#comment_popup_winner .popup_contents_wrapper .list_wrap .winner_list ul li span.name{
+	width:50px;
+}
+

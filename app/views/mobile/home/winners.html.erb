@@ -1,179 +1,25 @@
-<%= render 'header'%>
-<article class="article">
-	<%= render 'movie'%>
-	<div id="poster_coupon">
-		<div class="center poster_coupon clearfix">
-			<div class="poster_left_column">
-				<div class="title_poster">
-					<%= image_tag("pc/poster/poster_title.png", class: "title_poster_img") %>
-					<a href="#"><%= image_tag("pc/btn_winner.png", class: "title_poster_btn") %></a>
-			    </div>
-				<ul class = "poster_list clearfix">
-					<li class = "poster_item posters_thinking"> </li>
-					<li class = "poster_item">
-			            <a href = "#" id = "bt_poster_item_1" code="1" class="poster_select">
-				            <%= image_tag("pc/poster/small_poster_01.png") %>
-				            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-			            </a>
-          		  	</li>
-			          <li class = "poster_item">
-			            <a href = "#" id = "bt_poster_item_2" code="2" class="poster_select">
-				            <%= image_tag("pc/poster/small_poster_02.png") %>
-				            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-			            </a>
-			          </li>
-			         	<li class = "poster_item">
-			            <a href = "#" id = "bt_poster_item_3" code="3" class="poster_select">
-				            <%= image_tag("pc/poster/small_poster_03.png") %>
-				            <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-			            </a>
-			          </li>
-			         	<li class = "poster_item">
-			              <a href = "#" id = "bt_poster_item_4" code="4" class="poster_select">
-			              <%= image_tag("pc/poster/small_poster_04.png") %>
-			              <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-			              </a>
-			          </li>
-			         <li class = "poster_item">
-			              <a href = "#" id = "bt_poster_item_5" code="5" class="poster_select">
-			              <%= image_tag("pc/poster/small_poster_05.png") %>
-			              <%= image_tag("pc/poster/view_hover.png", class: "view_hover") %>
-			              </a>
-			          </li>
-				</ul>
-			</div>
-			<div class = "poster_right_column">
-				<div class = "poster_request_wrapper">
-           	 		 <div class="inner">
-						 
-					     <a href = "#" id = "request_poster" data-href = "#">
-					         <%= image_tag("pc/btn_posters.png") %>
-					     </a>
-					     <div class = "share_sns">
-									<%= link_to(image_tag("pc/share_facebook_icon.png", class:"share_facebook"), "#", id:"poster_facebook_share_link", "data-code" => "1") %>	
-									<%= link_to(image_tag("pc/share_twitter_icon.png", class: "share_twitter"), "#", id:"poster_twitter_share_link", "data-code" => "1", "data-text" => "당신과 가장 닮은 포스터를 선택하세요. 무모할만큼 실속있는 시크릿 선물을 담아 포스터와 함께 보내드립니다. 5천명 모두에게", "data-url" => "http://stayfoolish.co.kr/?s=tw") %>
-					     </div>
-				   </div>
-			   </div>
-		        <div class = "poster_wrapper">
-		          <%= image_tag("pc/poster/contents_large_poster_1.png", id: "poster_item_1", class: "poster_display") %>
-		          <%= image_tag("pc/poster/contents_large_poster_2.png", id: "poster_item_2", class: "poster_hidden") %>
-		          <%= image_tag("pc/poster/contents_large_poster_3.png", id: "poster_item_3", class: "poster_hidden") %>
-		          <%= image_tag("pc/poster/contents_large_poster_4.png", id: "poster_item_4", class: "poster_hidden") %>
-		          <%= image_tag("pc/poster/contents_large_poster_5.png", id: "poster_item_5", class: "poster_hidden") %>
-		        </div>
-			</div>	
-		</div>
-		<div class="poster_txt_wrap center"><%= image_tag("pc/poster/poster_gift.png", class: "poster_gift") %></div>
+<div class="popup">
+  <div class="navi2">
+    <%= link_to(image_tag("mobile/exit.png", id:"exit"), mobile_index_path) %>
   </div>
-	<section id="brand_talk">
-    <div class="contents_wrapper center">
-      <div class="brand_left_column">
-        <%= image_tag("pc/title_brand_talk.png", class: "brand_talk_title") %>
-      </div>
-      <div class="brand_right_column clearfix">
-      	<%= link_to(image_tag("pc/link_frostine_site.png", class:"link_frostine_site"), pc_leaflet_path, target: "_blank") %>              
-      </div>
-      <%= image_tag("pc/comment_about_challenge.png", class: "title_comment") %>
-
-      <div class="comment_list_wrapper">
-		    <div>
-		      <div id="ttalk_rating_div"></div>
-		      <div id="ttalk_div"></div> 
-		    </div>
-      </div>
-    </div>
-	</section>
-</article>       
-<footer id="about_event">
-  <div class="contents_wrapper center">
-      <%= image_tag("pc/event_information.png") %>
+  <div class="content user_new_content">
+     <%= image_tag("mobile/winner_top.png", class:"popup_title_winner") %>
   </div>
-</footer>
-
-<div class="popup" id="popup_already">
-    <div class="popup_contents_wrapper">
-        <%= image_tag("pc/popup/already_participation.png", class: "popup_fn_title") %>
-        <a href="#">
-            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
-        </a>
-    </div>
-    <a href="#" id="popup_already_close">
-        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-    </a>
-</div>
-
-<div class="popup" id="popup_thank">
-    <div class="popup_contents_wrapper2">
-        <%= image_tag("pc/popup/thank_event.png", class: "popup_fn_title popup_thank_event_image") %>
-
-        <a href="#">
-            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
-        </a>
-    </div>
-    <a href="#">
-        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-    </a>
-</div>
-
-<div class = "popup" id = "popup_nexttime">
-    <div class = "popup_contents_wrapper">
-        <%= image_tag("pc/popup/popup_next_time.png", class: "popup_fn_title") %>
-        <a href = "#">
-            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
-        </a>
-    </div>
-    <a href = "#">
-        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-    </a>
-</div>
-
-  <%= render "popup_personal"%>
-         
-  <%= render "popup_brand"%>        
-                         
-         
-         <div id="test_out" class="address_box">
-           
-             <div class = "address_wrapper" id="addresses">
-               
-               
-             </div>
-         </div>
-     <%= render "popup_poster_form"%>
-    <%= render "popup_comment_form"%>
-    <div>
-
-
-<div class = "popup" id = "comment_popup_thank">
-    <div class = "popup_contents_wrapper">
-        <%= image_tag("pc/popup/popup_comment_thanks.png", class: "popup_fn_title") %>
-
-        <a href = "#">
-            <%= image_tag("pc/popup/popup_bt_confirm.png", class: "bt_fn_confirm") %>
-        </a>
-    </div>
-    <a href = "#">
-        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-    </a>
-</div>
-
-
-<div class="popup" id="comment_popup_winner">
-    <div class="popup_contents_wrapper">
-	   <div>
-       <%= image_tag("pc/winner_top.png", class:"popup_winner_top") %>
-       </div>
-	   <div class="list_wrap">
-		   <ul class="w_nav clearfix">
-		   		<li><a href="#">1주차</a></li>
-				<li><a href="#">2주차</a></li>
-				<li><a href="#">3주차</a></li>
-				<li><a href="#">4주차</a></li>
-				<li><a href="#">5주차</a></li>
-		   </ul>
-		   <div class="winner_list clearfix">
-			   <div>
+  <div class="winner_nav">
+	  <ul class="clearfix">
+		  <li><a href="#">1주차</a></li>
+		  <li class="bar">|</li>
+		  <li><a href="#">2주차</a></li>
+		  <li class="bar">|</li>
+		  <li><a href="#">3주차</a></li>
+		  <li class="bar">|</li>
+		  <li><a href="#">4주차</a></li>
+		  <li class="bar">|</li>
+		  <li><a href="#">5주차</a></li>
+	  </ul>
+  </div>
+  <div class="winner_list clearfix">
+	  		   <!-- 1 주차 -->
 			   <ul>
 					<li class="clearfix"><span class="name">김지*</span><span>641*</span></li>
 					<li class="clearfix"><span class="name">임혜*</span><span>602*</span></li>
@@ -202,11 +48,6 @@
 					<li class="clearfix"><span class="name">유민*</span><span>129*</span></li>
 					<li class="clearfix"><span class="name">이현*</span><span>430*</span></li>
 					<li class="clearfix"><span class="name">박시*</span><span>996*</span></li>
-				
-				</ul>
-				<ul>
-				
-					
 					<li class="clearfix"><span class="name">김노*</span><span>023*</span></li>
 					<li class="clearfix"><span class="name">이주*</span><span>740*</span></li>
 					<li class="clearfix"><span class="name">심민*</span><span>328*</span></li>
@@ -235,9 +76,8 @@
 					<li class="clearfix"><span class="name">오은*</span><span>966*</span></li>
 					<li class="clearfix"><span class="name">이은*</span><span>969*</span></li>
 					<li class="clearfix"><span class="name">김경*</span><span>353*</span></li>
-					<li class="clearfix"><span class="name">오지*</span><span>388*</span></li>        		   	
-			   </ul>	
-			   <ul>
+					<li class="clearfix"><span class="name">오지*</span><span>388*</span></li>    
+					
 					<li class="clearfix"><span class="name">김희*</span><span>611*</span></li>
 					<li class="clearfix"><span class="name">최*</span><span>813*</span></li>
 					<li class="clearfix"><span class="name">김동*</span><span>947*</span></li>
@@ -265,11 +105,6 @@
 					<li class="clearfix"><span class="name">유희*</span><span>280*</span></li>
 					<li class="clearfix"><span class="name">장유*</span><span>923*</span></li>
 					<li class="clearfix"><span class="name">서은*</span><span>251*</span></li>
-
-
-			   </ul>   
-			   <ul>
-					
 					<li class="clearfix"><span class="name">장미*</span><span>366*</span></li>
 					<li class="clearfix"><span class="name">오유*</span><span>719*</span></li>
 					<li class="clearfix"><span class="name">박준*</span><span>283*</span></li>
@@ -299,14 +134,7 @@
 					<li class="clearfix"><span class="name">손연*</span><span>328*</span></li>
 					<li class="clearfix"><span class="name">이경*</span><span>114*</span></li>
 			   </ul>
-		   	   </div>
-		   </div>
-	   </div>
-    </div>
-    <a href = "#">
-        <%= image_tag("pc/popup/popup_bt_close.png", class: "close clearfix") %>
-    </a>
+			   
+			     
+  </div>
 </div>
-
-
-

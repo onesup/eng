@@ -11,7 +11,10 @@
 <%= render "brand_film"%>
 <section id="poster_coupon">
 	<div class="poster">
-		<%= image_tag("mobile/main/poster_title.png", class:"poster_title") %>
+		<div class="poster_title">
+			<a href="#"><%= image_tag("mobile/btn_winner.png", class:"poster_title_btn") %></a>
+			<%= image_tag("mobile/main/poster_title.png", class:"poster_title_img") %>
+	    </div>
 		<div id="poster_box">
 			<div id="poster_inbox" class="owl-carousel owl-theme">
 				<div class="item">
