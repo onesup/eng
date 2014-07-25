@@ -22,6 +22,43 @@ class User < ActiveRecord::Base
   attr_accessor :agree, :agree2
   attr_accessor :event_title
   
+  def self.id_offset
+    offset = 10000
+    users = User.all
+        # users = User.limit(5)
+    users.each do |user|
+      new_user = user.attributes
+      new_user["id"] = new_user["id"] + offset
+      user.destroy
+      User.create(new_user)
+    end
+    access_logs = AccessLog.all
+        # access_logs = AccessLog.limit(5)
+    access_logs.each do |access_log|
+      new_access_log = access_log.attributes
+      new_access_log["id"] = new_access_log["id"] + offset
+      new_access_log["user_id"] = new_access_log["user_id"] + offset
+      access_log.destroy
+      AccessLog.create(new_access_log)
+    end
+    applied_events = AppliedEvent.all
+    applied_events.each do |applied_event|
+      new_applied_event = applied_event.attributes
+      new_applied_event["id"] = new_applied_event["id"] + offset
+      new_applied_event["user_id"] = new_applied_event["user_id"] + offset
+      applied_event.destroy
+      AppliedEvent.create(new_applied_event)
+    end
+    viral_actions = ViralAction.all
+    viral_actions.each do |viral_action|
+      new_viral_action = viral_action.attributes
+      new_viral_action["id"] = new_viral_action["id"] + offset
+      viral_action.destroy
+      ViralAction.create(new_viral_action)
+    end
+  end
+  
+  
   def self.write_excel
     users = self.joins(:applied_events)
       .where(applied_events:{created_at:(User.days_of_week)}).where(applied_events:{title:"poster"})
