@@ -45,19 +45,19 @@ class User < ActiveRecord::Base
   
   def self.poster_stock(poster_code)
     if (poster_code == "1")
-      return 205 - self.joins(:applied_events)
+      return 93 - self.joins(:applied_events)
         .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count    
     elsif (poster_code == "2")
-      return 240 - self.joins(:applied_events)
+      return 126 - self.joins(:applied_events)
         .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
     elsif (poster_code == "3")
-      return 180 - self.joins(:applied_events)
+      return 66 - self.joins(:applied_events)
         .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
     elsif (poster_code == "4")
-      return 233 - self.joins(:applied_events)
+      return 119 - self.joins(:applied_events)
         .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
     elsif (poster_code == "5")
-      return 210 - self.joins(:applied_events)
+      return 96 - self.joins(:applied_events)
         .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
     end
   end
