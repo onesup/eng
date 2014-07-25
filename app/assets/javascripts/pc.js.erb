@@ -8,6 +8,9 @@ $(document).ready(function(){
     navigationText: ["<",">"]
 	});
   
+
+  
+  
   $("#user_new_form_close").click(function(e){
     e.preventDefault();
     $("#participation_event").bPopup().close();
@@ -154,7 +157,7 @@ $(document).ready(function(){
       success: function (data) {
       }
     });
-    if(true){
+    if(result.responseJSON.stock <= 0){
       alert("선택하신 포스터는 신청이 마감되었습니다. 다른 포스터를 선택해주세요.");
     }else{
       $("#participation_event").bPopup({
@@ -168,11 +171,16 @@ $(document).ready(function(){
 
   $("#comment_winner_btn").click(function(event) {
     event.preventDefault();
+    $("#second_week_winner").hide();
+    $("#third_week_winner").hide();
+    $("#fourth_week_winner").hide();
+    $("#fifth_week_winner").hide();
+    $("#first_week_winner").show();
 		  $("#comment_popup_winner").bPopup({
         positionStyle: 'fixed',
         closeClass: 'close',
         modalColor: 'black'
-      });
+      });  
   });
 
   $("#request_address").click(function(event) {
