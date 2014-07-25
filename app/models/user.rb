@@ -80,20 +80,72 @@ class User < ActiveRecord::Base
     workbook.close
   end
   
+  # def self.poster_stock(poster_code)
+  #   days_of_week = if DateTime.parse("2014-07-04").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-13 23:59:59 +0900")
+  #     1
+  #   elsif DateTime.parse("2014-07-14 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-20 23:59:59 +0900")
+  #     2
+  #   elsif DateTime.parse("2014-07-21 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-27 23:59:59 +0900")
+  #     3
+  #   elsif DateTime.parse("2014-07-28 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-03 23:59:59 +0900")
+  #     4
+  #   elsif DateTime.parse("2014-08-04 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-10 23:59:59 +0900")
+  #     5
+  #   else
+  #     6
+  #   end
+  #   if (days_of_week == 3)
+  #     self.third_week_poster_stock
+  #   elsif (days_of_week == 4)
+  #     return 240 - self.joins(:applied_events)
+  #       .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
+  #   elsif (days_of_week == 5)
+  #     return 100 - self.joins(:applied_events)
+  #       .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
+  #   end
+  # end
+  
   def self.poster_stock(poster_code)
-    if (poster_code == "1")
+    poster_code = poster_code.to_i
+    days_of_week = if DateTime.parse("2014-07-04").beginning_of_day <= Time.now && Time.now <= DateTime.parse("2014-07-13 23:59:59 +0900")
+      1
+    elsif DateTime.parse("2014-07-14 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-20 23:59:59 +0900")
+      2
+    elsif DateTime.parse("2014-07-21 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-07-27 23:59:59 +0900")
+      3
+    elsif DateTime.parse("2014-07-28 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-03 23:59:59 +0900")
+      4
+    elsif DateTime.parse("2014-08-04 00:00:00 +0900") <= Time.now && Time.now <= DateTime.parse("2014-08-10 23:59:59 +0900")
+      5
+    else
+      6
+    end
+    if (days_of_week == 3)
+      self.third_week_poster_stock(poster_code)
+    elsif (days_of_week == 4)
+      return 240 - self.joins(:applied_events)
+        .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
+    elsif (days_of_week == 5)
+      return 100 - self.joins(:applied_events)
+        .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
+    end
+  end
+  
+  
+  def self.third_week_poster_stock(poster_code)
+    if (poster_code == 1)
       return 93 - self.joins(:applied_events)
         .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count    
-    elsif (poster_code == "2")
+    elsif (poster_code == 2)
       return 126 - self.joins(:applied_events)
         .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
-    elsif (poster_code == "3")
+    elsif (poster_code == 3)
       return 66 - self.joins(:applied_events)
         .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
-    elsif (poster_code == "4")
+    elsif (poster_code == 4)
       return 119 - self.joins(:applied_events)
         .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
-    elsif (poster_code == "5")
+    elsif (poster_code == 5)
       return 96 - self.joins(:applied_events)
         .where(users:{poster_code: poster_code}, applied_events:{created_at:(User.days_of_week)}).count
     end
