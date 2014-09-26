@@ -6,7 +6,7 @@ set :ssh_options, {
   # auth_methods: %w(password)
 }
 set :rails_env, :production
-set :application, 'big_coupon'
+set :application, 'eng'
 set :user, "onesup"
-set :deploy_to, "/home/onesup/www/big_coupon"
+set :deploy_to, "/home/onesup/www/eng"
 puts "deploy/production.rb"
