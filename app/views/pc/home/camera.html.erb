@@ -73,27 +73,20 @@
 <div class='cell well tci'>
 <div class='mbm mbl--m pts tac'>
 <h1 class='mbf tci'>피치업으로 영어 스피치를 한방에</h1>
-<p class='oph tci tsi tsl'>SMACK YOUR PITCH UP!</p>
 </div>
+
 <div class='g mbxl--m'>
 <div class='g-b g-b--m--1of2'>
 <div class='card card--a card--xs'>
-<div class='video video--backdrop video--sublime'>
-<video class='mxp-videoplay-introvideo sublime' data-player-kit='3' data-settings='autoresize:fit' height='360' poster='https://d1tijy5l7mg5kk.cloudfront.net/assets/poster-gregg-7b56cd72b5f8d74bf5a097faaa2a1f10.jpg' preload='none' width='640'>
-<source data-quality='hd' src='//www.viddler.com/file/d/8421cbee.mp4?vfid=708a025a4723d1d8a1c083716fb880b3' type='video/mp4'>
-<source type='video/mp4'>
-</video>
-
-</div>
+<!--<div class='video video--backdrop video--sublime'>-->
+<video id='webcam' width="100%" autoplay></video>
+<!--</div>-->
 </div>
 </div>
 <div class='g-b g-b--m--1of2'>
-<p class='mtm tsxl tfl'>
-피치업은 영어 말하기를 도와주는 획기적인 서비스인 것입니다!!! 존나게 좋은 써비스이니 잘 써보십시용~
-</p>
 <div class='mbl tac tal--m'>
+<br><br>
 <a href="/courses" class="btn btn--wide bc-cadet-dark mbs mbf--l">학습 코스 찾기</a>
-<a href="/getting-started" class="link link--invert dib di--l mls tsm">레벨 테스트 하고 맞춤 강의 찾기</a>
 </div>
 <!-- <ul class='list list--object'>
 <li class='list-item list-item--label'>Learn:</li>
@@ -107,15 +100,7 @@
 </div>
 </div>
 </div>
-<div class='row'>
-<div class='cell well well--l'>
-<h2 class='mbm tac'>
-Learn where to start and what to take next with
-<a href="/paths">Paths</a>
-</h2>
 
-</div>
-</div>
 </main>
 <footer class='footer'>
 <div class='row'>
@@ -241,6 +226,18 @@ _support['ui'] = { container: '#knowledge-base', trigger: '#talk' };
       CS.fixOrphanWords({ text: $(this) })
     });
   });
+</script>
+
+<script>
+var video = document.getElementById('webcam');
+
+if( navigator.webkitGetUserMedia ){
+  navigator.webkitGetUserMedia({"video":true}, function(stream){
+    video.src = webkitURL.createObjectURL(stream);
+  }, function(error){
+    console.log("error");
+  });
+}
 </script>
 
 </body>
