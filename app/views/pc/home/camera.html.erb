@@ -85,7 +85,7 @@
   function updatePercent(){
     if( fUpdate >= 100 ){
       clearInterval(intervalId);
-      location.href = "index";
+      location.href = "index?flag=1";
     }
     else{
       $('#submit-btn').html(fUpdate+"%");
