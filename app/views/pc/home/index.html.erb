@@ -1,6 +1,3 @@
-
-
-
 <main class='content'><div class='row row--b'>
 <div class='cell well tci'>
 <div class='mbm mbl--m pts tac'>
@@ -25,7 +22,7 @@ PitchUp은 외국어 말하기 능력 향상을 원어민이 1:1로 도와주는
 </p>
 <div class='mbl tac tal--m'>
 <a href="/courses" class="btn btn--wide bc-cadet-dark mbs mbf--l">학습 코스 찾기</a>
-<a href="/getting-started" class="link link--invert dib di--l mls tsm">레벨 테스트 하고 맞춤 강의 찾기</a>
+<%= link_to "레벨 테스트 하고 맞춤 강의 찾기", pc_test_path, {class: "link link--invert dib di--l mls tsm"} %>
 </div>
 <!-- <ul class='list list--object'>
 <li class='list-item list-item--label'>Learn:</li>
@@ -42,8 +39,13 @@ PitchUp은 외국어 말하기 능력 향상을 원어민이 1:1로 도와주는
 <div class='row'>
 <div class='cell well well--l'>
 <h2 class='mbm tac'>
-자신의 수준을 <a href="/paths">테스트</a>하여</br> 수준별 학습을 하실 수 있습니다.
-
+<p>
+  <span>자신의 수준을</span>
+  <%= link_to "테스트", pc_test_path %><span>하여</span>
+</p>
+<p>
+  <span> 수준별 학습을 하실 수 있습니다.</span>
+</p>
 </h2>
 
 </div>
