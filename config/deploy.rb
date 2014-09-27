@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
-set :application, 'big_coupon'
-set :repo_url, 'git@github.com:onesup/big_coupon.git'
+set :application, 'eng'
+set :repo_url, 'git@github.com:onesup/eng.git'
 set :scm_user, "onesup"
 
 # Default branch is :master

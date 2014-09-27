@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+
 	$('#leaflet_inbox').owlCarousel({
 		navigation : true, // Show next and prev buttons
 		slideSpeed : 300,
@@ -7,32 +9,32 @@ $(document).ready(function(){
     pagination: false,
     navigationText: ["<",">"]
 	});
-  
 
-  
-  
+
+
+
   $("#user_new_form_close").click(function(e){
     e.preventDefault();
     $("#participation_event").bPopup().close();
   });
 	$(".input_phone").mask("999-9999-9999");
-  
+
   $("#link_movie_2").click(function(e){
     e.preventDefault();
     $("#ytplayer").attr("src", "https://www.youtube.com/embed/tuxssbMCqUE?controls=0&showinfo=0&modestbranding=1&vq=hd1080&wmode=opaque&enablejsapi=1&autoplay=1&rel=0");
   });
-  
+
   $("#link_movie_1").click(function(e){
     e.preventDefault();
     $("#ytplayer").attr("src", "https://www.youtube.com/embed/ERXmHB3I3Ig?controls=0&showinfo=0&modestbranding=1&vq=hd1080&wmode=opaque&enablejsapi=1&autoplay=1&rel=0");
   });
-  
+
   $("#link_movie_3").click(function(e){
     e.preventDefault();
     $("#ytplayer").attr("src", "https://www.youtube.com/embed/ojhOU5RHk8Y?controls=0&showinfo=0&modestbranding=1&vq=hd1080&wmode=opaque&enablejsapi=1&autoplay=1&rel=0");
   });
-  
-  
+
+
   $("#new_comment_user").bind("ajax:success", function(evt,data,status,xhr){
     response = JSON.parse(xhr.responseText);
     if(response.status==="success"){
@@ -46,10 +48,10 @@ $(document).ready(function(){
     }
   }).bind('ajax:error',function(evt,xhr,status,error){
     var $form = $(this),errors,errorText;
-    errors = $.parseJSON(xhr.responseText);   
+    errors = $.parseJSON(xhr.responseText);
       validation(errors);
   });
-  
+
   $("#new_user").bind("ajax:success", function(evt,data,status,xhr){
     response = JSON.parse(xhr.responseText);
     if(response.status==="success"){
@@ -62,11 +64,11 @@ $(document).ready(function(){
       });
     }else {
     }
-  
+
   }).bind('ajax:error',function(evt,xhr,status,error){
     var $form = $(this),errors,errorText;
     errors = $.parseJSON(xhr.responseText);
-  
+
     if(errors.status === "duplicated"){
       $("#popup_already").bPopup({
         closeClass: 'b-close',
@@ -79,32 +81,32 @@ $(document).ready(function(){
       validation(errors);
     }
   });
-  
+
   change_winner();
-  
-  
+
+
   get_poster_code();
-  
-  var q;  
+
+  var q;
   var handler = function(event){
-      if (event.which == 13) {      
+      if (event.which == 13) {
         q = $("#info_address").val();
         test_out(q);
       }
   };
   $('#info_address').keyup(handler);
-  
+
   $('#info_address_btn').click(function(e){
     e.preventDefault();
     q = $("#info_address").val();
     test_out(q);
   });
-  
-  
+
+
   $('.select_custom_1').selectric();
   $('.select_custom_2').selectric('refresh');
 
-  
+
   ga('send', 'event', 'button', 'click', '메인 페이지');
   $("#gift_button").click(function(e){
     e.preventDefault();
@@ -115,7 +117,7 @@ $(document).ready(function(){
         closeClass: 'b-close',
         modalColor: 'black'
       });
-    }    
+    }
     ga('send', 'event', 'button', 'click', '피부 선물 받기');
   });
 
@@ -147,7 +149,7 @@ $(document).ready(function(){
 
   $("#request_poster").click(function(event) {
     event.preventDefault();
-		$(".star").empty(); 
+		$(".star").empty();
     $('.popup_input').css('background','white');
     var poster_code = $("#info_poster_code").val();
     result = $.ajax({
@@ -180,7 +182,7 @@ $(document).ready(function(){
         positionStyle: 'fixed',
         closeClass: 'close',
         modalColor: 'black'
-      });  
+      });
   });
 
   $("#request_address").click(function(event) {
@@ -208,7 +210,7 @@ $(document).ready(function(){
       }
     });
   });
-  
+
   $("#about_brand_information").click(function(event) {
     event.preventDefault();
     $("#participation_event").bPopup().close();
@@ -225,7 +227,7 @@ $(document).ready(function(){
       }
     });
   });
-  
+
   $("#request_address").click(function(event) {
     event.preventDefault();
  //   $("#participation_event").bPopup().close();
@@ -249,7 +251,7 @@ $(document).ready(function(){
   });
 
   // head navigation
-  
+
 
   // change large event
   $("a[id^='bt_poster_item']").click(function(event) {
@@ -259,13 +261,13 @@ $(document).ready(function(){
     $(selectId).removeClass('poster_hidden').addClass('poster_display');
   });
 
-  // inital loading page 
+  // inital loading page
   // scroll to top
   // $(window).load(function() {
   //   setTimeout($('html, body').animate({ scrollTop: 0 }, 0));
   // });
-  // 
-  
+  //
+
 
 });
 
@@ -293,7 +295,7 @@ function get_poster_code(){
     $("#info_poster_code").val(code);
     $("#poster_facebook_share_link").attr("data-code",code);
     $("#poster_twitter_share_link").attr("data-code",code);
-    
+
   });
 }
 
@@ -328,7 +330,7 @@ $(window).scroll(function() {
 });
 
 
-function checkRatioOfElementInView(elem) { 
+function checkRatioOfElementInView(elem) {
   var result = 0;
   var docViewHeight = $(window).height();
   var docViewTop = $(window).scrollTop();
@@ -396,7 +398,7 @@ function validation(errors){
       alert("빠른 배송을 위해 주소 옆의 '검색'을 눌러주세요. 우편번호가 자동 입력됩니다.");
     }
   });
-  
+
   if(flag == "presence"){
 		$(".star").empty();
     $('.popup_input').css('background','white');
@@ -414,9 +416,9 @@ function validation(errors){
       follow: [false, false], //x, y
       position: ['auto', 'auto'], //x, y
       onClose: function(){$("#participation_event").bPopup().close();}
-    });		
+    });
 	}
-  
+
 }
 
 function change_winner(){
@@ -443,7 +445,7 @@ function change_winner(){
     $("#fourth_week_winner").hide();
     $("#fifth_week_winner").hide();
     $("#third_week_winner").show();
-    
+
   });
   $("#4th_week").click(function(e){
     e.preventDefault();
@@ -452,7 +454,7 @@ function change_winner(){
     $("#third_week_winner").hide();
     $("#fifth_week_winner").hide();
     $("#fourth_week_winner").show();
-    
+
   });
   $("#5th_week").click(function(e){
     e.preventDefault();
@@ -461,6 +463,6 @@ function change_winner(){
     $("#third_week_winner").hide();
     $("#fourth_week_winner").hide();
     $("#fifth_week_winner").show();
-    
+
   });
 }
