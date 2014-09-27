@@ -13,6 +13,14 @@
   border-radius: 0%;
 }
 
+.orange-btn-nobg{
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0%;
+  border-color: #FF8D36;
+  color: #FF8D36;
+}
+
 .orange-deco-text{
   color: #FF8D36;
   border-bottom-color: #FF8D36;
