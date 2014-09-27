@@ -26,6 +26,11 @@
   border-bottom-color: #FF8D36;
 }
 
+.white-deco-text{
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
 .orange-abg{
   background-color: rgba(255, 141, 54, 0.9);
 }
