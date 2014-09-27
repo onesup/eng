@@ -17,12 +17,10 @@ gem 'devise'
 gem 'rspec-rails'
 gem 'factory_girl_rails'
 gem 'rest-client'
-gem 'gabba' #serverside google analytics gem
 gem 'json'
 gem 'nokogiri'
 gem 'nori' #xml parser
 gem 'useragent'
-gem 'activerecord-session_store'
 gem 'sucker_punch', '~> 1.0'
 gem 'font-awesome-rails'
 gem 'kaminari'
