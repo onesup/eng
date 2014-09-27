@@ -30,6 +30,7 @@
 <link href="https://d1tijy5l7mg5kk.cloudfront.net/assets/application-6459da591414eff630c472ea16636d05.css" media="screen" rel="stylesheet" type="text/css" />
 
 <%= javascript_include_tag "mobile"%>
+<%= stylesheet_link_tag "orange", media: "all"%>
 </head>
 <body class=' home home-show '>
 <div class='dn db--m'>
@@ -45,32 +46,37 @@
 <!-- <a href="/" class="brand-link" itemprop="url"><img alt="Code School" class="brand-img" height="34" itemprop="logo" src="https://d1tijy5l7mg5kk.cloudfront.net/assets/logo-dd0420d66e370a02a3f4ba92e67ebb3a.svg" width="189" />
 </a> -->
 
-<h1  width="640" height="480" class='brand-link'><%= link_to 'PitchUp', root_path, class:'brand-link' %></h1>
+<h1  width="640" height="480" class='brand-link'><%= link_to 'PitchUp', root_path, class:'brand-link orange-text' %></h1>
 
 
 </div>
 </div>
 <div class='g-b g-b--m--3of4'>
 <nav class='header-item nav' id='site-navigation'>
-<a href="#" class="nav-menu fr"><div class='nav-box'></div>
+<a href="#" id='click-orange' class="nav-menu fr"><div class='nav-box'></div>
 <div class='nav-menu-stack'>
 <b class='srt'>Menu</b>
 </div>
 </a>
 
-
-<ol class='nav-list list fr'>
-<li class='nav-item list-item'><%= link_to '코스보기', pc_courses_path, class: "nav-item-link list-item-link" %>
+<script>
+  $('#click-orange').click(function(){
+    $('#orange-abg').css('background-color','rgba(255, 141, 54, 0.9)');
+    $('.orange-item').css('color','#FFF5EE');
+  });
+</script>
+<ol id='orange-abg' class='nav-list list fr'>
+<li class='nav-item list-item'><%= link_to '코스보기', pc_courses_path, class: "nav-item-link list-item-link orange-item" %>
 </li>
-<li class='nav-item list-item'><%= link_to '강사보기', pc_professors_path, class: "nav-item-link list-item-link" %>
+<li class='nav-item list-item'><%= link_to '강사보기', pc_professors_path, class: "nav-item-link list-item-link orange-item" %>
 </li>
-<li class='nav-item list-item'><%= link_to '카메라', pc_camera_path, class: "nav-item-link list-item-link" %>
+<li class='nav-item list-item'><%= link_to '카메라', pc_camera_path, class: "nav-item-link list-item-link orange-item" %>
 </li>
-<li class='nav-item list-item'><%= link_to '피드백', pc_feedback_path, class: "nav-item-link list-item-link" %>
+<li class='nav-item list-item'><%= link_to '피드백', pc_feedback_path, class: "nav-item-link list-item-link orange-item" %>
 </li>
-<li class='nav-item list-item'><%= link_to '마이페이지', pc_mypage_path, class: "nav-item-link list-item-link" %>
+<li class='nav-item list-item'><%= link_to '마이페이지', pc_mypage_path, class: "nav-item-link list-item-link orange-item" %>
 </li>
-<li class='nav-item list-item'><%= link_to '로그아웃', pc_mypage_path, class: "nav-item-link list-item-link" %>
+<li class='nav-item list-item'><%= link_to '로그아웃', pc_mypage_path, class: "nav-item-link list-item-link orange-item" %>
 </li>
 
 </ol>

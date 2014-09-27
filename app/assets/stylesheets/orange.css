@@ -1,0 +1,23 @@
+.orange-bg{
+  background-color: #FF8D36;
+}
+
+.orange-text{
+  color: #FF8D36;
+}
+
+.orange-btn{
+  background-color: #FF8D36;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0%;
+}
+
+.orange-deco-text{
+  color: #FF8D36;
+  border-bottom-color: #FF8D36;
+}
+
+.orange-abg{
+  background-color: rgba(255, 141, 54, 0.9);
+}
