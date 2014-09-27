@@ -2,14 +2,14 @@
 <main class='content'>
 <% if params[:flag] == "1" %>
   <script>
-    setTimeout(noti, 6);
+    setTimeout(noti, 60*1000);
 
     function noti(){
       $('#notify-box').css('opacity', '0.0');
       $('#notify-box').animate({opacity: '1.0'});
     }
   </script>
-  <a href='feedback' id='notify-box'><div style='background-color: #FFFF99; width: 256px; height: 72px; position: absolute; top: 16px; right: 16px; text-align: center;'><br>피드백이 도착하였습니다!</div></a>
+  <a href='feedback' id='notify-box' style='opacity: 0.0;'><div style='background-color: #FFFF99; width: 256px; height: 72px; position: absolute; top: 16px; right: 16px; text-align: center;'><br>피드백이 도착하였습니다!</div></a>
 <% end %>
 <div class='row row--b'>
 <div class='cell well tci'>
