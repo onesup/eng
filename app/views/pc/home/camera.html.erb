@@ -9,6 +9,7 @@
 <div class='g-b g-b--m--1of2'>
 <div class='card card--a card--xs'>
 <!--<div class='video video--backdrop video--sublime'>-->
+<div id='circle' style='border-radius: 50%; width: 18px; height: 18px; background-color: red; display: none; position: absolute; right: 6%; top: 6%;'></div>
 <video id='webcam' width="100%" autoplay></video>
 <!--</div>-->
 </div>
@@ -16,7 +17,7 @@
 <div class='g-b g-b--m--1of2'>
 <div class='mbl tac tal--m'>
 <br><br>
-<a href="/courses" class="btn btn--wide bc-cadet-dark mbs mbf--l">전송하기</a>
+<a href="#" id='submit-btn' class="btn btn--wide bc-cadet-dark mbs mbf--l">녹화하기</a>
 </div>
 <!-- <ul class='list list--object'>
 <li class='list-item list-item--label'>Learn:</li>
@@ -32,3 +33,64 @@
 </div>
 
 </main>
+
+<script>
+  var video = $('#webcam').get()[0];
+
+  if( navigator.webkitGetUserMedia ){
+      navigator.webkitGetUserMedia({"video":true}, function(stream){
+      video.src = webkitURL.createObjectURL(stream);
+    }, function(error){
+      console.log("error");
+    });
+  }
+
+  var submitState = 0;
+  var intervalId = 0;
+  $('#submit-btn').click(function(){
+    switch( submitState ){
+      case 0 :
+        intervalId = setInterval(updateRecord, 1000);
+        $('#submit-btn').html("녹화중지");
+        break;
+      case 1 :
+        clearInterval(intervalId);
+        $('#circle').css("display","none");
+        $('#submit-btn').html("전송하기");
+        break;
+      case 2 :
+        intervalId = setInterval(updatePercent, 95);
+        break;
+      default :
+        break;
+    }
+    submitState++;
+  });
+
+  var rUpdate = true;
+
+  function updateRecord(){
+    if( rUpdate == true ){
+      $('#circle').css("display","block");
+      rUpdate = false;
+    } else {
+      $('#circle').css("display","none");
+      rUpdate = true;
+    }
+  }
+
+
+  var fUpdate = 0;
+
+  function updatePercent(){
+    if( fUpdate >= 100 ){
+      clearInterval(intervalId);
+      location.href = "index?flag=1";
+    }
+    else{
+      $('#submit-btn').html(fUpdate+"%");
+    }
+    fUpdate++;
+  }
+
+</script>
