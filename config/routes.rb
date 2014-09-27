@@ -33,8 +33,15 @@ Rails.application.routes.draw do
 
   namespace :pc do
     get 'index' => 'home#index'
+    get 'courses' => 'home#courses'
+    get 'professors' => 'home#professors'
+    get 'camera' => 'home#camera'
+    get 'feedback' => 'home#feedback'
+    get 'mypage' => 'home#mypage'
+
+
     get 'test' => 'home#test'
-    get 'leaflet' => 'home#leaflet'
+
     resources :users, only: [:create]
     
   end
