@@ -10,7 +10,9 @@
 <div class='card card--a card--xs'>
 <!--<div class='video video--backdrop video--sublime'>-->
 <div id='circle' style='border-radius: 50%; width: 18px; height: 18px; background-color: red; display: none; position: absolute; right: 6%; top: 6%;'></div>
-<video id='webcam' width="100%" autoplay></video>
+<video id='webcam' width="100%" style="display: none;" autoplay>
+</video>
+<%= video_tag("test22.mp4", {id:"vid", controls:"control", style:"width: 100%;"}) %>
 <!--</div>-->
 </div>
 </div>
@@ -51,6 +53,8 @@
     switch( submitState ){
       case 0 :
         intervalId = setInterval(updateRecord, 1000);
+        $('#vid').css("display", "none");
+        $('#webcam').css("display", "block");
         $('#submit-btn').html("녹화중지");
         break;
       case 1 :
