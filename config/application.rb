@@ -13,6 +13,7 @@ module Bday
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'ALLOW-FROM https://www.facebook.com'
     }
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
     config.assets.precompile += [
       'application.js', 'application.css',
       'html5.js', 

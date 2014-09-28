@@ -14,9 +14,10 @@
  *= require pc/icheck/skins/all
  *= require pc/icheck/skins/minimal/_all
  *= require pc/icheck/skins/minimal/minimal
- *= require pc/jquery.selectBox
- *= require pc/selectric
- *= require owl.carousel
- *= require owl.theme.css
- *= require pc/style
+ * require pc/jquery.selectBox
+ * require pc/selectric
+ * require owl.carousel
+ * require owl.theme.css
+ *= require orange
+ * require pc/style
  */
