@@ -1,8 +1,10 @@
 class TrafficLog < ActiveRecord::Base
+  
+  @name = "lll"
+  
   def self.first_day()
     self.select("created_at").order("created_at").limit(1) 
   end
-  
   
   def self.paginate_by_week(page)
     page ||= 1 
